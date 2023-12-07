@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e6db1bc8d9411ca807d96be6853f7f, type: 3}
-  m_Name: Hallway
+  m_Name: Room 3
   m_EditorClassIdentifier: 
   InteriorScene:
-    m_AssetGUID: 
+    m_AssetGUID: 93e744b36a750ff41acacc7f49ab505b
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   ExteriorScene:
-    m_AssetGUID: d9c8716852e808c4e8476cf40604fb6b
+    m_AssetGUID: ee099a2bb5efb9944bb51cc4d3ece8f3
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  WorldPosition: {x: 62.9293, y: -0, z: 11.739}
-  RoomLoadRadius: 4
-  _adjacentRooms:
-  - {fileID: 11400000, guid: 641bfb5ed5aca8548b4b290770883b8c, type: 2}
+  WorldPosition: {x: 51.5, y: 0, z: 23.499987}
+  RoomLoadRadius: 36
+  _adjacentRooms: []

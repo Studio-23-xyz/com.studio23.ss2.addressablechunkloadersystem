@@ -20,7 +20,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         public float RoomLoadRadius = 4; 
         [ShowNativeProperty] public FloorData Floor { get; internal set; }
 
-        [SerializeField] List<RoomData> _adjacentRooms;
+        [FormerlySerializedAs("_adjacentRooms")] [SerializeField] List<RoomData> _alwaysLoadRooms;
+        public List<RoomData> AlwaysLoadRooms => _alwaysLoadRooms;
         HashSet<RoomData> _adjacentRoomSet;
 
         //#TODO figure out how to include FMOD
@@ -45,10 +46,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load exterior", this);
-                
-                var handle = Addressables.LoadSceneAsync(ExteriorScene, loadSceneMode, activateOnLoad, priority);
-                RoomLoadingManager.Instance.giveRoomExteriorLoadHandle(this, handle);
-                await handle;
+                await RoomLoadingManager.Instance.GetOrCreateRoomExteriorLoadHandle(this, loadSceneMode, activateOnLoad, priority);
             }
             
             OnRoomExteriorLoaded?.Invoke(this);
@@ -63,9 +61,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load interior", this);
-                var handle =  Addressables.LoadSceneAsync(InteriorScene, loadSceneMode, activateOnLoad, priority);
-                RoomLoadingManager.Instance.AddRoomInteriorLoadHandle(this, handle);
-                await handle;
+                await RoomLoadingManager.Instance.GetOrCreateRoomInteriorLoadHandle(this, loadSceneMode, activateOnLoad, priority);
             }
             
             OnRoomInteriorLoaded?.Invoke(this);
@@ -81,6 +77,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 Debug.Log($"{this} unload exterior", this);
                 var handle = RoomLoadingManager.Instance.RemoveRoomExteriorLoadHandle(this);
+                //#TODO what happens when this handle is loading a scene and we call this?
                 await Addressables.UnloadSceneAsync(handle);
                 // await ExteriorScene.UnLoadScene();
             }
@@ -98,6 +95,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 Debug.Log($"{this} unload interior", this);
 
                 var handle = RoomLoadingManager.Instance.RemoveRoomInteriorLoadHandle(this);
+                //#TODO what happens when this handle is loading a scene and we call this?
                 await Addressables.UnloadSceneAsync(handle);
                 // await InteriorScene.UnLoadScene();
             }
@@ -107,7 +105,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         public void Initialize(FloorData floor)
         {
             Floor = floor;
-            _adjacentRoomSet = _adjacentRooms.ToHashSet();
+            _adjacentRoomSet = _alwaysLoadRooms.ToHashSet();
         }
 
         public void HandleRoomEntered()
@@ -122,7 +120,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         public bool IsAdjacentTo(RoomData room)
         {
-            return _adjacentRooms.Contains(room);
+            return _alwaysLoadRooms.Contains(room);
         }
         public bool IsPosInLoadingRange(Vector3 position)
         {

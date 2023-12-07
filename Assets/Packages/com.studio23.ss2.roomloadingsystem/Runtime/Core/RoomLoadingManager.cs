@@ -5,8 +5,10 @@ using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Studio23.SS2.RoomLoadingSystem.Core
 {
@@ -15,8 +17,18 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         [SerializeField] List<FloorData> _allFloors;
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
+        /// <summary>
+        /// Fired when room entered and loaded
+        /// </summary>
         public event Action<RoomData> OnRoomEntered;
+        /// <summary>
+        /// Fired when room exited and unloaded
+        /// </summary>
         public event Action<RoomData> OnRoomExited;
+        /// <summary>
+        /// Fired when room itself + all the required rooms for the entered room have been loaded
+        /// </summary>
+        public event Action<RoomData> OnEnteredRoomDependenciesLoaded;
 
         public RoomData CurrentEnteredRoom => _currentEnteredRoom;
         [Required][SerializeField] private RoomData _currentEnteredRoom;
@@ -55,9 +67,18 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
 
-        public void AddRoomInteriorLoadHandle(RoomData room, AsyncOperationHandle<SceneInstance> handle)
+        public AsyncOperationHandle<SceneInstance> GetOrCreateRoomInteriorLoadHandle(
+            RoomData room,
+            LoadSceneMode loadSceneMode, bool activateOnLoad, int priority)
         {
-            _roomInteriorLoadHandles.Add(room, handle);
+            AsyncOperationHandle<SceneInstance> handle;
+            if (!_roomInteriorLoadHandles.TryGetValue(room, out handle))
+            {
+                handle = Addressables.LoadSceneAsync(room.InteriorScene, loadSceneMode, activateOnLoad, priority);
+                _roomInteriorLoadHandles.Add(room, handle);
+            }
+
+            return handle;
         }
         
         public AsyncOperationHandle<SceneInstance> RemoveRoomInteriorLoadHandle(RoomData room)
@@ -67,9 +88,18 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             return handle;
         }
         
-        public void giveRoomExteriorLoadHandle(RoomData room, AsyncOperationHandle<SceneInstance> handle)
+        public AsyncOperationHandle<SceneInstance> GetOrCreateRoomExteriorLoadHandle(
+            RoomData room,
+            LoadSceneMode loadSceneMode, bool activateOnLoad, int priority)
         {
-            _roomExteriorLoadHandles.Add(room, handle);
+            AsyncOperationHandle<SceneInstance> handle;
+            if (!_roomExteriorLoadHandles.TryGetValue(room, out handle))
+            {
+                handle = Addressables.LoadSceneAsync(room.ExteriorScene, loadSceneMode, activateOnLoad, priority);
+                _roomExteriorLoadHandles.Add(room, handle);
+            }
+
+            return handle;
         }
         
         public AsyncOperationHandle<SceneInstance> RemoveRoomExteriorLoadHandle(RoomData room)
@@ -103,10 +133,14 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         public virtual bool CheckIfRoomExteriorShouldBeLoaded(RoomData room)
         {
             if (_currentEnteredRoom == room)
+            {
+                Debug.Log($"{room} is current room");
                 return true;
+            }
             
             if (_mustLoadRoomExteriors.Contains(room))
             {
+                Debug.Log($"{room} is global must load");
                 return true;
             }
             
@@ -114,11 +148,15 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 if (_currentEnteredRoom.IsAdjacentTo(room))
                 {
+                    Debug.Log($"{room} is adjacent to current room {_currentEnteredRoom}");
+
                     return true;
                 }
 
                 if (CurrentFloor.WantsToAlwaysLoad(room))
                 {
+                    Debug.Log($"{room} is must load for current floor {CurrentFloor}");
+
                     return true;
                 }
             }
@@ -255,13 +293,65 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (_currentEnteredRoom != room)
             {
-                bool isFirstRoom = _currentEnteredRoom == null;
+                var prevFloor = CurrentFloor;
+                var prevRoom = _currentEnteredRoom;
+                _currentEnteredRoom = room;
+                bool isDifferentFloor = prevFloor != _currentEnteredRoom.Floor;
                 
-                ForceExitCurrentRoom();
+                if (prevRoom != null)
+                {
+                    ExitRoom(prevRoom);
+                    
+                    if (isDifferentFloor)
+                    {
+                        ExitFloor(prevFloor);
+                    }
+                }
+
                 ForceEnterRoom(room);
-                await AddRoomInteriorToLoad(room);
                 OnRoomEntered?.Invoke(room);
+                await AddRoomInteriorToLoad(room);
+
+                loadRoomDependencies(room, prevFloor);
             }
+        }
+
+        private async UniTask ExitFloor(FloorData prevFloor)
+        {
+            OnFloorExited?.Invoke(prevFloor);
+            foreach (var roomToUnload in prevFloor.AlwaysLoadRooms)
+            {
+                await RemoveRoomExteriorToLoad(roomToUnload);
+            }
+        }
+
+        private async UniTask ExitRoom(RoomData prevRoom)
+        {
+            prevRoom.HandleRoomExited();
+            OnRoomExited?.Invoke(prevRoom);
+            await RemoveRoomInteriorToLoad(prevRoom);
+            foreach (var adjacentRoom in prevRoom.AlwaysLoadRooms)
+            {
+                await RemoveRoomExteriorToLoad(adjacentRoom);
+            }
+        }
+
+        private async UniTask loadRoomDependencies(RoomData room, bool floorNewlyEntered)
+        {
+            foreach (var adjacentRoom in room.AlwaysLoadRooms)
+            {
+                await AddRoomExteriorToLoad(adjacentRoom);
+            }
+            if (floorNewlyEntered)
+            {
+                OnFloorEntered?.Invoke(room.Floor);
+                foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
+                {
+                   await AddRoomExteriorToLoad(roomToLoad);
+                }
+            }
+                
+            OnEnteredRoomDependenciesLoaded?.Invoke(room);
         }
 
         private void ForceEnterRoom(RoomData room)
@@ -269,26 +359,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             _currentEnteredRoom = room;
             room.HandleRoomEntered();
         }
-        public async UniTask ExitRoom(RoomData room)
-        {
-            if (_currentEnteredRoom == room)
-            {
-                if (_currentEnteredRoom != null)
-                {
-                    ForceExitCurrentRoom();
-                    OnRoomExited?.Invoke(room);
-                    await RemoveRoomInteriorToLoad(room);
-                }
-            }
-        }
+       
 
-        private void ForceExitCurrentRoom()
-        {
-            if (_currentEnteredRoom != null)
-            {
-                _currentEnteredRoom.HandleRoomExited();
-                _currentEnteredRoom = null;
-            }
-        }
+
     }
 }

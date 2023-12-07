@@ -1,0 +1,18 @@
+{
+    "name": "com.studio23.s22.roomloadingsystem.editor",
+    "rootNamespace": "Studio23.SS2.RoomLoadingSystem.Editor",
+    "references": [
+        "GUID:6c9731e4a0600e140a2b00f51547e830"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

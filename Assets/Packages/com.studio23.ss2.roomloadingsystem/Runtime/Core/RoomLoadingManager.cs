@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
+using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -8,73 +9,54 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 {
     public class RoomLoadingManager:MonoBehaviourSingletonPersistent<RoomLoadingManager>
     {
+        [SerializeField] List<FloorData> _allFloors;
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
         public event Action<RoomData> OnRoomEntered;
         public event Action<RoomData> OnRoomExited;
-        
-        [ShowNativeProperty] public RoomData CurrentEnteredRoom { get; private set; }
-        [ShowNativeProperty] public FloorData CurrentFloor => CurrentEnteredRoom ? CurrentEnteredRoom.Floor : null;
-        private HashSet<RoomData> _mustLoadRooms;
-        private HashSet<RoomData> _roomsInLoadingRange;
-        private HashSet<RoomData> _roomsToLoad;
 
+        public RoomData CurrentEnteredRoom => _currentEnteredRoom;
+        [Required][SerializeField] private RoomData _currentEnteredRoom;
+        [ShowNativeProperty] public FloorData CurrentFloor => _currentEnteredRoom ? _currentEnteredRoom.Floor : null;
         
+        private HashSet<RoomData> _mustLoadRoomExteriors;
+        private HashSet<RoomData> _mustLoadRoomInteriors;
+        private HashSet<RoomData> _roomsInLoadingRange;
+        private HashSet<RoomData> _exteriorRoomsToLoad;
+        private HashSet<RoomData> _interiorRoomsToLoad;
+        private Transform player;
         protected override void Initialize()
         {
-            _mustLoadRooms = new HashSet<RoomData>();
-            _roomsToLoad = new HashSet<RoomData>();
+            _mustLoadRoomExteriors = new HashSet<RoomData>();
+            _exteriorRoomsToLoad = new HashSet<RoomData>();
+            _interiorRoomsToLoad = new HashSet<RoomData>();
             _roomsInLoadingRange = new HashSet<RoomData>();
-        }
 
-        // public void AddRoomToLoad(RoomData room, IRoomLoader roomLoader)
-        // {
-        //     if (_roomLoadRequesters.TryGetValue(room, out var roomRequesters))
-        //     {
-        //         if (roomRequesters.Add(roomLoader))
-        //         {
-        //             
-        //         }
-        //     }
-        //     else
-        //     {
-        //         //this is the first time this room was entered
-        //         var newRequesterSet = new HashSet<IRoomLoader> { roomLoader };
-        //         _roomLoadRequesters.Add(room, newRequesterSet);
-        //         
-        //         OnRoomEntered?.Invoke(room);
-        //     }
-        // }
-
-        public void EnterRoom(RoomData room)
-        {
-            if (CurrentEnteredRoom != room)
+            foreach (var floor in _allFloors)
             {
-                ForceExitCurrentRoom();
-                ForceEnterRoom(room);
+                floor.Initialize();
             }
         }
 
-        private void ForceEnterRoom(RoomData room)
+        private void Start()
         {
-            CurrentEnteredRoom = room;
-            room.HandleRoomEntered();
-            OnRoomEntered?.Invoke(room);
+            player = GameObject.FindWithTag("Player").transform;
         }
 
-        public virtual bool CheckIfRoomShouldBeLoaded(RoomData room)
+
+        public virtual bool CheckIfRoomExteriorShouldBeLoaded(RoomData room)
         {
-            if (CurrentEnteredRoom == room)
+            if (_currentEnteredRoom == room)
                 return true;
             
-            if (_mustLoadRooms.Contains(room))
+            if (_mustLoadRoomExteriors.Contains(room))
             {
                 return true;
             }
             
-            if (CurrentEnteredRoom != null)
+            if (_currentEnteredRoom != null)
             {
-                if (CurrentEnteredRoom.IsAdjacentTo(room))
+                if (_currentEnteredRoom.IsAdjacentTo(room))
                 {
                     return true;
                 }
@@ -85,25 +67,74 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 }
             }
 
-            return true;
+            return false;
+        }
+
+        private void Update()
+        {
+            updateRoomsInPlayerRange();
+        }
+
+        private void updateRoomsInPlayerRange()
+        {
+            if(_currentEnteredRoom ==null)
+                return;
+            foreach (var roomData in CurrentFloor.RoomsInFloor)
+            {
+                if (roomData.IsPosInLoadingRange(player.transform.position))
+                {
+                    HandleRoomEnteredLoadingRange(roomData);
+                }
+                else
+                {
+                    HandleRoomExitedLoadingRange(roomData);
+                }
+            }
+        }
+
+        public virtual bool CheckIfRoomInteriorShouldBeLoaded(RoomData room)
+        {
+            if (_currentEnteredRoom == room)
+            {
+                Debug.Log($"{room} interior is current entered room");
+                return true;
+            }
+            
+            if (_mustLoadRoomExteriors.Contains(room))
+            {
+                Debug.Log($"{room} interior is global must load room");
+
+                return true;
+            }
+            
+            if (_currentEnteredRoom != null)
+            {
+                if (CurrentFloor.WantsToAlwaysLoad(room))
+                {
+                    Debug.Log($"{room} interior is current floor's must load room");
+                    return true;
+                }
+            }
+
+            return false;
         }
 
 
         public void SetRoomAsMustLoad(RoomData room)
         {
-            _mustLoadRooms.Add(room);
+            _mustLoadRoomExteriors.Add(room);
         }
         
-        public void unsetRoomAsMustLoad(RoomData room)
+        public void UnsetRoomAsMustLoad(RoomData room)
         {
-            _mustLoadRooms.Remove(room);
+            _mustLoadRoomExteriors.Remove(room);
         }
 
         public void HandleRoomEnteredLoadingRange(RoomData room)
         {
             if (_roomsInLoadingRange.Add(room))
             {
-                
+                AddRoomExteriorToLoad(room);
             }
         }
         
@@ -111,37 +142,96 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (_roomsInLoadingRange.Remove(room))
             {
-                
+                RemoveRoomExteriorToLoad(room);
             }
         }
 
 
-        public void addRoomToLoad(RoomData room)
+        public async UniTask AddRoomExteriorToLoad(RoomData room)
         {
-            if (_roomsToLoad.Add(room))
+            if (_exteriorRoomsToLoad.Add(room))
             {
-                
+                await room.loadRoomExterior();
+            }
+        }
+        
+        public async UniTask RemoveRoomExteriorToLoad(RoomData room)
+        {
+            
+            if (!CheckIfRoomExteriorShouldBeLoaded(room))
+            {
+                if (_exteriorRoomsToLoad.Remove(room))
+                {
+                    await room.unloadRoomExterior();
+                }
+            }
+        }
+        
+        public async UniTask AddRoomInteriorToLoad(RoomData room)
+        {
+            if (_interiorRoomsToLoad.Add(room))
+            {
+                await room.loadRoomInterior();
+            }
+        }
+        
+        public async UniTask RemoveRoomInteriorToLoad(RoomData room)
+        {
+            Debug.Log($"remove interior {room}", room);
+            
+            if (!CheckIfRoomInteriorShouldBeLoaded(room))
+            {
+                if (_interiorRoomsToLoad.Remove(room))
+                {
+                    Debug.Log($"should no longer load interior {room}", room);
+
+                    await room.unloadRoomInterior();
+                }
+            }
+            else
+            {
+                Debug.Log($"keep loaded interior {room}", room);
             }
         }
 
-        public void ExitRoom(RoomData room)
+
+        public async UniTask EnterRoom(RoomData room)
         {
-            if (CurrentEnteredRoom == room)
+            if (_currentEnteredRoom != room)
             {
-                if (CurrentEnteredRoom != null)
+                bool isFirstRoom = _currentEnteredRoom == null;
+                
+                ForceExitCurrentRoom();
+                ForceEnterRoom(room);
+                await AddRoomInteriorToLoad(room);
+                OnRoomEntered?.Invoke(room);
+            }
+        }
+
+        private void ForceEnterRoom(RoomData room)
+        {
+            _currentEnteredRoom = room;
+            room.HandleRoomEntered();
+        }
+        public async UniTask ExitRoom(RoomData room)
+        {
+            if (_currentEnteredRoom == room)
+            {
+                if (_currentEnteredRoom != null)
                 {
                     ForceExitCurrentRoom();
+                    OnRoomExited?.Invoke(room);
+                    await RemoveRoomInteriorToLoad(room);
                 }
             }
         }
 
         private void ForceExitCurrentRoom()
         {
-            if (CurrentEnteredRoom != null)
+            if (_currentEnteredRoom != null)
             {
-                CurrentEnteredRoom.HandleRoomExited();
-                OnRoomExited?.Invoke(CurrentEnteredRoom);
-                CurrentEnteredRoom = null;
+                _currentEnteredRoom.HandleRoomExited();
+                _currentEnteredRoom = null;
             }
         }
     }

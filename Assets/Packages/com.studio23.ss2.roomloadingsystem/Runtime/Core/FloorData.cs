@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Studio23.SS2.RoomLoadingSystem.Core
 {
+    [CreateAssetMenu(menuName = "Studio-23/RoomLoadingSystem/FloorData", fileName = "FloorData")]
     public class FloorData:ScriptableObject
     {
-        public List<RoomData> RoomsInFloor;
-        [SerializeField] List<RoomData> AlwaysLoadRooms;
+        [Expandable] public List<RoomData> RoomsInFloor;
+        [SerializeField] public List<RoomData> AlwaysLoadRooms;
 
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
+
 
         public void Initialize()
         {

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace Studio23.SS2.RoomLoadingSystem.Core
 {
@@ -24,6 +27,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private HashSet<RoomData> _roomsInLoadingRange;
         private HashSet<RoomData> _exteriorRoomsToLoad;
         private HashSet<RoomData> _interiorRoomsToLoad;
+
+        private Dictionary<RoomData, AsyncOperationHandle<SceneInstance>> _roomInteriorLoadHandles;
+        private Dictionary<RoomData, AsyncOperationHandle<SceneInstance>> _roomExteriorLoadHandles;
         private Transform player;
         protected override void Initialize()
         {
@@ -31,10 +37,60 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             _exteriorRoomsToLoad = new HashSet<RoomData>();
             _interiorRoomsToLoad = new HashSet<RoomData>();
             _roomsInLoadingRange = new HashSet<RoomData>();
+            _roomInteriorLoadHandles = new Dictionary<RoomData, AsyncOperationHandle<SceneInstance>>();
+            _roomExteriorLoadHandles = new Dictionary<RoomData, AsyncOperationHandle<SceneInstance>>();
 
             foreach (var floor in _allFloors)
             {
                 floor.Initialize();
+
+                floor.OnFloorEntered += OnFloorEntered;
+                floor.OnFloorExited += OnFloorExited;
+
+                foreach (var roomData in floor.RoomsInFloor)
+                {
+                    roomData.OnRoomEntered += OnRoomEntered;
+                    roomData.OnRoomExited += OnRoomExited;
+                }
+            }
+        }
+
+        public void AddRoomInteriorLoadHandle(RoomData room, AsyncOperationHandle<SceneInstance> handle)
+        {
+            _roomInteriorLoadHandles.Add(room, handle);
+        }
+        
+        public AsyncOperationHandle<SceneInstance> RemoveRoomInteriorLoadHandle(RoomData room)
+        {
+            var handle = _roomInteriorLoadHandles[room];
+            _roomInteriorLoadHandles.Remove(room);
+            return handle;
+        }
+        
+        public void giveRoomExteriorLoadHandle(RoomData room, AsyncOperationHandle<SceneInstance> handle)
+        {
+            _roomExteriorLoadHandles.Add(room, handle);
+        }
+        
+        public AsyncOperationHandle<SceneInstance> RemoveRoomExteriorLoadHandle(RoomData room)
+        {
+            var handle = _roomExteriorLoadHandles[room];
+            _roomExteriorLoadHandles.Remove(room);
+            return handle;
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var floor in _allFloors)
+            {
+                floor.OnFloorEntered -= OnFloorEntered;
+                floor.OnFloorExited -= OnFloorExited;
+
+                foreach (var roomData in floor.RoomsInFloor)
+                {
+                    roomData.OnRoomEntered -= OnRoomEntered;
+                    roomData.OnRoomExited -= OnRoomExited;
+                }
             }
         }
 

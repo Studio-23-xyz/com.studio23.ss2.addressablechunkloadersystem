@@ -45,9 +45,12 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load exterior", this);
-
-                await Addressables.LoadSceneAsync(ExteriorScene, loadSceneMode, activateOnLoad, priority);
+                
+                var handle = Addressables.LoadSceneAsync(ExteriorScene, loadSceneMode, activateOnLoad, priority);
+                RoomLoadingManager.Instance.giveRoomExteriorLoadHandle(this, handle);
+                await handle;
             }
+            
             OnRoomExteriorLoaded?.Invoke(this);
         }
         
@@ -60,7 +63,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load interior", this);
-                await Addressables.LoadSceneAsync(InteriorScene, loadSceneMode, activateOnLoad, priority);
+                var handle =  Addressables.LoadSceneAsync(InteriorScene, loadSceneMode, activateOnLoad, priority);
+                RoomLoadingManager.Instance.AddRoomInteriorLoadHandle(this, handle);
+                await handle;
             }
             
             OnRoomInteriorLoaded?.Invoke(this);
@@ -75,7 +80,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} unload exterior", this);
-                await ExteriorScene.UnLoadScene();
+                var handle = RoomLoadingManager.Instance.RemoveRoomExteriorLoadHandle(this);
+                await Addressables.UnloadSceneAsync(handle);
+                // await ExteriorScene.UnLoadScene();
             }
             OnRoomExteriorUnloaded?.Invoke(this);
         }
@@ -89,7 +96,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} unload interior", this);
-                await InteriorScene.UnLoadScene();
+
+                var handle = RoomLoadingManager.Instance.RemoveRoomInteriorLoadHandle(this);
+                await Addressables.UnloadSceneAsync(handle);
+                // await InteriorScene.UnLoadScene();
             }
             OnRoomInteriorUnloaded?.Invoke(this);
         }

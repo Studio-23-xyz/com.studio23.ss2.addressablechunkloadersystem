@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e6db1bc8d9411ca807d96be6853f7f, type: 3}
-  m_Name: Room 3
+  m_Name: Room 13
   m_EditorClassIdentifier: 
   InteriorScene:
     m_AssetGUID: 93e744b36a750ff41acacc7f49ab505b
@@ -24,4 +24,5 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   WorldPosition: {x: 51.5, y: 0, z: 23.499987}
   RoomLoadRadius: 36
-  _adjacentRooms: []
+  MinUnloadTimeout: 10
+  _alwaysLoadRooms: []

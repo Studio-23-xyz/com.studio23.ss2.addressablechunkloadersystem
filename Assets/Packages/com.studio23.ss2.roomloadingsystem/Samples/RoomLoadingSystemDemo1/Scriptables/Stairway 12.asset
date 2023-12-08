@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e6db1bc8d9411ca807d96be6853f7f, type: 3}
+  m_Name: Stairway 12
+  m_EditorClassIdentifier: 
+  InteriorScene:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  ExteriorScene:
+    m_AssetGUID: 7fae43fbe3b6d2d49a295c82ecdd4757
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  WorldPosition: {x: -21, y: 5, z: 25}
+  RoomLoadRadius: 36
+  MinUnloadTimeout: 10
+  _alwaysLoadRooms:
+  - {fileID: 11400000, guid: 229ea16ed66760b4fb85595d3fd1dff4, type: 2}
+  - {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}

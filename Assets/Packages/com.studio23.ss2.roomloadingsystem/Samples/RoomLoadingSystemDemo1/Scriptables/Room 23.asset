@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e6db1bc8d9411ca807d96be6853f7f, type: 3}
-  m_Name: Room 1
+  m_Name: Room 23
   m_EditorClassIdentifier: 
   InteriorScene:
-    m_AssetGUID: 806db07b9fb75d849980e68c1fbed0ce
+    m_AssetGUID: 19427a2e7bd672347ad888e567722216
     m_SubObjectName: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1
   ExteriorScene:
-    m_AssetGUID: cc60df284f43a0a458b880e79e685990
+    m_AssetGUID: 4599ab70302ff87488d38e633ffac794
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  WorldPosition: {x: 0, y: 0, z: 0}
+  WorldPosition: {x: 51.5, y: 12, z: 13}
   RoomLoadRadius: 36
-  _adjacentRooms: []
+  MinUnloadTimeout: 10
+  _alwaysLoadRooms: []

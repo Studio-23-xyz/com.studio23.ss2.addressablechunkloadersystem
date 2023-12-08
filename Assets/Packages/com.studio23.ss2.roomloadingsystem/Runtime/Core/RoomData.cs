@@ -22,8 +22,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         [SerializeField] List<RoomData> _alwaysLoadRooms;
         public List<RoomData> AlwaysLoadRooms => _alwaysLoadRooms;
 
-        HashSet<RoomData> _adjacentRoomSet;
-
         //#TODO figure out how to include FMOD
         //List<FMODBank> banks
 
@@ -107,7 +105,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         public void Initialize(FloorData floor)
         {
             Floor = floor;
-            _adjacentRoomSet = _alwaysLoadRooms.ToHashSet();
         }
 
         public void HandleRoomEntered()

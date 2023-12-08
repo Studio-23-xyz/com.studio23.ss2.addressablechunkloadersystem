@@ -163,7 +163,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     return true;
                 }
 
-                if (CurrentFloor.WantsToAlwaysLoad(room))
+                if (CurrentFloor != null && CurrentFloor.WantsToAlwaysLoad(room))
                 {
                     Debug.Log($"{room} is must load for current floor {CurrentFloor}");
 
@@ -215,7 +215,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         private void updateRoomsInPlayerRange()
         {
-            if(_currentEnteredRoom ==null)
+            if(_currentEnteredRoom == null)
+                return;
+            if (CurrentFloor == null)
                 return;
             foreach (var roomData in CurrentFloor.RoomsInFloor)
             {
@@ -246,7 +248,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 return true;
             }
             
-            if (_currentEnteredRoom != null)
+            if (_currentEnteredRoom != null && CurrentFloor != null)
             {
                 if (CurrentFloor.WantsToAlwaysLoad(room))
                 {
@@ -289,6 +291,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (_exteriorRoomsToLoad.Add(room))
             {
+                Debug.Log($"add {room} exterior to load ", room);
                 await room.loadRoomExterior();
             }
         }
@@ -357,8 +360,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 if (prevRoom != null)
                 {
                     ExitRoom(prevRoom);
-                    
-                    if (isDifferentFloor)
+                    if(isDifferentFloor && prevFloor != null)
                     {
                         ExitFloor(prevFloor);
                     }
@@ -369,17 +371,28 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 OnRoomEntered?.Invoke(room);
                 await AddRoomInteriorToLoad(room);
 
-                loadRoomDependencies(room, prevFloor);
+                loadRoomDependencies(room, isDifferentFloor);
             }
         }
 
         private async UniTask ExitFloor(FloorData prevFloor)
         {
+            Debug.Log("exit floor " + prevFloor, prevFloor);
             OnFloorExited?.Invoke(prevFloor);
+
+            foreach (var roomToUnload in prevFloor.RoomsInFloor)
+            {
+                _roomsInLoadingRange.Remove(roomToUnload);  
+                await RemoveRoomExteriorToLoad(roomToUnload);
+            }
+
+
             foreach (var roomToUnload in prevFloor.AlwaysLoadRooms)
             {
                 await RemoveRoomExteriorToLoad(roomToUnload);
             }
+
+
         }
 
         private async UniTask ExitRoom(RoomData prevRoom)
@@ -397,14 +410,19 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             foreach (var adjacentRoom in room.AlwaysLoadRooms)
             {
+                Debug.Log(room+ $" always load {adjacentRoom}");
                 await AddRoomExteriorToLoad(adjacentRoom);
             }
             if (floorNewlyEntered)
             {
-                OnFloorEntered?.Invoke(room.Floor);
-                foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
+                Debug.Log("laod room dep floorNewlyEntered " + floorNewlyEntered);
+                if(room.Floor != null)
                 {
-                   await AddRoomExteriorToLoad(roomToLoad);
+                    OnFloorEntered?.Invoke(room.Floor);
+                    foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
+                    {
+                        await AddRoomExteriorToLoad(roomToLoad);
+                    }
                 }
             }
                 
@@ -412,11 +430,29 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         }
 
         [Button]
-        void PrintAllLoadedRooms()
+        void PrintAllRoomHandle()
         {
             foreach((var room, var handle ) in _roomExteriorLoadHandles)
             {
-                Debug.Log($"{room} {(handle.LoadHandle.IsDone ? "is loaded" : "loading")}");
+                Debug.Log($" {(handle)}");
+            }
+        }
+
+        [Button]
+        void PrintExteriorsToLoad()
+        {
+            foreach (var room in _exteriorRoomsToLoad)
+            {
+                Debug.Log($"{room} exterior will be loaded ");
+            }
+        }
+
+        [Button]
+        void printRoomsInLoadingRange()
+        {
+            foreach (var room in _roomsInLoadingRange)
+            {
+                Debug.Log($"{room} in loading range");
             }
         }
 

@@ -101,5 +101,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
                 await LoadHandle;
             }
         }
+
+        public override string ToString()
+        {
+            return $"{Room} {(LoadHandle.IsDone ? "is loaded" : "loading")} {UsesAddressable} {UsesAddressable}" ;
+        }
     }
 }

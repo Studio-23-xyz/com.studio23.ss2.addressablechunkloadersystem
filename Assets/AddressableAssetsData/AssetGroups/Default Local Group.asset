@@ -59,6 +59,54 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fae43fbe3b6d2d49a295c82ecdd4757
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Stairway
+      12.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5537019c8da61cc418ebb53b96f59ccd
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      21 Exterior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6aa0cfc6b1568f479f7ffa5c9da662c
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      21 Interior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eee301377e3795d48b910e8eda9c8ef8
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      22 Exterior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48575bc000b6e304fbe866ab652b2280
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      22 Interior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4599ab70302ff87488d38e633ffac794
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      23 Exterior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19427a2e7bd672347ad888e567722216
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      23 Interior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9258dfbeb6bb63648a498dbd0ec04587
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Hallway
+      21.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 422800903bddf004ab0403a77707f17c, type: 2}
   m_SchemaSet:

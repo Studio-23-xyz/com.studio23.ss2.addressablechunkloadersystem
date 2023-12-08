@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using UnityEditor;
+using Studio23.SS2.RoomLoadingSystem.Runtime.Core;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -40,17 +40,26 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private HashSet<RoomData> _exteriorRoomsToLoad;
         private HashSet<RoomData> _interiorRoomsToLoad;
 
-        private Dictionary<RoomData, AsyncOperationHandle<SceneInstance>> _roomInteriorLoadHandles;
-        private Dictionary<RoomData, AsyncOperationHandle<SceneInstance>> _roomExteriorLoadHandles;
+        private Dictionary<RoomData, RoomLoadHandle> _roomInteriorLoadHandles;
+        private Dictionary<RoomData, RoomLoadHandle> _roomExteriorLoadHandles;
+
+        /// <summary>
+        /// IS NOT A LIST THAT CONTIANS ROOMS THAT ARE BEING UNLOADED. FOR INTERNAL USE ONLY
+        /// </summary>
+        private List<RoomData> _roomsToUnloadListCache;
+        
+        //#TODO separate this
         private Transform player;
         protected override void Initialize()
         {
             _mustLoadRoomExteriors = new HashSet<RoomData>();
+            _mustLoadRoomInteriors = new HashSet<RoomData>();
             _exteriorRoomsToLoad = new HashSet<RoomData>();
             _interiorRoomsToLoad = new HashSet<RoomData>();
             _roomsInLoadingRange = new HashSet<RoomData>();
-            _roomInteriorLoadHandles = new Dictionary<RoomData, AsyncOperationHandle<SceneInstance>>();
-            _roomExteriorLoadHandles = new Dictionary<RoomData, AsyncOperationHandle<SceneInstance>>();
+            _roomInteriorLoadHandles = new Dictionary<RoomData, RoomLoadHandle>();
+            _roomExteriorLoadHandles = new Dictionary<RoomData, RoomLoadHandle>();
+            _roomsToUnloadListCache = new List<RoomData> ();
 
             foreach (var floor in _allFloors)
             {
@@ -67,42 +76,42 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
 
-        public AsyncOperationHandle<SceneInstance> GetOrCreateRoomInteriorLoadHandle(
+        public RoomLoadHandle GetOrCreateRoomInteriorLoadHandle(
             RoomData room,
             LoadSceneMode loadSceneMode, bool activateOnLoad, int priority)
         {
-            AsyncOperationHandle<SceneInstance> handle;
+            RoomLoadHandle handle;
             if (!_roomInteriorLoadHandles.TryGetValue(room, out handle))
             {
-                handle = Addressables.LoadSceneAsync(room.InteriorScene, loadSceneMode, activateOnLoad, priority);
+                handle = new RoomLoadHandle(room, room.InteriorScene, loadSceneMode, activateOnLoad, priority);
                 _roomInteriorLoadHandles.Add(room, handle);
             }
 
             return handle;
         }
         
-        public AsyncOperationHandle<SceneInstance> RemoveRoomInteriorLoadHandle(RoomData room)
+        public RoomLoadHandle RemoveRoomInteriorLoadHandle(RoomData room)
         {
             var handle = _roomInteriorLoadHandles[room];
             _roomInteriorLoadHandles.Remove(room);
             return handle;
         }
         
-        public AsyncOperationHandle<SceneInstance> GetOrCreateRoomExteriorLoadHandle(
+        public RoomLoadHandle GetOrCreateRoomExteriorLoadHandle(
             RoomData room,
             LoadSceneMode loadSceneMode, bool activateOnLoad, int priority)
         {
-            AsyncOperationHandle<SceneInstance> handle;
+            RoomLoadHandle handle;
             if (!_roomExteriorLoadHandles.TryGetValue(room, out handle))
             {
-                handle = Addressables.LoadSceneAsync(room.ExteriorScene, loadSceneMode, activateOnLoad, priority);
+                handle = new RoomLoadHandle(room, room.ExteriorScene, loadSceneMode, activateOnLoad, priority);
                 _roomExteriorLoadHandles.Add(room, handle);
             }
 
             return handle;
         }
         
-        public AsyncOperationHandle<SceneInstance> RemoveRoomExteriorLoadHandle(RoomData room)
+        public RoomLoadHandle RemoveRoomExteriorLoadHandle(RoomData room)
         {
             var handle = _roomExteriorLoadHandles[room];
             _roomExteriorLoadHandles.Remove(room);
@@ -129,6 +138,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             player = GameObject.FindWithTag("Player").transform;
         }
 
+        
 
         public virtual bool CheckIfRoomExteriorShouldBeLoaded(RoomData room)
         {
@@ -167,6 +177,40 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private void Update()
         {
             updateRoomsInPlayerRange();
+            UpdateRoomUnloadTimer();
+        }
+
+        private void UpdateRoomUnloadTimer()
+        {
+            //the timeout could be handled by starting an async wait task for the duration
+            //however, it complicates the following case
+            //Frequently entering and exiting range.
+            //we need to cancel and restart the unitask/async wait repeatedly.
+            //also prevent duplicate waits
+            //this is simpler for now
+            _roomsToUnloadListCache.Clear();
+            foreach ((var room, var handle) in _roomExteriorLoadHandles)
+            {
+                if (_roomsInLoadingRange.Contains(room))
+                {
+                    //Debug.Log($"{room} unload timer reset becayse player in range");
+                    handle.UnloadTimer.reset();
+                }
+                else
+                {
+                    if (handle.UnloadTimer.tryCompleteTimer(Time.deltaTime))
+                    {
+                        Debug.Log($"{room} unload timer completed. Unloading");
+
+                        _roomsToUnloadListCache.Add(room);
+                    }
+                }
+            }
+            //this updates the dict. So removal is done separately
+            foreach (var roomToUnload in _roomsToUnloadListCache)
+            {
+                RemoveRoomExteriorToLoad(roomToUnload);       
+            }
         }
 
         private void updateRoomsInPlayerRange()
@@ -194,7 +238,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 return true;
             }
             
-            if (_mustLoadRoomExteriors.Contains(room))
+            if (_mustLoadRoomInteriors.Contains(room))
             {
                 Debug.Log($"{room} interior is global must load room");
 
@@ -234,10 +278,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         
         public void HandleRoomExitedLoadingRange(RoomData room)
         {
-            if (_roomsInLoadingRange.Remove(room))
-            {
-                RemoveRoomExteriorToLoad(room);
-            }
+            //actually unloading the room requries waiting for timer
+            //handled in different function
+            _roomsInLoadingRange.Remove(room);
         }
 
 
@@ -352,6 +395,15 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
                 
             OnEnteredRoomDependenciesLoaded?.Invoke(room);
+        }
+
+        [Button]
+        void PrintAllLoadedRooms()
+        {
+            foreach((var room, var handle ) in _roomExteriorLoadHandles)
+            {
+                Debug.Log($"{room} {(handle.AsyncHandle.IsDone ? "is loaded" : "loading")}");
+            }
         }
 
         private void ForceEnterRoom(RoomData room)

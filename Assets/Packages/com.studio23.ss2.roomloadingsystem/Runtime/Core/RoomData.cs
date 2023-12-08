@@ -7,21 +7,21 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-
 namespace Studio23.SS2.RoomLoadingSystem.Core
 {
     [CreateAssetMenu(menuName = "Studio-23/RoomLoadingSystem/RoomData", fileName = "RoomData")]
     public class RoomData:ScriptableObject
     {
-        [FormerlySerializedAs("SceneInterior")] public AssetReferenceT<SceneAsset> InteriorScene;
-        [FormerlySerializedAs("SceneExterior")] public AssetReferenceT<SceneAsset> ExteriorScene;
+        public AssetReferenceT<SceneAsset> InteriorScene;
+        public AssetReferenceT<SceneAsset> ExteriorScene;
         public Vector3 WorldPosition;
-        public float RoomLoadRadius = 4; 
+        public float RoomLoadRadius = 4;
+        public float MinUnloadTimeout = 10;
         [ShowNativeProperty] public FloorData Floor { get; internal set; }
 
-        [FormerlySerializedAs("_adjacentRooms")] [SerializeField] List<RoomData> _alwaysLoadRooms;
+        [SerializeField] List<RoomData> _alwaysLoadRooms;
         public List<RoomData> AlwaysLoadRooms => _alwaysLoadRooms;
+
         HashSet<RoomData> _adjacentRoomSet;
 
         //#TODO figure out how to include FMOD
@@ -46,7 +46,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load exterior", this);
-                await RoomLoadingManager.Instance.GetOrCreateRoomExteriorLoadHandle(this, loadSceneMode, activateOnLoad, priority);
+                await RoomLoadingManager.Instance.GetOrCreateRoomExteriorLoadHandle(
+                    this, 
+                    loadSceneMode, activateOnLoad, priority)
+                    .AsyncHandle;
             }
             
             OnRoomExteriorLoaded?.Invoke(this);
@@ -61,7 +64,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load interior", this);
-                await RoomLoadingManager.Instance.GetOrCreateRoomInteriorLoadHandle(this, loadSceneMode, activateOnLoad, priority);
+                await RoomLoadingManager.Instance.GetOrCreateRoomInteriorLoadHandle(
+                    this, loadSceneMode, activateOnLoad, priority)
+                    .AsyncHandle;
             }
             
             OnRoomInteriorLoaded?.Invoke(this);
@@ -78,8 +83,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 Debug.Log($"{this} unload exterior", this);
                 var handle = RoomLoadingManager.Instance.RemoveRoomExteriorLoadHandle(this);
                 //#TODO what happens when this handle is loading a scene and we call this?
-                await Addressables.UnloadSceneAsync(handle);
-                // await ExteriorScene.UnLoadScene();
+                await Addressables.UnloadSceneAsync(handle.AsyncHandle);
             }
             OnRoomExteriorUnloaded?.Invoke(this);
         }
@@ -96,8 +100,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
                 var handle = RoomLoadingManager.Instance.RemoveRoomInteriorLoadHandle(this);
                 //#TODO what happens when this handle is loading a scene and we call this?
-                await Addressables.UnloadSceneAsync(handle);
-                // await InteriorScene.UnLoadScene();
+                await Addressables.UnloadSceneAsync(handle.AsyncHandle);
             }
             OnRoomInteriorUnloaded?.Invoke(this);
         }

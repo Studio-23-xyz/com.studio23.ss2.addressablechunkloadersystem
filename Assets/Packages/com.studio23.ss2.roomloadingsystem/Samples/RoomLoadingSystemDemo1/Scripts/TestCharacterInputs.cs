@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Studio23.SS2.ObjectiveSystem.Samples.ObjectiveSystemDemo1
+namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 {
 	public class TestCharacterInputs : MonoBehaviour
 	{

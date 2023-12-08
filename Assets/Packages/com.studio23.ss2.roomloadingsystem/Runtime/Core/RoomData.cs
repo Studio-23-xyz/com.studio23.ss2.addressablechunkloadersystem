@@ -47,9 +47,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 Debug.Log($"{this} load exterior", this);
                 await RoomLoadingManager.Instance.GetOrCreateRoomExteriorLoadHandle(
-                    this, 
+                    this,
                     loadSceneMode, activateOnLoad, priority)
-                    .AsyncHandle;
+                    .LoadScene();   
             }
             
             OnRoomExteriorLoaded?.Invoke(this);
@@ -64,9 +64,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} load interior", this);
-                await RoomLoadingManager.Instance.GetOrCreateRoomInteriorLoadHandle(
-                    this, loadSceneMode, activateOnLoad, priority)
-                    .AsyncHandle;
+                await RoomLoadingManager.Instance.GetOrCreateRoomInteriorLoadHandle(this, 
+                    loadSceneMode, activateOnLoad, priority)
+                    .LoadScene();
             }
             
             OnRoomInteriorLoaded?.Invoke(this);
@@ -81,9 +81,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             else
             {
                 Debug.Log($"{this} unload exterior", this);
-                var handle = RoomLoadingManager.Instance.RemoveRoomExteriorLoadHandle(this);
                 //#TODO what happens when this handle is loading a scene and we call this?
-                await Addressables.UnloadSceneAsync(handle.AsyncHandle);
+                await RoomLoadingManager.Instance.RemoveRoomExteriorLoadHandle(this)
+                    .UnloadScene();
             }
             OnRoomExteriorUnloaded?.Invoke(this);
         }
@@ -98,9 +98,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 Debug.Log($"{this} unload interior", this);
 
-                var handle = RoomLoadingManager.Instance.RemoveRoomInteriorLoadHandle(this);
-                //#TODO what happens when this handle is loading a scene and we call this?
-                await Addressables.UnloadSceneAsync(handle.AsyncHandle);
+                await RoomLoadingManager.Instance.RemoveRoomInteriorLoadHandle(this)
+                    .UnloadScene();
             }
             OnRoomInteriorUnloaded?.Invoke(this);
         }

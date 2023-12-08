@@ -83,7 +83,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             RoomLoadHandle handle;
             if (!_roomInteriorLoadHandles.TryGetValue(room, out handle))
             {
-                handle = new RoomLoadHandle(room, room.InteriorScene, loadSceneMode, activateOnLoad, priority);
+                handle = RoomLoadHandle.AddressableLoad(room, room.InteriorScene, loadSceneMode, activateOnLoad, priority);
                 _roomInteriorLoadHandles.Add(room, handle);
             }
 
@@ -104,7 +104,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             RoomLoadHandle handle;
             if (!_roomExteriorLoadHandles.TryGetValue(room, out handle))
             {
-                handle = new RoomLoadHandle(room, room.ExteriorScene, loadSceneMode, activateOnLoad, priority);
+                handle = RoomLoadHandle.AddressableLoad(room, room.ExteriorScene, loadSceneMode, activateOnLoad, priority);
                 _roomExteriorLoadHandles.Add(room, handle);
             }
 
@@ -200,7 +200,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 {
                     if (handle.UnloadTimer.tryCompleteTimer(Time.deltaTime))
                     {
-                        Debug.Log($"{room} unload timer completed. Unloading");
+                        Debug.Log($"{room} unload timer completed. Try Unloading");
 
                         _roomsToUnloadListCache.Add(room);
                     }
@@ -219,7 +219,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 return;
             foreach (var roomData in CurrentFloor.RoomsInFloor)
             {
-                if (roomData.IsPosInLoadingRange(player.transform.position))
+                if (roomData.IsPosInLoadingRange(player.transform.position)|| 
+                    CurrentEnteredRoom == roomData)
                 {
                     HandleRoomEnteredLoadingRange(roomData);
                 }
@@ -299,6 +300,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 if (_exteriorRoomsToLoad.Remove(room))
                 {
+                    Debug.Log($"Acutally unload {room}", room);
                     await room.unloadRoomExterior();
                 }
             }
@@ -334,10 +336,21 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         public async UniTask EnterRoom(RoomData room)
         {
+            if (!_roomExteriorLoadHandles.ContainsKey(room))
+            {
+                //the room has been entered but the exterior isn't marked as loaded
+                //this is possible if we start in this scene from the editor
+                //in which case, exterior is already loaded.
+                //we just need to add a dummy handle
+                //that won't unload the scene as an addressable.
+                _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, room.ExteriorScene));
+                _exteriorRoomsToLoad.Add(room);
+            }
             if (_currentEnteredRoom != room)
             {
                 var prevFloor = CurrentFloor;
                 var prevRoom = _currentEnteredRoom;
+
                 _currentEnteredRoom = room;
                 bool isDifferentFloor = prevFloor != _currentEnteredRoom.Floor;
                 
@@ -351,6 +364,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     }
                 }
 
+                
                 ForceEnterRoom(room);
                 OnRoomEntered?.Invoke(room);
                 await AddRoomInteriorToLoad(room);
@@ -402,7 +416,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             foreach((var room, var handle ) in _roomExteriorLoadHandles)
             {
-                Debug.Log($"{room} {(handle.AsyncHandle.IsDone ? "is loaded" : "loading")}");
+                Debug.Log($"{room} {(handle.LoadHandle.IsDone ? "is loaded" : "loading")}");
             }
         }
 

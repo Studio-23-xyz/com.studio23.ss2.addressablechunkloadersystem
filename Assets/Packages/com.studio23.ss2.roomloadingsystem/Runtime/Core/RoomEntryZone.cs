@@ -17,6 +17,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             _roomInstance = GetComponent<RoomInstance>();
         }
+        
+        
 
         private void OnTriggerEnter(Collider other)
         {

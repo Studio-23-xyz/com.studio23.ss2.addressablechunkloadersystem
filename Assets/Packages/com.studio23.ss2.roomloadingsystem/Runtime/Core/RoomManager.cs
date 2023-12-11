@@ -17,6 +17,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private HashSet<RoomData> _mustLoadRoomInteriors;
 
         public RoomLoader RoomLoader { get; private set; }
+        
+
 
         //#TODO separate this
         protected override void Initialize()
@@ -152,4 +154,5 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             OnEnteredRoomDependenciesLoaded?.Invoke(room);
         }
     }
+    
 }

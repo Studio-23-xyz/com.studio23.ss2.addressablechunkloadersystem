@@ -21,8 +21,42 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         /// Fired when room itself + all the required rooms for the entered room have been loaded
         /// </summary>
         public event Action<RoomData> OnEnteredRoomDependenciesLoaded;
+
+        private void Start()
+        {
+            foreach (var floor in RoomManager.Instance.AllFloors)
+            {
+                floor.Initialize();
+
+                floor.OnFloorEntered += OnFloorEntered;
+                floor.OnFloorExited += OnFloorExited;
+
+                foreach (var roomData in floor.RoomsInFloor)
+                {
+                    roomData.OnRoomEntered += OnRoomEntered;
+                    roomData.OnRoomExited += OnRoomExited;
+                }
+            }
+        }
         
- 
+        private void OnDestroy()
+        {
+            if(RoomManager.Instance == null)
+                return;
+            foreach (var floor in RoomManager.Instance.AllFloors)
+            {
+                floor.OnFloorEntered -= OnFloorEntered;
+                floor.OnFloorExited -= OnFloorExited;
+
+                foreach (var roomData in floor.RoomsInFloor)
+                {
+                    roomData.OnRoomEntered -= OnRoomEntered;
+                    roomData.OnRoomExited -= OnRoomExited;
+                }
+            }
+        }
+
+
         private async UniTask ExitFloor(FloorData prevFloor)
         {
             Debug.Log("exit floor " + prevFloor, prevFloor);
@@ -93,6 +127,29 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 await RemoveRoomExteriorToLoad(adjacentRoom);
             }
+        }
+        
+        private async UniTask loadRoomDependencies(RoomData room, bool floorNewlyEntered)
+        {
+            foreach (var adjacentRoom in room.AlwaysLoadRooms)
+            {
+                Debug.Log(room+ $" always load {adjacentRoom}");
+                await AddRoomExteriorToLoad(adjacentRoom);
+            }
+            if (floorNewlyEntered)
+            {
+                Debug.Log("laod room dep floorNewlyEntered " + floorNewlyEntered);
+                if(room.Floor != null)
+                {
+                    OnFloorEntered?.Invoke(room.Floor);
+                    foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
+                    {
+                        await AddRoomExteriorToLoad(roomToLoad);
+                    }
+                }
+            }
+                
+            OnEnteredRoomDependenciesLoaded?.Invoke(room);
         }
     }
 }

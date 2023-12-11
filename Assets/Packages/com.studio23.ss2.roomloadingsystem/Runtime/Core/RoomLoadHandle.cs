@@ -23,7 +23,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
         bool UsesAddressable;
         public AsyncOperationHandle<SceneInstance> LoadHandle { get; private set; }
         public AsyncOperationHandle<SceneInstance> UnloadHandle { get; private set; }
-        private HashSet<IRoomLoadSubSystem> _loadRequesters = new HashSet<IRoomLoadSubSystem>();
+        
         public bool ShouldBeLoaded => _loadRequesters.Count > 0;
 
         private RoomLoadHandle() { }
@@ -132,4 +132,5 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
             return s;
         }
     }
+    
 }

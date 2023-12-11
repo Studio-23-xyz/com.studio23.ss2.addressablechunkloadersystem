@@ -1,5 +1,6 @@
 ﻿using Bdeshi.Helpers.Utility;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
@@ -22,6 +23,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
         bool UsesAddressable;
         public AsyncOperationHandle<SceneInstance> LoadHandle { get; private set; }
         public AsyncOperationHandle<SceneInstance> UnloadHandle { get; private set; }
+        private HashSet<IRoomLoadSubSystem> _loadRequesters = new HashSet<IRoomLoadSubSystem>();
+        public bool ShouldBeLoaded => _loadRequesters.Count > 0;
 
         private RoomLoadHandle() { }
 
@@ -48,6 +51,17 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
             };
         }
 
+        public void AddRoomLoadRequester(IRoomLoadSubSystem loadRequester)
+        {
+            _loadRequesters.Add(loadRequester);
+        }
+        
+        public void RemoveRoomLoadRequester(IRoomLoadSubSystem loadRequester)
+        {
+            _loadRequesters.Remove(loadRequester);
+        }
+        
+        
         /// <summary>
         /// Use this when this room will be  loaded as an addressable.
         /// </summary>
@@ -101,10 +115,21 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
                 await LoadHandle;
             }
         }
-
+        
         public override string ToString()
         {
-            return $"{Room} {(LoadHandle.IsDone ? "is loaded" : "loading")} {UsesAddressable} {UsesAddressable}" ;
+            var s = $"{Room} {(LoadHandle.IsDone ? "is loaded" : "loading")} {UsesAddressable} {UsesAddressable}";
+
+            if (_loadRequesters.Count > 0)
+            {
+                s += "\n Requested by: ";
+                foreach (var loadRequester in _loadRequesters)
+                {
+                    s += $"\n {loadRequester}";
+                }
+            }
+
+            return s;
         }
     }
 }

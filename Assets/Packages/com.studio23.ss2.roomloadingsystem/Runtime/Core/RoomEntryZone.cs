@@ -24,7 +24,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             {
                 isPlayerInRoom = true;
                 
-                RoomLoadingManager.Instance.EnterRoom(_roomInstance.Room);
+                RoomManager.Instance.EnterRoom(_roomInstance.Room);
             }
         }
         

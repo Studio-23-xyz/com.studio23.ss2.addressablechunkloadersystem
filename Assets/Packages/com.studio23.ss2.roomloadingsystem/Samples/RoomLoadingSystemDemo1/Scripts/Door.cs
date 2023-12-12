@@ -20,6 +20,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
         [FormerlySerializedAs("openingOffset")] public Vector3 OpeningOffset = Vector3.up * 4;
         public Material HoverMat;
         public Material NormalMat;
+        
 
         private void Awake()
         {

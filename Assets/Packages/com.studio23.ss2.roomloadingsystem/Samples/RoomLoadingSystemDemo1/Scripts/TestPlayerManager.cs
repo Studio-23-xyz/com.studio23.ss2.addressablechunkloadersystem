@@ -76,7 +76,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
                 return;
             }
 
-            if (Physics.Raycast(transform.position, _cam.transform.forward, out var hit, 100, DoorLayer))
+            if (Physics.Raycast(transform.position, _cam.transform.forward, out var hit, MaxRayDistance, DoorLayer))
             {
                 var c = hit.collider;
                 var door = c.GetComponent<Door>();

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Studio23.SS2.RoomLoadingSystem.Runtime.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,9 +43,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         [ShowNativeProperty]
         public FloorData CurrentFloor => _currentEnteredRoom ? _currentEnteredRoom.Floor : null;
 
-        private HashSet<RoomData> _mustLoadRoomExteriors;
-        private HashSet<RoomData> _mustLoadRoomInteriors;
-        private HashSet<RoomData> _roomsInLoadingRange;
         /// <summary>
         /// IS NOT A LIST THAT CONTIANS ROOMS THAT ARE BEING UNLOADED. FOR INTERNAL USE ONLY
         /// </summary>
@@ -57,10 +53,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         protected override void Initialize()
         {
-            _mustLoadRoomExteriors = new HashSet<RoomData>();
-            _mustLoadRoomInteriors = new HashSet<RoomData>();
-            _roomsInLoadingRange = new HashSet<RoomData>();
-
             _roomLoader = GetComponent<RoomLoader>();
 
             foreach (var floor in _allFloors)
@@ -104,42 +96,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         }
 
 
-        public virtual bool CheckIfRoomExteriorShouldBeLoaded(RoomData room)
-        {
-            if (_currentEnteredRoom == room)
-            {
-                // Debug.Log($"{room} is current room");
-                return true;
-            }
-
-            if (_roomsInLoadingRange.Contains(room))
-                return true;
-
-            if (_mustLoadRoomExteriors.Contains(room))
-            {
-                // Debug.Log($"{room} is global must load");
-                return true;
-            }
-
-            if (_currentEnteredRoom != null)
-            {
-                if (_currentEnteredRoom.WantsToAlwaysLoad(room))
-                {
-                    // Debug.Log($"{room} is adjacent to current room {_currentEnteredRoom}");
-
-                    return true;
-                }
-
-                if (CurrentFloor != null && CurrentFloor.WantsToAlwaysLoad(room))
-                {
-                    // Debug.Log($"{room} is must load for current floor {CurrentFloor}");
-
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
         private void Update()
         {
@@ -169,73 +125,52 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
 
-        public virtual bool CheckIfRoomInteriorShouldBeLoaded(RoomData room)
-        {
-            if (_currentEnteredRoom == room)
-            {
-                // Debug.Log($"{room} interior is current entered room");
-                return true;
-            }
 
-            if (_mustLoadRoomInteriors.Contains(room))
-            {
-                // Debug.Log($"{room} interior is global must load room");
-
-                return true;
-            }
-
-            if (_currentEnteredRoom != null && CurrentFloor != null)
-            {
-                if (CurrentFloor.WantsToAlwaysLoad(room))
-                {
-                    // Debug.Log($"{room} interior is current floor's must load room");
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
 
         public void SetRoomAsMustLoad(RoomData room)
         {
-            if(_mustLoadRoomExteriors.Add(room))
-            {
-                AddRoomExteriorToLoad(room);
-            }
+            AddRoomExteriorFlag(room, RoomFlag.IsGeneralMustLoad);
+            AddRoomInteriorFlag(room, RoomFlag.IsGeneralMustLoad);
         }
 
         public void UnsetRoomAsMustLoad(RoomData room)
         {
-            _mustLoadRoomExteriors.Remove(room);
+            RemoveExteriorRoomFlag(room, RoomFlag.IsGeneralMustLoad);
+            RemoveInteriorRoomFlag(room, RoomFlag.IsGeneralMustLoad);
+        }
+
+        public void RemoveExteriorRoomFlag(RoomData room, RoomFlag flags)
+        {
+            _roomLoader.RemoveRoomExteriorLoadFlag(room, flags);
+        }
+        
+        public void RemoveInteriorRoomFlag(RoomData room, RoomFlag flags)
+        {
+            _roomLoader.RemoveRoomInteriorLoadFlag(room, flags);
         }
 
         public void HandleRoomEnteredLoadingRange(RoomData room)
         {
-            if (_roomsInLoadingRange.Add(room))
-            {
-                AddRoomExteriorToLoad(room);
-            }
+            AddRoomExteriorFlag(room, RoomFlag.IsInLoadingRange);
         }
 
         public void HandleRoomExitedLoadingRange(RoomData room)
         {
             //actually unloading the room requries waiting for timer
             //handled in different function
-            _roomsInLoadingRange.Remove(room);
+            _roomLoader.RemoveRoomExteriorLoadFlag(room, RoomFlag.IsInLoadingRange);
         }
 
-        internal async UniTask AddRoomExteriorToLoad(RoomData room)
+        internal async UniTask AddRoomExteriorFlag(RoomData room, RoomFlag flags)
         {
-            var handle = _roomLoader.AddExteriorLoadRequest(new RoomLoadRequestData(room));
-
-            Debug.Log($"add exterior  loading handle {handle}");
+            var handle = _roomLoader.AddExteriorLoadRequest(new RoomLoadRequestData(room), flags);
             await handle.LoadScene();
         }
         
-        internal  async UniTask AddRoomInteriorToLoad(RoomData room)
+        internal async UniTask AddRoomInteriorFlag(RoomData room, RoomFlag flags)
         {
-            var handle = _roomLoader.AddInteriorLoadRequest(new RoomLoadRequestData(room));
+            var handle = _roomLoader.AddInteriorLoadRequest(new RoomLoadRequestData(room), flags);
             await handle.LoadScene();
         }
 
@@ -248,7 +183,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 //in which case, exterior is already loaded.
                 //we just need to add a dummy handle
                 //that won't unload the scene as an addressable.
-                _roomLoader.addHandleForAlreadyLoadedExterior(room);
+                _roomLoader.addHandleForAlreadyLoadedExterior(room, RoomFlag.IsCurrentRoom);
             }
 
             if (_currentEnteredRoom != room)
@@ -267,51 +202,54 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                         ExitFloor(prevFloor);
                     }
                 }
-
+                
 
                 ForceEnterRoom(room);
-                await AddRoomExteriorToLoad(room);
-                await AddRoomInteriorToLoad(room);
+                await AddRoomExteriorFlag(room,RoomFlag.IsCurrentRoom);
+                await AddRoomInteriorFlag(room,RoomFlag.IsCurrentRoom);
                 OnRoomEntered?.Invoke(room);
 
-                loadRoomDependencies(room, isDifferentFloor);
+                loadCurrentRoomDependencies(room, isDifferentFloor);
             }
         }
 
-        private async UniTask ExitFloor(FloorData prevFloor)
+        private void ExitFloor(FloorData prevFloor)
         {
             Debug.Log("exit floor " + prevFloor, prevFloor);
             OnFloorExited?.Invoke(prevFloor);
 
             foreach (var roomToUnload in prevFloor.RoomsInFloor)
             {
-                _roomsInLoadingRange.Remove(roomToUnload);
-                // await RemoveRoomExteriorToLoad(roomToUnload);
+                RemoveExteriorRoomFlag(roomToUnload, RoomFlag.IsInLoadingRange);
             }
-
-
-            // foreach (var roomToUnload in prevFloor.AlwaysLoadRooms)
-            // {
-            //     await RemoveRoomExteriorToLoad(roomToUnload);
-            // }
+            
+            foreach (var roomToUnload in prevFloor.AlwaysLoadRooms)
+            {
+                RemoveExteriorRoomFlag(roomToUnload, RoomFlag.IsCurrentFloorMustLoad);
+            }
         }
 
-        private async UniTask ExitRoom(RoomData prevRoom)
+        private void ExitRoom(RoomData prevRoom)
         {
             prevRoom.HandleRoomExited();
-            // await RemoveRoomInteriorToLoad(prevRoom);
-            // foreach (var adjacentRoom in prevRoom.AlwaysLoadRooms)
-            // {
-            //     await RemoveRoomExteriorToLoad(adjacentRoom);
-            // }
+            RemoveExteriorRoomFlag(prevRoom, RoomFlag.IsCurrentRoom);
+            RemoveInteriorRoomFlag(prevRoom, RoomFlag.IsCurrentRoom);
+            
+            foreach (var roomToUnload in prevRoom.AlwaysLoadRooms)
+            {
+                RemoveExteriorRoomFlag(roomToUnload, RoomFlag.IsCurrentFloorMustLoad);
+            }
         }
 
-        private async UniTask loadRoomDependencies(RoomData room, bool floorNewlyEntered)
+        private async UniTask loadCurrentRoomDependencies(RoomData room, bool floorNewlyEntered)
         {
+            //NOTE:FLAGS are set after the previous room is loaded
+            //it is not syncronous
+            //a better way would be to set all the flags and then wait on the handles
             foreach (var adjacentRoom in room.AlwaysLoadRooms)
             {
                 Debug.Log(room + $" always load {adjacentRoom}");
-                await AddRoomExteriorToLoad(adjacentRoom);
+                await AddRoomExteriorFlag(adjacentRoom, RoomFlag.IsCurrentFloorMustLoad);
             }
     
             if (floorNewlyEntered)
@@ -322,48 +260,78 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     OnFloorEntered?.Invoke(room.Floor);
                     foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
                     {
-                        await AddRoomExteriorToLoad(roomToLoad);
+                        await AddRoomExteriorFlag(roomToLoad, RoomFlag.IsCurrentFloorMustLoad);
                     }
                 }
             }
+            
+            room.HandleRoomDependenciesLoaded();
         }
 
+
+        
         /// <summary>
-        /// Waits and loads all room dependencies including floor dependcies
-        /// NOTE: THIS DOESN'T HANDLE SETTING ROOM FLAGS.
-        /// SO, you can load rooms this way, but if the loaded rooms are not requiredm
-        /// They may get unloaded.
-        /// Set those flags elsewhere
-        /// Or only use this for the current room
+        /// Returns if the exterior for the room is loaded
+        /// NOTE: For rooms with invalid exterior scene asset ref, this returns false
         /// </summary>
-        /// <param name="room"></param>
-        public async UniTask WaitForRoomDependencies(RoomData room, bool shouldLoadFloorDependencies)
+        /// <param name="roomData"></param>
+        /// <returns></returns>
+        public bool IsRoomExteriorLoaded(RoomData roomData)
         {
-            foreach (var adjacentRoom in room.AlwaysLoadRooms)
+            if (_roomLoader.RoomExteriorLoadHandles.TryGetValue(roomData, out var handle))
             {
-                Debug.Log(room + $" always load {adjacentRoom}");
-                await AddRoomExteriorToLoad(adjacentRoom);
+                return handle.IsLoaded();
             }
-    
-            if (shouldLoadFloorDependencies)
+
+            return false;
+        }
+        
+        /// <summary>
+        /// Returns if the exterior for the room is loaded
+        /// NOTE: For rooms with invalid exterior scene asset ref, this returns false
+        /// </summary>
+        /// <param name="roomData"></param>
+        /// <returns></returns>
+        public bool IsRoomInteriorLoaded(RoomData roomData)
+        {
+            if (_roomLoader.RoomInteriorLoadHandles.TryGetValue(roomData, out var handle))
             {
-                if (room.Floor != null)
-                {
-                    foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
-                    {
-                        await AddRoomExteriorToLoad(roomToLoad);
-                    }
-                }
+                return handle.IsLoaded();
             }
+
+            return false;
         }
         
 
         [Button]
         void printRoomsInLoadingRange()
         {
-            foreach (var room in _roomsInLoadingRange)
+            foreach (var (room, handle) in _roomLoader.RoomExteriorLoadHandles)
             {
-                Debug.Log($"{room} in loading range");
+                if (handle.HasFlag(RoomFlag.IsInLoadingRange))
+                {
+                    Debug.Log($"{room} in loading range");
+                }
+            }
+        }
+        [Button]
+        void printRoomsInMustLoad()
+        {
+            foreach (var (room, handle) in _roomLoader.RoomExteriorLoadHandles)
+            {
+                if (handle.HasFlag(RoomFlag.IsGeneralMustLoad))
+                {
+                    Debug.Log($"{room} is GeneralMustLoad");
+                }
+                if (handle.HasFlag(RoomFlag.IsCurrentRoomMustLoad))
+                {
+                    Debug.Log($"{room} is Current room MustLoad");
+                }
+                if (handle.HasFlag(RoomFlag.IsCurrentFloorMustLoad))
+                {
+                    Debug.Log($"{room} is Current floor MustLoad");
+                }
+
             }
         }
 

@@ -29,15 +29,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 RoomManager.Instance.EnterRoom(_roomInstance.Room);
             }
         }
-        
-        // private void OnTriggerExit(Collider other)
-        // {
-        //     if (other.CompareTag("Player"))
-        //     {
-        //         isPlayerInRoom = false;
-        //
-        //         RoomLoadingManager.Instance.ExitRoom(_roomInstance.Room);
-        //     }
-        // }
+
     }
 }

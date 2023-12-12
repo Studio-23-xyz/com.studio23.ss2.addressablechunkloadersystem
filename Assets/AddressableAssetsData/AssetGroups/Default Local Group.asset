@@ -107,6 +107,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8afd9381b9f6ab84a8c946e934e0414d
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      200 Exterior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff1d88fa74c47144f99f5e45d3b11a5f
+    m_Address: Assets/Packages/com.studio23.ss2.roomloadingsystem/Samples/RoomLoadingSystemDemo1/Scenes/Room
+      200 Interior.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 422800903bddf004ab0403a77707f17c, type: 2}
   m_SchemaSet:

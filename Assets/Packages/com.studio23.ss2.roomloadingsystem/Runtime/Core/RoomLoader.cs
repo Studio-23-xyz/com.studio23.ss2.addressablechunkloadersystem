@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Studio23.SS2.RoomLoadingSystem.Runtime.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,7 +35,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 //#TODO should be optimized into a per roomHandle hashset/bitfield
                 //that is set before timer updats
                 //instead of checking here
-                if (RoomManager.Instance.CheckIfRoomExteriorShouldBeLoaded(room))
+                if (handle.ShouldBeLoaded)
                 {
                     handle.UnloadTimer.reset();
                 }
@@ -62,7 +61,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 //#TODO should be optimized into a per roomHandle hashset/bitfield
                 //that is set before timer updats
                 //instead of checking here
-                if (RoomManager.Instance.CheckIfRoomInteriorShouldBeLoaded(room))
+                if ((handle.ShouldBeLoaded))
                 {
                     handle.UnloadTimer.reset();
                 }
@@ -85,51 +84,35 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         private async UniTask ForceUnloadRoomExterior(RoomData room)
         {
-            if (!room.ExteriorScene.RuntimeKeyIsValid())
-            {
-                Debug.LogWarning($"{this} has no exterior scene to unload", this);
-            }
-            else
-            {
-                Debug.Log($"{this} unload exterior", this);
-                //#TODO what happens when this handle is loading a scene and we call this?
-                await RemoveRoomExteriorLoadHandle(room).UnloadScene();
-            }
-            
+            //#TODO what happens when this handle is loading a scene and we call this?
+            await RemoveRoomExteriorLoadHandle(room).UnloadScene();
             room.HandleExteriorUnloaded();
             OnRoomExteriorUnloaded?.Invoke(room);
-
         }
         
         private async UniTask ForceUnloadRoomInterior(RoomData room)
         {
-            if (!room.InteriorScene.RuntimeKeyIsValid())
-            {
-                Debug.LogWarning($"{room} has no interior scene to unload", room);
-            }
-            else
-            {
-                Debug.Log($"{room} unload interior", room);
-
-                await RemoveRoomInteriorLoadHandle(room).UnloadScene();
-            }
+            await RemoveRoomInteriorLoadHandle(room).UnloadScene();
+            
             room.HandleRoomInteriorUnloaded();
             OnRoomInteriorUnloaded?.Invoke(room);
         }
 
         
-        private RoomLoadHandle GetOrCreateRoomInteriorLoadHandle(RoomLoadRequestData requestData)
+        private RoomLoadHandle GetOrCreateRoomInteriorLoadHandle(RoomLoadRequestData requestData, RoomFlag flags)
         {
             RoomLoadHandle handle;
             if (_roomInteriorLoadHandles.TryGetValue(requestData.RoomToLoad, out handle))
             {
                 //#TODO in the case of an existing handle, we may want to update priority
+                handle.addFlag(flags);
             }
             else
             {
                 handle = RoomLoadHandle.AddressableLoad(
                     requestData.RoomToLoad,
-                    requestData.RoomToLoad.InteriorScene,
+                    true,
+                    flags,
                     requestData.LoadSceneMode, 
                     requestData.ActivateOnLoad, 
                     requestData.Priority
@@ -140,18 +123,20 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             return handle;
         }
         
-        private RoomLoadHandle GetOrCreateRoomExteriorLoadHandle(RoomLoadRequestData requestData)
+        private RoomLoadHandle GetOrCreateRoomExteriorLoadHandle(RoomLoadRequestData requestData, RoomFlag flags)
         {
             RoomLoadHandle handle;
             if (_roomExteriorLoadHandles.TryGetValue(requestData.RoomToLoad, out handle))
             {
                 //#TODO in the case of an existing handle, we may want to update priority
+                handle.addFlag(flags);
             }
             else
             {
                 handle = RoomLoadHandle.AddressableLoad(
                     requestData.RoomToLoad,
-                    requestData.RoomToLoad.ExteriorScene,
+                    false,
+                    flags,
                     requestData.LoadSceneMode, 
                     requestData.ActivateOnLoad, 
                     requestData.Priority
@@ -162,6 +147,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
             return handle;
         }
+        
     
         private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
         {
@@ -187,9 +173,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         //     }
         // }
         
-        public RoomLoadHandle AddExteriorLoadRequest(RoomLoadRequestData loadRequest)
+        public RoomLoadHandle AddExteriorLoadRequest(RoomLoadRequestData loadRequest, RoomFlag flags)
         {
-            return GetOrCreateRoomExteriorLoadHandle(loadRequest);
+            return GetOrCreateRoomExteriorLoadHandle(loadRequest, flags);
         }
         
         // public void RemoveInteriorLoadRequest(RoomData room)
@@ -201,38 +187,77 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         //     }
         // }
         //
-        public RoomLoadHandle AddInteriorLoadRequest(RoomLoadRequestData loadRequest)
+        public RoomLoadHandle AddInteriorLoadRequest(RoomLoadRequestData loadRequest, RoomFlag flags)
         {
-            var handle = GetOrCreateRoomInteriorLoadHandle(loadRequest);
+            var handle = GetOrCreateRoomInteriorLoadHandle(loadRequest,flags);
             return handle;
+        }
+        
+        public void RemoveRoomInteriorLoadFlag(RoomData room, RoomFlag flags)
+        {
+            if (_roomInteriorLoadHandles.TryGetValue(room, out var handle))
+            {
+                handle.removeFlag(flags);
+            }
+        }
+        
+        public void RemoveRoomExteriorLoadFlag(RoomData room, RoomFlag flags)
+        {
+            if (_roomExteriorLoadHandles.TryGetValue(room, out var handle))
+            {
+                handle.removeFlag(flags);
+            }
         }
 
         
-        public RoomLoadHandle RemoveRoomInteriorLoadHandle(RoomData room)
+        private RoomLoadHandle RemoveRoomInteriorLoadHandle(RoomData room)
         {
             var handle = _roomInteriorLoadHandles[room];
             _roomInteriorLoadHandles.Remove(room);
             return handle;
         }
         
-        public RoomLoadHandle RemoveRoomExteriorLoadHandle(RoomData room)
+        private RoomLoadHandle RemoveRoomExteriorLoadHandle(RoomData room)
         {
             var handle = _roomExteriorLoadHandles[room];
             _roomExteriorLoadHandles.Remove(room);
             return handle;
         }
 
-        public void addHandleForAlreadyLoadedExterior(RoomData room)
+        public void addHandleForAlreadyLoadedExterior(RoomData room, RoomFlag flags)
         {
-            _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, room.ExteriorScene));
+            _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
         }
-        
+
+        private void OnDestroy()
+        {
+            Cleanup();
+        }
+
+        private void Cleanup()
+        {
+            foreach (var (room, handle) in _roomExteriorLoadHandles)
+            {
+                handle.Cleanup();
+            }
+
+            foreach (var (room,handle) in _roomInteriorLoadHandles)
+            {
+                handle.Cleanup();
+            }
+        }
+
         [Button]
         void PrintAllRoomHandle()
         {
             foreach((var room, var handle ) in _roomExteriorLoadHandles)
             {
-                Debug.Log($" {(handle)} ");
+                Debug.Log($"Exterior {(handle)} ");
+            }
+            
+            foreach((var room, var handle ) in _roomInteriorLoadHandles)
+            {
+                Debug.Log($"Interior {(handle)} ");
             }
         }
 

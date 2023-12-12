@@ -33,8 +33,12 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         
         public event Action<RoomData> OnRoomInteriorLoaded;
         public event Action<RoomData> OnRoomInteriorUnloaded;
+        public event Action<RoomData> OnRoomDependenciesLoaded;
 
-        
+        public void HandleRoomDependenciesLoaded()
+        {
+            OnRoomDependenciesLoaded?.Invoke(this);
+        }
         public void HandleRoomExteriorLoaded()
         {
             OnRoomExteriorLoaded?.Invoke(this);

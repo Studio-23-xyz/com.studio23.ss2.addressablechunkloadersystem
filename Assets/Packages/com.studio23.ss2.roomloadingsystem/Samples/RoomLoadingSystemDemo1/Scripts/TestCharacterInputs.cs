@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +18,19 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 		[Header("Mouse Cursor Settings")]
 		public bool _cursorLocked = true; 
 		public bool _cursorInputForLook = true;
-
+		public event Action OnInteractPressed;
+		public void OnInteract()
+		{
+			Debug.Log("aaaaaaaaaa");
+			OnInteractPressed?.Invoke();
+		}
+		
+		public void OnInteract(InputValue value)
+		{
+			Debug.Log("aaaaaaaaaa");
+			OnInteractPressed?.Invoke();
+		}
+		
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());

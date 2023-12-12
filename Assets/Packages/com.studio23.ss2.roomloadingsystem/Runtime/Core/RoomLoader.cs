@@ -206,7 +206,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             foreach((var room, var handle ) in _roomExteriorLoadHandles)
             {
-                Debug.Log($" {(handle)}");
+                Debug.Log($" {(handle)} ");
             }
         }
 

@@ -92,6 +92,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 		public void Toggle(bool isControllerEnabled)
 		{
 			enabled = isControllerEnabled;
+			_controller.enabled = isControllerEnabled;
 		}
 
 		private void Awake()

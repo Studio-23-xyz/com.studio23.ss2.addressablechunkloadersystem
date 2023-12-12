@@ -24,6 +24,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   WorldPosition: {x: 62.9293, y: 12, z: 25}
   RoomLoadRadius: 4
-  MinUnloadTimeout: 10
+  MinUnloadTimeout: 3
   _alwaysLoadRooms:
   - {fileID: 11400000, guid: f6d24a4f5e39a23408375661cba00289, type: 2}

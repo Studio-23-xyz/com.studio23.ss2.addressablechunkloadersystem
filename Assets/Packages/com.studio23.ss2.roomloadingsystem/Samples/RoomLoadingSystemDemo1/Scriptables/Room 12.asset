@@ -24,4 +24,5 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   WorldPosition: {x: 0.0000009994494, y: 0, z: 23.499987}
   RoomLoadRadius: 36
-  _adjacentRooms: []
+  MinUnloadTimeout: 3
+  _alwaysLoadRooms: []

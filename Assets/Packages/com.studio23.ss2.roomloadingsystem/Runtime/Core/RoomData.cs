@@ -70,7 +70,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             OnRoomExited?.Invoke(this);
         }
 
-        public bool IsAdjacentTo(RoomData room)
+        public bool WantsToAlwaysLoad(RoomData room)
         {
             return _alwaysLoadRooms.Contains(room);
         }

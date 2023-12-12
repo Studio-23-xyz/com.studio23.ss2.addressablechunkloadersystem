@@ -98,11 +98,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (!room.InteriorScene.RuntimeKeyIsValid())
             {
-                Debug.LogWarning($"{this} has no interior scene to unload", this);
+                Debug.LogWarning($"{room} has no interior scene to unload", room);
             }
             else
             {
-                Debug.Log($"{this} unload interior", this);
+                Debug.Log($"{room} unload interior", room);
 
                 await RemoveRoomInteriorLoadHandle(room).UnloadScene();
             }

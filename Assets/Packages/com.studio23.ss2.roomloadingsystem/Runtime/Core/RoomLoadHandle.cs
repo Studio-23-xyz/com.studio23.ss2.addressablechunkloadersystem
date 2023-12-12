@@ -108,6 +108,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
             }
         }
 
+        public async UniTask waitForAllRoomDependencies()
+        {
+            
+        }
+
         public async UniTask LoadScene()
         {
             if (UsesAddressable)
@@ -118,7 +123,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
         
         public override string ToString()
         {
-            var s = $"{Room} {(LoadHandle.IsDone ? "is loaded" : "loading")} {UsesAddressable} {UsesAddressable} {UnloadTimer.Timer}/{UnloadTimer.MaxValue}";
+            var s = $"{Room} UsesAddressable: {UsesAddressable} {(LoadHandle.IsDone ? "is loaded" : "loading")}  {UnloadTimer.Timer}/{UnloadTimer.MaxValue}";
 
             return s;
         }

@@ -28,10 +28,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         /// </summary>
         public event Action<RoomData> OnRoomExited;
 
-        /// <summary>
-        /// Fired when room itself + all the required rooms for the entered room have been loaded
-        /// </summary>
-        public event Action<RoomData> OnEnteredRoomDependenciesLoaded;
+
 
         public RoomData CurrentEnteredRoom => _currentEnteredRoom;
         [Required] [SerializeField] private RoomData _currentEnteredRoom;
@@ -118,7 +115,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
             if (_currentEnteredRoom != null)
             {
-                if (_currentEnteredRoom.IsAdjacentTo(room))
+                if (_currentEnteredRoom.WantsToAlwaysLoad(room))
                 {
                     // Debug.Log($"{room} is adjacent to current room {_currentEnteredRoom}");
 
@@ -196,7 +193,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if(_mustLoadRoomExteriors.Add(room))
             {
-                
+                AddRoomExteriorToLoad(room);
             }
         }
 
@@ -223,6 +220,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         internal async UniTask AddRoomExteriorToLoad(RoomData room)
         {
             var handle = _roomLoader.AddExteriorLoadRequest(new RoomLoadRequestData(room));
+
+            Debug.Log($"add exterior  loading handle {handle}");
             await handle.LoadScene();
         }
         
@@ -234,7 +233,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         public async UniTask EnterRoom(RoomData room)
         {
-            if (!_roomLoader.RoomExteriorLoadHandles.ContainsKey(room))
+            if (_currentEnteredRoom == null && !_roomLoader.RoomExteriorLoadHandles.ContainsKey(room))
             {
                 //the room has been entered but the exterior isn't marked as loaded
                 //this is possible if we start in this scene from the editor
@@ -263,8 +262,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
 
                 ForceEnterRoom(room);
-                OnRoomEntered?.Invoke(room);
+                await AddRoomExteriorToLoad(room);
                 await AddRoomInteriorToLoad(room);
+                OnRoomEntered?.Invoke(room);
 
                 loadRoomDependencies(room, isDifferentFloor);
             }
@@ -307,10 +307,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 Debug.Log(room + $" always load {adjacentRoom}");
                 await AddRoomExteriorToLoad(adjacentRoom);
             }
-
+    
             if (floorNewlyEntered)
             {
-                Debug.Log("laod room dep floorNewlyEntered " + floorNewlyEntered);
+                Debug.Log("load room dep floorNewlyEntered " + floorNewlyEntered);
                 if (room.Floor != null)
                 {
                     OnFloorEntered?.Invoke(room.Floor);
@@ -320,8 +320,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     }
                 }
             }
-
-            OnEnteredRoomDependenciesLoaded?.Invoke(room);
         }
         
 

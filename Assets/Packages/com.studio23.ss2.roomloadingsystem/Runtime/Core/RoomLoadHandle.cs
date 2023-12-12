@@ -23,8 +23,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
         bool UsesAddressable;
         public AsyncOperationHandle<SceneInstance> LoadHandle { get; private set; }
         public AsyncOperationHandle<SceneInstance> UnloadHandle { get; private set; }
-        
-        public bool ShouldBeLoaded => _loadRequesters.Count > 0;
 
         private RoomLoadHandle() { }
 
@@ -51,16 +49,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
             };
         }
 
-        public void AddRoomLoadRequester(IRoomLoadSubSystem loadRequester)
-        {
-            _loadRequesters.Add(loadRequester);
-        }
-        
-        public void RemoveRoomLoadRequester(IRoomLoadSubSystem loadRequester)
-        {
-            _loadRequesters.Remove(loadRequester);
-        }
-        
         
         /// <summary>
         /// Use this when this room will be  loaded as an addressable.
@@ -75,18 +63,30 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
             AssetReferenceT<SceneAsset> sceneAsset,
             LoadSceneMode loadSceneMode, bool activateOnLoad, int priority)
         {
-
-            return new RoomLoadHandle()
+            if (sceneAsset.RuntimeKeyIsValid())
             {
-                Room = room,
-                _scene = sceneAsset,
-                UnloadTimer = new FiniteTimer(room.MinUnloadTimeout),
-                LoadHandle = Addressables.LoadSceneAsync(
-                    sceneAsset,
-                    loadSceneMode, activateOnLoad, priority
-                ),
-                UsesAddressable = true,
-            };
+                return new RoomLoadHandle()
+                {
+                    Room = room,
+                    _scene = sceneAsset,
+                    UnloadTimer = new FiniteTimer(room.MinUnloadTimeout),
+                    LoadHandle = Addressables.LoadSceneAsync(
+                        sceneAsset,
+                        loadSceneMode, activateOnLoad, priority
+                    ),
+                    UsesAddressable = true,
+                };
+            }
+            else
+            {
+                return new RoomLoadHandle()
+                {
+                    Room = room,
+                    _scene = sceneAsset,
+                    UnloadTimer = new FiniteTimer(room.MinUnloadTimeout),
+                    UsesAddressable = false,
+                };
+            }
         }
 
         public async UniTask UnloadScene()
@@ -118,16 +118,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
         
         public override string ToString()
         {
-            var s = $"{Room} {(LoadHandle.IsDone ? "is loaded" : "loading")} {UsesAddressable} {UsesAddressable}";
-
-            if (_loadRequesters.Count > 0)
-            {
-                s += "\n Requested by: ";
-                foreach (var loadRequester in _loadRequesters)
-                {
-                    s += $"\n {loadRequester}";
-                }
-            }
+            var s = $"{Room} {(LoadHandle.IsDone ? "is loaded" : "loading")} {UsesAddressable} {UsesAddressable} {UnloadTimer.Timer}/{UnloadTimer.MaxValue}";
 
             return s;
         }

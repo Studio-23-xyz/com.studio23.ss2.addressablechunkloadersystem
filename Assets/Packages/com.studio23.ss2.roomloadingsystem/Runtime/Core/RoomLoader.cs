@@ -23,17 +23,15 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             _roomsToUnloadListCache = new List<RoomData>();
         }
 
-        private void Update()
-        {
-            UpdateRoomUnloadTimer();
-        }
-
         public void UpdateRoomUnloadTimer()
         {
             _roomsToUnloadListCache.Clear();
             foreach (var (room, handle) in _roomExteriorLoadHandles)
             {
-                if (handle.ShouldBeLoaded)
+                //#TODO should be optimized into a per roomHandle hashset/bitfield
+                //that is set before timer updats
+                //instead of checking here
+                if (RoomManager.Instance.CheckIfRoomExteriorShouldBeLoaded(room))
                 {
                     handle.UnloadTimer.reset();
                 }
@@ -56,7 +54,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             _roomsToUnloadListCache.Clear();
             foreach (var (room, handle) in _roomInteriorLoadHandles)
             {
-                if (handle.ShouldBeLoaded)
+                //#TODO should be optimized into a per roomHandle hashset/bitfield
+                //that is set before timer updats
+                //instead of checking here
+                if (RoomManager.Instance.CheckIfRoomInteriorShouldBeLoaded(room))
                 {
                     handle.UnloadTimer.reset();
                 }
@@ -151,34 +152,33 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             return handle;
         }
 
-        public void RemoveExteriorLoadRequest(RoomData room, IRoomLoadSubSystem loadRequester)
+        // public void RemoveExteriorLoadRequest(RoomData room)
+        // {
+        //     if (_roomExteriorLoadHandles.TryGetValue(room, out var handle))
+        //     {
+        //         //#TODO in the case of an existing handle, we may want to update priority
+        //         handle.RemoveRoomLoadRequester(loadRequester);
+        //     }
+        // }
+        
+        public RoomLoadHandle AddExteriorLoadRequest(RoomLoadRequestData loadRequest)
         {
-            if (_roomExteriorLoadHandles.TryGetValue(room, out var handle))
-            {
-                //#TODO in the case of an existing handle, we may want to update priority
-                handle.RemoveRoomLoadRequester(loadRequester);
-            }
+            return GetOrCreateRoomExteriorLoadHandle(loadRequest);
         }
         
-        public void AddExteriorLoadRequest(RoomLoadRequestData loadRequest, IRoomLoadSubSystem loadRequester)
-        {
-            var handle = GetOrCreateRoomExteriorLoadHandle(loadRequest);
-            handle.AddRoomLoadRequester(loadRequester);
-        }
-        
-        public void RemoveInteriorLoadRequest(RoomData room, IRoomLoadSubSystem loadRequester)
-        {
-            if (_roomInteriorLoadHandles.TryGetValue(room, out var handle))
-            {
-                //#TODO in the case of an existing handle, we may want to update priority
-                handle.RemoveRoomLoadRequester(loadRequester);
-            }
-        }
-        
-        public void AddInteriorLoadRequest(RoomLoadRequestData loadRequest, IRoomLoadSubSystem loadRequester)
+        // public void RemoveInteriorLoadRequest(RoomData room)
+        // {
+        //     if (_roomInteriorLoadHandles.TryGetValue(room, out var handle))
+        //     {
+        //         //#TODO in the case of an existing handle, we may want to update priority
+        //         handle.RemoveRoomLoadRequester(loadRequester);
+        //     }
+        // }
+        //
+        public RoomLoadHandle AddInteriorLoadRequest(RoomLoadRequestData loadRequest)
         {
             var handle = GetOrCreateRoomInteriorLoadHandle(loadRequest);
-            handle.AddRoomLoadRequester(loadRequester);
+            return handle;
         }
 
         

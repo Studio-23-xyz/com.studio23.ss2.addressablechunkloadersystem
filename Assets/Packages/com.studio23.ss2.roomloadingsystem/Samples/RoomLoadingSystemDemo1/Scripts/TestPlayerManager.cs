@@ -61,6 +61,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
                     isInteracting = true;
 
                     var positionAfterEntry = door.getPosAfterDoorOpen();
+                    positionAfterEntry.y = transform.position.y;
                     player.Toggle(false);
                     await door.Open();
                     player.transform.position = positionAfterEntry;

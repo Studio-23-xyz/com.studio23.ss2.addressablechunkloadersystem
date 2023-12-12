@@ -63,6 +63,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
             Gizmos.DrawRay(outerPoint, Vector3.up * 6); 
             Gizmos.color = Color.red;
             Gizmos.DrawRay(innerPoint, Vector3.up * 6); 
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, transform.right * 6); 
         }
     }
 }

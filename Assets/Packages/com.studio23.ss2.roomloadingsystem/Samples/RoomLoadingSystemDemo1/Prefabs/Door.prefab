@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5015dc4ece431890bca2542e769485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innerRoom: {fileID: 11400000, guid: 8c8c15309db380f48a65bf25901e3ce2, type: 2}
-  outerRoom: {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}
-  offsetDist: 1.5
-  outerPoint: {x: 0, y: 0, z: 0}
-  innerPoint: {x: 0, y: 0, z: 0}
-  openingOffset: {x: 0, y: 4, z: 0}
+  InnerRoom: {fileID: 11400000, guid: 8c8c15309db380f48a65bf25901e3ce2, type: 2}
+  OuterRoom: {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}
+  OffsetDist: 1.5
+  OpeningOffset: {x: 0, y: 4, z: 0}
+  HoverMat: {fileID: 2100000, guid: 6273d7221595c2f4b9ce534c4a91675d, type: 2}
+  NormalMat: {fileID: 2100000, guid: 7eacaf933f9583f4a8d7646eca82eeaa, type: 2}

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1966194497017155414}
   - component: {fileID: 6476785677259207248}
+  - component: {fileID: 6189632338300117227}
+  - component: {fileID: 8558770460167998847}
   m_Layer: 0
   m_Name: RoomLoadManager
   m_TagString: Untagged
@@ -48,3 +50,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc9b8b23facd6b2418e3314d2ce4008f, type: 2}
   - {fileID: 11400000, guid: 7fbf00947ffea6741b18cfe32e68579c, type: 2}
   _currentEnteredRoom: {fileID: 0}
+--- !u!114 &6189632338300117227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879550475775196162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ef991c2cf34a1ab8794c2699361be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8558770460167998847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879550475775196162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315a3b26492945ca81020251ce9b8ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

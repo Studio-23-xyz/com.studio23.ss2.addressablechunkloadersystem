@@ -23,7 +23,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
         bool UsesAddressable;
         public AsyncOperationHandle<SceneInstance> LoadHandle { get; private set; }
         public AsyncOperationHandle<SceneInstance> UnloadHandle { get; private set; }
-
         private RoomLoadHandle() { }
 
 
@@ -106,11 +105,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Runtime.Core
                 await SceneManager.UnloadSceneAsync(sceneID);
                 Addressables.Release(locations);
             }
-        }
-
-        public async UniTask waitForAllRoomDependencies()
-        {
-            
         }
 
         public async UniTask LoadScene()

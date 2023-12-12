@@ -1,33 +1,32 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 {
 	public class TestCharacterInputs : MonoBehaviour
 	{
-		[Header("Character Input Values")]
-		public Vector2 _move;
-		public Vector2 _look;
-		public bool _jump;
-		public bool _sprint;
+		[FormerlySerializedAs("_move")] [Header("Character Input Values")]
+		public Vector2 Move;
+		[FormerlySerializedAs("_look")] public Vector2 Look;
+		[FormerlySerializedAs("_jump")] public bool Jump;
+		[FormerlySerializedAs("_sprint")] public bool Sprint;
 
-		 [Header("Movement Settings")]
-		public bool _analogMovement;
+		 [FormerlySerializedAs("_analogMovement")] [Header("Movement Settings")]
+		public bool AnalogMovement;
 
-		[Header("Mouse Cursor Settings")]
-		public bool _cursorLocked = true; 
-		public bool _cursorInputForLook = true;
+		[FormerlySerializedAs("_cursorLocked")] [Header("Mouse Cursor Settings")]
+		public bool CursorLocked = true; 
+		[FormerlySerializedAs("_cursorInputForLook")] public bool CursorInputForLook = true;
 		public event Action OnInteractPressed;
 		public void OnInteract()
 		{
-			Debug.Log("aaaaaaaaaa");
 			OnInteractPressed?.Invoke();
 		}
 		
 		public void OnInteract(InputValue value)
 		{
-			Debug.Log("aaaaaaaaaa");
 			OnInteractPressed?.Invoke();
 		}
 		
@@ -38,7 +37,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 
 		public void OnLook(InputValue value)
 		{
-			if(_cursorInputForLook)
+			if(CursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
 			}
@@ -57,27 +56,27 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			_move = newMoveDirection;
+			Move = newMoveDirection;
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
-			_look = newLookDirection;
+			Look = newLookDirection;
 		}
 
 		public void JumpInput(bool newJumpState)
 		{
-			_jump = newJumpState;
+			Jump = newJumpState;
 		}
 
 		public void SprintInput(bool newSprintState)
 		{
-			_sprint = newSprintState;
+			Sprint = newSprintState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			SetCursorState(_cursorLocked);
+			SetCursorState(CursorLocked);
 		}
 
 		private void SetCursorState(bool newState)

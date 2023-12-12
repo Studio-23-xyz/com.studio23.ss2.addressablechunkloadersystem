@@ -16,6 +16,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private Dictionary<RoomData, RoomLoadHandle> _roomExteriorLoadHandles;
         public Dictionary<RoomData, RoomLoadHandle> RoomExteriorLoadHandles => _roomExteriorLoadHandles;
         private List<RoomData> _roomsToUnloadListCache;
+        public event Action<RoomData> OnRoomExteriorLoaded;
+        public event Action<RoomData> OnRoomInteriorLoaded;
+        public event Action<RoomData> OnRoomExteriorUnloaded;
+        public event Action<RoomData> OnRoomInteriorUnloaded;
+        
         protected void Awake()
         {
             _roomInteriorLoadHandles = new Dictionary<RoomData, RoomLoadHandle>();
@@ -90,8 +95,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 //#TODO what happens when this handle is loading a scene and we call this?
                 await RemoveRoomExteriorLoadHandle(room).UnloadScene();
             }
-
+            
             room.HandleExteriorUnloaded();
+            OnRoomExteriorUnloaded?.Invoke(room);
+
         }
         
         private async UniTask ForceUnloadRoomInterior(RoomData room)
@@ -106,6 +113,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
                 await RemoveRoomInteriorLoadHandle(room).UnloadScene();
             }
+            room.HandleRoomInteriorUnloaded();
+            OnRoomInteriorUnloaded?.Invoke(room);
         }
 
         
@@ -126,6 +135,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     requestData.Priority
                 );
                 _roomInteriorLoadHandles.Add(requestData.RoomToLoad, handle);
+                ForceLoadRoomInterior(handle);
             }
             return handle;
         }
@@ -147,10 +157,26 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     requestData.Priority
                 );
                 _roomExteriorLoadHandles.Add(requestData.RoomToLoad, handle);
+                ForceLoadRoomExterior(handle);
             }
 
             return handle;
         }
+    
+        private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
+        {
+            await handle.LoadScene();
+            handle.Room.HandleRoomExteriorLoaded();
+            OnRoomExteriorLoaded?.Invoke(handle.Room);
+        }
+        private async UniTask ForceLoadRoomExterior(RoomLoadHandle handle)
+        {
+            await handle.LoadScene();
+            handle.Room.HandleRoomInteriorLoaded();
+            OnRoomInteriorLoaded?.Invoke(handle.Room);
+        }
+        
+
 
         // public void RemoveExteriorLoadRequest(RoomData room)
         // {

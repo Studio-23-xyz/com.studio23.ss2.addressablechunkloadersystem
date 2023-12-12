@@ -15,16 +15,24 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         [SerializeField] List<FloorData> _allFloors;
         private RoomLoader _roomLoader;
         public RoomLoader  RoomLoader=> _roomLoader;
+        
+        
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
 
         /// <summary>
         /// Fired when room entered and loaded
+        /// NOTE: DOES NOT FIRE IF THE ROOM'S FLOOR IS NOT IN _allFloors
+        /// EX: STAIRS
+        /// DIRECTLY SUB TO THE SCRIPTABLE IN SUCH CASES
         /// </summary>
         public event Action<RoomData> OnRoomEntered;
 
         /// <summary>
-        /// Fired when room exited and unloaded
+        /// Fired when room entered and loaded
+        /// NOTE: DOES NOT FIRE IF THE ROOM'S FLOOR IS NOT IN _allFloors
+        /// EX: STAIRS
+        /// DIRECTLY SUB TO THE SCRIPTABLE IN SUCH CASES
         /// </summary>
         public event Action<RoomData> OnRoomExited;
 
@@ -291,8 +299,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private async UniTask ExitRoom(RoomData prevRoom)
         {
             prevRoom.HandleRoomExited();
-            OnRoomExited?.Invoke(prevRoom);
-            
             // await RemoveRoomInteriorToLoad(prevRoom);
             // foreach (var adjacentRoom in prevRoom.AlwaysLoadRooms)
             // {
@@ -314,6 +320,35 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 if (room.Floor != null)
                 {
                     OnFloorEntered?.Invoke(room.Floor);
+                    foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
+                    {
+                        await AddRoomExteriorToLoad(roomToLoad);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Waits and loads all room dependencies including floor dependcies
+        /// NOTE: THIS DOESN'T HANDLE SETTING ROOM FLAGS.
+        /// SO, you can load rooms this way, but if the loaded rooms are not requiredm
+        /// They may get unloaded.
+        /// Set those flags elsewhere
+        /// Or only use this for the current room
+        /// </summary>
+        /// <param name="room"></param>
+        public async UniTask WaitForRoomDependencies(RoomData room, bool shouldLoadFloorDependencies)
+        {
+            foreach (var adjacentRoom in room.AlwaysLoadRooms)
+            {
+                Debug.Log(room + $" always load {adjacentRoom}");
+                await AddRoomExteriorToLoad(adjacentRoom);
+            }
+    
+            if (shouldLoadFloorDependencies)
+            {
+                if (room.Floor != null)
+                {
                     foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
                     {
                         await AddRoomExteriorToLoad(roomToLoad);

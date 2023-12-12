@@ -9,60 +9,74 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 {
     public class Door:MonoBehaviour
     {
-        public RoomData innerRoom;
-        public RoomData outerRoom;
+        private Renderer _renderer;
+        [FormerlySerializedAs("innerRoom")] public RoomData InnerRoom;
+        [FormerlySerializedAs("outerRoom")] public RoomData OuterRoom;
 
-        public float offsetDist = 1.5f;
-        public Vector3 outerPoint => transform.position +  transform.right *offsetDist;
-        public Vector3 innerPoint => transform.position +  -transform.right *offsetDist;
-        private Vector3 ogPos;
-        public Vector3 openingOffset = Vector3.up * 4;
+        [FormerlySerializedAs("offsetDist")] public float OffsetDist = 1.5f;
+        public Vector3 OuterPoint => transform.position +  transform.right *OffsetDist;
+        public Vector3 InnerPoint => transform.position +  -transform.right *OffsetDist;
+        private Vector3 _ogPos;
+        [FormerlySerializedAs("openingOffset")] public Vector3 OpeningOffset = Vector3.up * 4;
+        public Material HoverMat;
+        public Material NormalMat;
 
         private void Awake()
         {
-            ogPos = transform.position;
+            _ogPos = transform.position;
+            _renderer = GetComponent<Renderer>();
         }
 
-        public async UniTask doorOpenAnim()
+        public void HandleInteractHoverStart()
+        {
+            _renderer.sharedMaterial = HoverMat;
+        }
+        
+        public void HandleInteractHoverEnd()
+        {
+            _renderer.sharedMaterial = NormalMat;
+        }
+
+        public async UniTask DoorOpenAnim()
         {
             FiniteTimer openAnimDuration = new FiniteTimer(.6f);
             while (!openAnimDuration.isComplete)
             {
                 openAnimDuration.updateTimer(Time.deltaTime);
-                transform.position = ogPos + openingOffset * openAnimDuration.Ratio;
+                transform.position = _ogPos + OpeningOffset * openAnimDuration.Ratio;
 
                 await UniTask.Yield();
             }
         }
         
-        public async UniTask doorCloseAnim()
+        public async UniTask DoorCloseAnim()
         {
-            transform.position = ogPos;
+            transform.position = _ogPos;
             await UniTask.Yield();
         }
 
-        public Vector3 getPosAfterDoorOpen()
+        public Vector3 GetPosAfterDoorOpen()
         {
-            var positionAfterEntry = RoomManager.Instance.CurrentEnteredRoom == innerRoom
-                ? outerPoint
-                : innerPoint;
+            var positionAfterEntry = RoomManager.Instance.CurrentEnteredRoom == InnerRoom
+                ? OuterPoint
+                : InnerPoint;
             return positionAfterEntry;
         }
 
         public async UniTask Open()
         {
-            var roomToLoad = RoomManager.Instance.CurrentEnteredRoom == innerRoom
-                ? outerRoom
-                : innerRoom;
+            var roomToLoad = RoomManager.Instance.CurrentEnteredRoom == InnerRoom
+                ? OuterRoom
+                : InnerRoom;
             await RoomManager.Instance.EnterRoom(roomToLoad);
-            await doorOpenAnim();
+            await DoorOpenAnim();
         }        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawRay(outerPoint, Vector3.up * 6); 
+            Gizmos.DrawRay(OuterPoint, Vector3.up * 6); 
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(innerPoint, Vector3.up * 6); 
+            Gizmos.DrawRay(InnerPoint, Vector3.up * 6); 
             Gizmos.color = Color.blue;
             Gizmos.DrawRay(transform.position, transform.right * 6); 
         }

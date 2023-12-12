@@ -8,57 +8,55 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 	[RequireComponent(typeof(PlayerInput))]
 	public class TestCharacterController : MonoBehaviour
 	{
+		[FormerlySerializedAs("_moveSpeed")]
 		[FormerlySerializedAs("moveSpeed")]
-		[FormerlySerializedAs("MoveSpeed")]
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
-		public float _moveSpeed = 4.0f;
-		[FormerlySerializedAs("sprintSpeed")] [FormerlySerializedAs("SprintSpeed")] [Tooltip("Sprint speed of the character in m/s")]
-		public float _sprintSpeed = 6.0f;
-		[FormerlySerializedAs("rotationSpeed")] [FormerlySerializedAs("RotationSpeed")] [Tooltip("Rotation speed of the character")]
-		public float _rotationSpeed = 1.0f;
-		[FormerlySerializedAs("speedChangeRate")] [FormerlySerializedAs("SpeedChangeRate")] [Tooltip("Acceleration and deceleration")]
-		public float _speedChangeRate = 10.0f;
+		public float MoveSpeed = 4.0f;
+		[FormerlySerializedAs("_sprintSpeed")] [FormerlySerializedAs("sprintSpeed")] [Tooltip("Sprint speed of the character in m/s")]
+		public float SprintSpeed = 6.0f;
+		[FormerlySerializedAs("_rotationSpeed")] [FormerlySerializedAs("rotationSpeed")] [Tooltip("Rotation speed of the character")]
+		public float RotationSpeed = 1.0f;
+		[FormerlySerializedAs("_speedChangeRate")] [FormerlySerializedAs("speedChangeRate")] [Tooltip("Acceleration and deceleration")]
+		public float SpeedChangeRate = 10.0f;
 
+		[FormerlySerializedAs("_jumpHeight")]
 		[FormerlySerializedAs("jumpHeight")]
-		[FormerlySerializedAs("JumpHeight")]
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
-		public float _jumpHeight = 1.2f;
-		[FormerlySerializedAs("gravity")]
-		[FormerlySerializedAs("Gravity")] 
-		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-		public float _gravity = -15.0f;
+		public float JumpHeight = 1.2f;
+		[FormerlySerializedAs("_gravity")] [FormerlySerializedAs("gravity")] [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
+		public float Gravity = -15.0f;
 
+		[FormerlySerializedAs("_jumpTimeout")]
 		[FormerlySerializedAs("jumpTimeout")]
-		[FormerlySerializedAs("JumpTimeout")]
 		[Space(10)]
 		[Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-		public float _jumpTimeout = 0.1f;
-		[FormerlySerializedAs("fallTimeout")] [FormerlySerializedAs("FallTimeout")] [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
-		public float _fallTimeout = 0.15f;
+		public float JumpTimeout = 0.1f;
+		[FormerlySerializedAs("_fallTimeout")] [FormerlySerializedAs("fallTimeout")] [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
+		public float FallTimeout = 0.15f;
 
+		[FormerlySerializedAs("_grounded")]
 		[FormerlySerializedAs("grounded")]
-		[FormerlySerializedAs("Grounded")]
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
-		public bool _grounded = true;
-		[FormerlySerializedAs("groundedOffset")] [FormerlySerializedAs("GroundedOffset")] [Tooltip("Useful for rough ground")]
-		public float _groundedOffset = -0.14f;
-		[FormerlySerializedAs("groundedRadius")] [FormerlySerializedAs("GroundedRadius")] [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
-		public float _groundedRadius = 0.5f;
-		[FormerlySerializedAs("groundLayers")] [FormerlySerializedAs("GroundLayers")] [Tooltip("What layers the character uses as ground")]
-		public LayerMask _groundLayers;
+		public bool Grounded = true;
+		[FormerlySerializedAs("_groundedOffset")] [FormerlySerializedAs("groundedOffset")] [Tooltip("Useful for rough ground")]
+		public float GroundedOffset = -0.14f;
+		[FormerlySerializedAs("_groundedRadius")] [FormerlySerializedAs("groundedRadius")] [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
+		public float GroundedRadius = 0.5f;
+		[FormerlySerializedAs("_groundLayers")] [FormerlySerializedAs("groundLayers")] [Tooltip("What layers the character uses as ground")]
+		public LayerMask GroundLayers;
 
+		[FormerlySerializedAs("_cinemachineCameraTarget")]
 		[FormerlySerializedAs("cinemachineCameraTarget")]
-		[FormerlySerializedAs("CinemachineCameraTarget")]
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
-		public GameObject _cinemachineCameraTarget;
-		[FormerlySerializedAs("TopClamp")] [Tooltip("How far in degrees can you move the camera up")]
-		public float _topClamp = 90.0f;
-		[FormerlySerializedAs("BottomClamp")] [Tooltip("How far in degrees can you move the camera down")]
-		public float _bottomClamp = -90.0f;
+		public GameObject CinemachineCameraTarget;
+		[FormerlySerializedAs("_topClamp")] [Tooltip("How far in degrees can you move the camera up")]
+		public float TopClamp = 90.0f;
+		[FormerlySerializedAs("_bottomClamp")] [Tooltip("How far in degrees can you move the camera down")]
+		public float BottomClamp = -90.0f;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -111,8 +109,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 			_playerInput = GetComponent<PlayerInput>();
 
 			// reset our timeouts on start
-			_jumpTimeoutDelta = _jumpTimeout;
-			_fallTimeoutDelta = _fallTimeout;
+			_jumpTimeoutDelta = JumpTimeout;
+			_fallTimeoutDelta = FallTimeout;
 		}
 
 		private void Update()
@@ -130,26 +128,26 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset
-			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _groundedOffset, transform.position.z);
-			_grounded = Physics.CheckSphere(spherePosition, _groundedRadius, _groundLayers, QueryTriggerInteraction.Ignore);
+			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
 		private void CameraRotation()
 		{
 			// if there is an input
-			if (_input._look.sqrMagnitude >= Threshold)
+			if (_input.Look.sqrMagnitude >= Threshold)
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 				
-				_cinemachineTargetPitch += _input._look.y * _rotationSpeed * deltaTimeMultiplier * _camSensitivity;
-				_rotationVelocity = _input._look.x * _rotationSpeed * deltaTimeMultiplier * _camSensitivity;
+				_cinemachineTargetPitch += _input.Look.y * RotationSpeed * deltaTimeMultiplier * _camSensitivity;
+				_rotationVelocity = _input.Look.x * RotationSpeed * deltaTimeMultiplier * _camSensitivity;
 
 				// clamp our pitch rotation
-				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _bottomClamp, _topClamp);
+				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
 				// Update Cinemachine camera target pitch
-				_cinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
 
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);
@@ -159,26 +157,26 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input._sprint ? _sprintSpeed : _moveSpeed;
+			float targetSpeed = _input.Sprint ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0
-			if (_input._move == Vector2.zero) targetSpeed = 0.0f;
+			if (_input.Move == Vector2.zero) targetSpeed = 0.0f;
 
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
 			float speedOffset = 0.1f;
-			float inputMagnitude = _input._analogMovement ? _input._move.magnitude : 1f;
+			float inputMagnitude = _input.AnalogMovement ? _input.Move.magnitude : 1f;
 
 			// accelerate or decelerate to target speed
 			if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
 			{
 				// creates curved result rather than a linear one giving a more organic speed change
 				// note T in Lerp is clamped, so we don't need to clamp our speed
-				_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * _speedChangeRate);
+				_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 
 				// round speed to 3 decimal places
 				_speed = Mathf.Round(_speed * 1000f) / 1000f;
@@ -189,14 +187,14 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 			}
 
 			// normalise input direction
-			Vector3 inputDirection = new Vector3(_input._move.x, 0.0f, _input._move.y).normalized;
+			Vector3 inputDirection = new Vector3(_input.Move.x, 0.0f, _input.Move.y).normalized;
 
 			// note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is a move input rotate player when the player is moving
-			if (_input._move != Vector2.zero)
+			if (_input.Move != Vector2.zero)
 			{
 				// move
-				inputDirection = transform.right * _input._move.x + transform.forward * _input._move.y;
+				inputDirection = transform.right * _input.Move.x + transform.forward * _input.Move.y;
 			}
 
 			// move the player
@@ -205,10 +203,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 
 		private void JumpAndGravity()
 		{
-			if (_grounded)
+			if (Grounded)
 			{
 				// reset the fall timeout timer
-				_fallTimeoutDelta = _fallTimeout;
+				_fallTimeoutDelta = FallTimeout;
 
 				// stop our velocity dropping infinitely when grounded
 				if (_verticalVelocity < 0.0f)
@@ -217,10 +215,10 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 				}
 
 				// Jump
-				if (_input._jump && _jumpTimeoutDelta <= 0.0f)
+				if (_input.Jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
 
 				// jump timeout
@@ -232,7 +230,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 			else
 			{
 				// reset the jump timeout timer
-				_jumpTimeoutDelta = _jumpTimeout;
+				_jumpTimeoutDelta = JumpTimeout;
 
 				// fall timeout
 				if (_fallTimeoutDelta >= 0.0f)
@@ -241,13 +239,13 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 				}
 
 				// if we are not grounded, do not jump
-				_input._jump = false;
+				_input.Jump = false;
 			}
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
 			if (_verticalVelocity < _terminalVelocity)
 			{
-				_verticalVelocity += _gravity * Time.deltaTime;
+				_verticalVelocity += Gravity * Time.deltaTime;
 			}
 		}
 
@@ -263,11 +261,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 			Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
 			Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
-			if (_grounded) Gizmos.color = transparentGreen;
+			if (Grounded) Gizmos.color = transparentGreen;
 			else Gizmos.color = transparentRed;
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - _groundedOffset, transform.position.z), _groundedRadius);
+			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
 	}
 }

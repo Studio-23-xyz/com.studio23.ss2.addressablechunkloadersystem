@@ -42,6 +42,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         //#TODO separate this
         private Transform _player;
+        
         protected override void Initialize()
         {
             _roomLoader = GetComponent<RoomLoader>();
@@ -247,13 +248,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             //a better way would be to set all the flags and then wait on the handles
             foreach (var adjacentRoom in room.AlwaysLoadRooms)
             {
-                Debug.Log(room + $" always load {adjacentRoom}");
                 await AddRoomExteriorFlag(adjacentRoom, RoomFlag.IsCurrentFloorMustLoad);
             }
     
             if (floorNewlyEntered)
             {
-                Debug.Log("load room dep floorNewlyEntered " + floorNewlyEntered);
                 if (room.Floor != null)
                 {
                     OnFloorEntered?.Invoke(room.Floor);
@@ -336,7 +335,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 {
                     Debug.Log($"{room} is Current floor MustLoad");
                 }
-
             }
         }
 

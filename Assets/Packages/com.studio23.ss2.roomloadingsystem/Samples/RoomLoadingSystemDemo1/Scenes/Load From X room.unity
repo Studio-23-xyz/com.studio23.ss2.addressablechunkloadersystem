@@ -372,6 +372,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomData: {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}
+  RoomEnteredAndLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RoomDependenciesLoaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1930643093
 Transform:
   m_ObjectHideFlags: 0

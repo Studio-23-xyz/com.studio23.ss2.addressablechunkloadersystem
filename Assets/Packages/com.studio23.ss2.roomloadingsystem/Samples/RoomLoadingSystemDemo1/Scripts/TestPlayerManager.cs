@@ -52,7 +52,8 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
             
             if(prevDoor != null )
                 prevDoor.HandleInteractHoverEnd();
-
+            
+            
             if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out var hit, MaxRayDistance, DoorLayer))
             {
                 var c = hit.collider;

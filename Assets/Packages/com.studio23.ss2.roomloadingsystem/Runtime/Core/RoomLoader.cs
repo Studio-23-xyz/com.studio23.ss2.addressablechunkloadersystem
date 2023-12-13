@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
@@ -105,7 +106,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             if (_roomInteriorLoadHandles.TryGetValue(requestData.RoomToLoad, out handle))
             {
                 //#TODO in the case of an existing handle, we may want to update priority
-                handle.addFlag(flags);
+                handle.AddFlag(flags);
             }
             else
             {
@@ -129,7 +130,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             if (_roomExteriorLoadHandles.TryGetValue(requestData.RoomToLoad, out handle))
             {
                 //#TODO in the case of an existing handle, we may want to update priority
-                handle.addFlag(flags);
+                handle.AddFlag(flags);
             }
             else
             {
@@ -197,7 +198,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (_roomInteriorLoadHandles.TryGetValue(room, out var handle))
             {
-                handle.removeFlag(flags);
+                handle.RemoveFlag(flags);
             }
         }
         
@@ -205,7 +206,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (_roomExteriorLoadHandles.TryGetValue(room, out var handle))
             {
-                handle.removeFlag(flags);
+                handle.RemoveFlag(flags);
             }
         }
 
@@ -224,7 +225,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             return handle;
         }
 
-        public void addHandleForAlreadyLoadedExterior(RoomData room, RoomFlag flags)
+        public void AddHandleForAlreadyLoadedExterior(RoomData room, RoomFlag flags)
         {
             _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
         }
@@ -261,5 +262,23 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
 
+        public async UniTask UnloadAllRooms()
+        {
+            List<UniTask> handlesToUnload = new List<UniTask>();
+            
+            foreach (var (room, handle) in _roomInteriorLoadHandles)
+            {
+                handlesToUnload.Add(handle.UnloadScene());    
+            }
+            _roomInteriorLoadHandles.Clear();
+            
+            foreach (var (room, handle) in _roomExteriorLoadHandles)
+            {
+                handlesToUnload.Add(handle.UnloadScene());    
+            }
+            _roomExteriorLoadHandles.Clear();
+
+            await UniTask.WhenAll(handlesToUnload);
+        }
     }
 }

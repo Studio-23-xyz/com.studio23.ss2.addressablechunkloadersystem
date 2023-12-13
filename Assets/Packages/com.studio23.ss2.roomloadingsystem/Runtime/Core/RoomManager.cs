@@ -41,7 +41,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         public FloorData CurrentFloor => _currentEnteredRoom ? _currentEnteredRoom.Floor : null;
 
         //#TODO separate this
-        private Transform player;
+        private Transform _player;
         protected override void Initialize()
         {
             _roomLoader = GetComponent<RoomLoader>();
@@ -83,21 +83,21 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         protected virtual void FindPlayer()
         {
-            player = GameObject.FindWithTag("Player")?.transform;
+            _player = GameObject.FindWithTag("Player")?.transform;
         }
 
 
 
         private void Update()
         {
-            if (player == null)
+            if (_player == null)
             {
                 FindPlayer();
             }
 
-            if (player != null)
+            if (_player != null)
             {
-                updateRoomsInPlayerRange();
+                UpdateRoomsInPlayerRange();
             }
 
             //called explicitly to ensure that timer starts on same frame
@@ -105,7 +105,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         }
 
 
-        private void updateRoomsInPlayerRange()
+        private void UpdateRoomsInPlayerRange()
         {
             if (_currentEnteredRoom == null)
                 return;
@@ -113,7 +113,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 return;
             foreach (var roomData in CurrentFloor.RoomsInFloor)
             {
-                if (roomData.IsPosInLoadingRange(player.transform.position) ||
+                if (roomData.IsPosInLoadingRange(_player.transform.position) ||
                     CurrentEnteredRoom == roomData)
                 {
                     HandleRoomEnteredLoadingRange(roomData);
@@ -172,18 +172,19 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             await handle.LoadScene();
         }
 
-        public async UniTask EnterRoom(RoomData room)
+        public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
         {
-            if (_currentEnteredRoom == null && !_roomLoader.RoomExteriorLoadHandles.ContainsKey(room))
+            if (_currentEnteredRoom == null && !_roomLoader.RoomExteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing)
             {
                 //the room has been entered but the exterior isn't marked as loaded
                 //this is possible if we start in this scene from the editor
                 //in which case, exterior is already loaded.
                 //we just need to add a dummy handle
                 //that won't unload the scene as an addressable.
-                _roomLoader.addHandleForAlreadyLoadedExterior(room, RoomFlag.IsCurrentRoom);
+                _roomLoader.AddHandleForAlreadyLoadedExterior(room, RoomFlag.IsCurrentRoom);
             }
 
+            Debug.Log("enter room "+ room, room);
             if (_currentEnteredRoom != room)
             {
                 var prevFloor = CurrentFloor;
@@ -207,7 +208,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 await AddRoomInteriorFlag(room,RoomFlag.IsCurrentRoom);
                 OnRoomEntered?.Invoke(room);
 
-                loadCurrentRoomDependencies(room, isDifferentFloor);
+                LoadCurrentRoomDependencies(room, isDifferentFloor);
             }
         }
 
@@ -239,7 +240,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
 
-        private async UniTask loadCurrentRoomDependencies(RoomData room, bool floorNewlyEntered)
+        private async UniTask LoadCurrentRoomDependencies(RoomData room, bool floorNewlyEntered)
         {
             //NOTE:FLAGS are set after the previous room is loaded
             //it is not syncronous
@@ -283,6 +284,12 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
             return false;
         }
+
+
+        public void UnloadAllRooms()
+        {
+            _roomLoader.UnloadAllRooms();
+        }
         
         /// <summary>
         /// Returns if the exterior for the room is loaded
@@ -302,7 +309,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         
 
         [Button]
-        void printRoomsInLoadingRange()
+        void PrintRoomsInLoadingRange()
         {
             foreach (var (room, handle) in _roomLoader.RoomExteriorLoadHandles)
             {
@@ -313,7 +320,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
         [Button]
-        void printRoomsInMustLoad()
+        void PrintRoomsInMustLoad()
         {
             foreach (var (room, handle) in _roomLoader.RoomExteriorLoadHandles)
             {

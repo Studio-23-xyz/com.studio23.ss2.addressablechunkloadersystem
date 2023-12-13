@@ -1,6 +1,7 @@
 using System;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.RoomLoadingSystem.Core
 {
@@ -12,20 +13,17 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
     public class RoomEntryZone:MonoBehaviour
     {
         private RoomInstance _roomInstance;
-        [SerializeField] private bool isPlayerInRoom;
         private void Awake()
         {
             _roomInstance = GetComponent<RoomInstance>();
         }
         
         
-
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                isPlayerInRoom = true;
-                
                 RoomManager.Instance.EnterRoom(_roomInstance.Room);
             }
         }

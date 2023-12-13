@@ -13,7 +13,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
     public class RoomLoadHandle
     {
         public RoomData Room { get; private set; }
-        private bool IsInterior;
+        private bool _isInterior;
         AssetReference _scene;
         public FiniteTimer UnloadTimer;
 
@@ -51,7 +51,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             return new RoomLoadHandle()
             {
                 Room = room,
-                IsInterior = isInterior,
+                _isInterior = isInterior,
                 _flags = flags,
                 _scene = isInterior? room.InteriorScene: room.ExteriorScene,
                 UnloadTimer = new FiniteTimer(room.MinUnloadTimeout),
@@ -82,7 +82,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     Room = room,
                     _scene = sceneAsset,
                     _flags = flags,
-                    IsInterior = isInterior,
+                    _isInterior = isInterior,
                     UnloadTimer = new FiniteTimer(room.MinUnloadTimeout),
                     LoadHandle = Addressables.LoadSceneAsync(
                         sceneAsset,
@@ -98,18 +98,18 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                     Room = room,
                     _scene = sceneAsset,
                     _flags = flags,
-                    IsInterior = isInterior,
+                    _isInterior = isInterior,
                     UnloadTimer = new FiniteTimer(room.MinUnloadTimeout),
                     UsesAddressable = false,
                 };
             }
         }
 
-        public void addFlag(RoomFlag flags)
+        public void AddFlag(RoomFlag flags)
         {
             _flags |= flags;
         }
-        public void removeFlag(RoomFlag flags)
+        public void RemoveFlag(RoomFlag flags)
         {
             _flags  = (_flags & ~flags);
         }
@@ -178,7 +178,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         
         public override string ToString()
         {
-            var s = $"{Room.name}{(IsInterior ? "interior" : "exterior")} {_flags} UsesAddressable: {UsesAddressable} {(LoadHandle.IsDone ? "is loaded" : $"loading ")} unload timer:{UnloadTimer.Timer}/{UnloadTimer.MaxValue} ";
+            var s = $"{Room.name}{(_isInterior ? "interior" : "exterior")} {_flags} UsesAddressable: {UsesAddressable} {(LoadHandle.IsDone ? "is loaded" : $"loading ")} unload timer:{UnloadTimer.Timer}/{UnloadTimer.MaxValue} ";
 
             return s;
         }

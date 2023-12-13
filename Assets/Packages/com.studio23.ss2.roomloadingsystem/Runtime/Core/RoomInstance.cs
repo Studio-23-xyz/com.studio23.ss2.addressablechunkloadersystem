@@ -5,12 +5,13 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 {
     public class RoomInstance:MonoBehaviour
     {
+        public Transform defaultPlayerSpawnPoint;
         public RoomData Room;
-        public bool doesRoomPosMatch() => Room.WorldPosition == transform.position;
+        public bool DoesRoomPosMatch() => Room.WorldPosition == transform.position;
 
         private void Awake()
         {
-            if (!doesRoomPosMatch())
+            if (!DoesRoomPosMatch())
             {
                 UnityEngine.Debug.Log($"Room {Room} worldpos {Room.WorldPosition} doesn't match roominstance worldPos {transform.position}");
             }
@@ -27,7 +28,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             Gizmos.DrawSphere(Room.WorldPosition, .125f);
             Gizmos.DrawRay(Room.WorldPosition, Vector3.up* 9);
 
-            if (!doesRoomPosMatch())
+            if (!DoesRoomPosMatch())
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawSphere(transform.position, .125f);

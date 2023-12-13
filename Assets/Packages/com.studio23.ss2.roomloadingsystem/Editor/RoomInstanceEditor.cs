@@ -44,7 +44,7 @@ public class RoomInstanceEditor : UnityEditor.Editor
             MarkRoomDataDirty();
         }
 
-        if (!_roomInstance.doesRoomPosMatch())
+        if (!_roomInstance.DoesRoomPosMatch())
         {
             EditorGUILayout.HelpBox($"Room {_roomInstance.Room} worldpos {_roomInstance.Room.WorldPosition} doesn't match roominstance worldPos {_roomInstance.transform.position}", MessageType.Error);
         }

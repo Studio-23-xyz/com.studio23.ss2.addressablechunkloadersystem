@@ -15,7 +15,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
         [FormerlySerializedAs("player")] public TestCharacterController Player;
         [FormerlySerializedAs("inputs")] public TestCharacterInputs Inputs;
         [FormerlySerializedAs("doorLayer")] public LayerMask DoorLayer;
-        private Camera _cam;
+        public Camera _cam;
         private bool _isInteracting = false;
         private Door prevDoor;
         public float MaxRayDistance = 4;
@@ -24,8 +24,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
         {
             Player = GetComponent<TestCharacterController>();
             Inputs = GetComponent<TestCharacterInputs>();
-            _cam = Camera.main;
-            
         }
 
         private void OnEnable()
@@ -51,17 +49,17 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
             {
                 return;
             }
+            
             if(prevDoor != null )
                 prevDoor.HandleInteractHoverEnd();
-            if (Physics.Raycast(transform.position, _cam.transform.forward, out var hit, MaxRayDistance, DoorLayer))
+
+            if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out var hit, MaxRayDistance, DoorLayer))
             {
                 var c = hit.collider;
                 var door = c.GetComponent<Door>();
 
                 if (door != null)
                 {
-
-                    
                     door.HandleInteractHoverStart();
                     prevDoor = door;
                 }
@@ -76,7 +74,12 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
                 return;
             }
 
-            if (Physics.Raycast(transform.position, _cam.transform.forward, out var hit, MaxRayDistance, DoorLayer))
+            if (_cam == null)
+            {
+                _cam = Camera.main;
+            }
+
+            if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out var hit, MaxRayDistance, DoorLayer))
             {
                 var c = hit.collider;
                 var door = c.GetComponent<Door>();
@@ -97,8 +100,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
                 }
             }
         }
-        
-        
 
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(_cam.transform.position, MaxRayDistance * _cam.transform.forward);
+        }
     }
 }

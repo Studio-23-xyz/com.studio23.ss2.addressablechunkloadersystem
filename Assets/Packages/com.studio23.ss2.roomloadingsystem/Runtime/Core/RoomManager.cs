@@ -15,7 +15,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         private RoomLoader _roomLoader;
         public RoomLoader  RoomLoader=> _roomLoader;
         
-        
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
 
@@ -35,22 +34,14 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         /// </summary>
         public event Action<RoomData> OnRoomExited;
 
-
-
         public RoomData CurrentEnteredRoom => _currentEnteredRoom;
         [Required] [SerializeField] private RoomData _currentEnteredRoom;
 
         [ShowNativeProperty]
         public FloorData CurrentFloor => _currentEnteredRoom ? _currentEnteredRoom.Floor : null;
 
-        /// <summary>
-        /// IS NOT A LIST THAT CONTIANS ROOMS THAT ARE BEING UNLOADED. FOR INTERNAL USE ONLY
-        /// </summary>
-        private List<RoomData> _roomsToUnloadListCache;
-
         //#TODO separate this
         private Transform player;
-
         protected override void Initialize()
         {
             _roomLoader = GetComponent<RoomLoader>();
@@ -92,14 +83,23 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         protected virtual void FindPlayer()
         {
-            player = GameObject.FindWithTag("Player").transform;
+            player = GameObject.FindWithTag("Player")?.transform;
         }
 
 
 
         private void Update()
         {
-            updateRoomsInPlayerRange();
+            if (player == null)
+            {
+                FindPlayer();
+            }
+
+            if (player != null)
+            {
+                updateRoomsInPlayerRange();
+            }
+
             //called explicitly to ensure that timer starts on same frame
             RoomLoader.UpdateRoomUnloadTimer();
         }
@@ -124,8 +124,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 }
             }
         }
-
-
 
 
         public void SetRoomAsMustLoad(RoomData room)

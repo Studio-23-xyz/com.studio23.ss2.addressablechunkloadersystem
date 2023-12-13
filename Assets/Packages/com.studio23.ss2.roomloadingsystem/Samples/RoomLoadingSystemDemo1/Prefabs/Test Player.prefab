@@ -338,23 +338,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b59a85a57bf4d4d93fc33bf61cbc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 16
-  _sprintSpeed: 6
-  _rotationSpeed: 1
-  _speedChangeRate: 10
-  _jumpHeight: 1.2
-  _gravity: -15
-  _jumpTimeout: 0.1
-  _fallTimeout: 0.15
-  _grounded: 1
-  _groundedOffset: -0.14
-  _groundedRadius: 0.5
-  _groundLayers:
+  MoveSpeed: 16
+  SprintSpeed: 6
+  RotationSpeed: 1
+  SpeedChangeRate: 10
+  JumpHeight: 1.2
+  Gravity: -15
+  JumpTimeout: 0.1
+  FallTimeout: 0.15
+  Grounded: 1
+  GroundedOffset: -0.14
+  GroundedRadius: 0.5
+  GroundLayers:
     serializedVersion: 2
     m_Bits: 4096
-  _cinemachineCameraTarget: {fileID: 1167823480438848910}
-  _topClamp: 90
-  _bottomClamp: -90
+  CinemachineCameraTarget: {fileID: 1167823480438848910}
+  TopClamp: 90
+  BottomClamp: -90
   _camSensitivity: 10
 --- !u!114 &5144406056086656771
 MonoBehaviour:
@@ -368,13 +368,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79e28b3d4b22344d877be0e35bf522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _move: {x: 0, y: 0}
-  _look: {x: 0, y: 0}
-  _jump: 0
-  _sprint: 0
-  _analogMovement: 0
-  _cursorLocked: 1
-  _cursorInputForLook: 1
+  Move: {x: 0, y: 0}
+  Look: {x: 0, y: 0}
+  Jump: 0
+  Sprint: 0
+  AnalogMovement: 0
+  CursorLocked: 1
+  CursorInputForLook: 1
 --- !u!114 &5563923120775215575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,8 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197fb4c77d70b014cbc8056c9f9656e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  inputs: {fileID: 0}
-  doorLayer:
+  Player: {fileID: 0}
+  Inputs: {fileID: 0}
+  DoorLayer:
     serializedVersion: 2
     m_Bits: 8192
+  _cam: {fileID: 3735434347610140870}
+  MaxRayDistance: 6

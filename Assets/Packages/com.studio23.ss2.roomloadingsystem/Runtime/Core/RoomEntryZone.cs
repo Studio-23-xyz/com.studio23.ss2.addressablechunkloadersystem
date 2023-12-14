@@ -24,7 +24,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         {
             if (other.CompareTag("Player"))
             {
-                RoomManager.Instance.EnterRoom(_roomInstance.Room);
+                RoomManager.Instance.EnterRoom(_roomInstance._room);
             }
         }
 

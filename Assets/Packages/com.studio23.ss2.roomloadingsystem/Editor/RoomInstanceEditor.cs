@@ -19,7 +19,7 @@ public class RoomInstanceEditor : UnityEditor.Editor
 
         _roomInstance = (RoomInstance)target;
 
-        if (_roomInstance.Room == null)
+        if (_roomInstance._room == null)
         {
             EditorGUILayout.HelpBox("RoomData is null. Please assign a RoomData scriptable object.", MessageType.Error);
             return;
@@ -34,11 +34,11 @@ public class RoomInstanceEditor : UnityEditor.Editor
     
         // Show the RoomLoadRadius field as a Vector3
         EditorGUI.BeginChangeCheck();
-        var newRoomRadius = EditorGUILayout.FloatField("Load Radius",_roomInstance.Room.RoomLoadRadius);
+        var newRoomRadius = EditorGUILayout.FloatField("Load Radius",_roomInstance._room.RoomLoadRadius);
         if (EditorGUI.EndChangeCheck())
         {
             // Set the RoomData's WorldPosition to the RoomInstance's transform.position
-            _roomInstance.Room.RoomLoadRadius = newRoomRadius;
+            _roomInstance._room.RoomLoadRadius = newRoomRadius;
 
             // Mark the RoomData as dirty to ensure it gets saved
             MarkRoomDataDirty();
@@ -46,7 +46,7 @@ public class RoomInstanceEditor : UnityEditor.Editor
 
         if (!_roomInstance.DoesRoomPosMatch())
         {
-            EditorGUILayout.HelpBox($"Room {_roomInstance.Room} worldpos {_roomInstance.Room.WorldPosition} doesn't match roominstance worldPos {_roomInstance.transform.position}", MessageType.Error);
+            EditorGUILayout.HelpBox($"Room {_roomInstance._room} worldpos {_roomInstance._room.WorldPosition} doesn't match roominstance worldPos {_roomInstance.transform.position}", MessageType.Error);
         }
         // Display a button to update the RoomPosition
         if (GUILayout.Button("Update RoomPosition"))
@@ -62,13 +62,13 @@ public class RoomInstanceEditor : UnityEditor.Editor
         // Get the target RoomInstance script
 
         // Ensure the RoomData field is not null
-        if (roomInstance.Room != null)
+        if (roomInstance._room != null)
         {
             // Record the change for undo purposes
-            Undo.RecordObject(roomInstance.Room, "Update RoomPosition");
+            Undo.RecordObject(roomInstance._room, "Update RoomPosition");
 
             // Set the RoomData's WorldPosition to the RoomInstance's transform.position
-            roomInstance.Room.WorldPosition = roomInstance.transform.position;
+            roomInstance._room.WorldPosition = roomInstance.transform.position;
 
             // Mark the RoomData as dirty to ensure it gets saved
             MarkRoomDataDirty();
@@ -78,7 +78,7 @@ public class RoomInstanceEditor : UnityEditor.Editor
     private void MarkRoomDataDirty()
     {
         // Mark the RoomData as dirty to ensure it gets saved
-        EditorUtility.SetDirty(_roomInstance.Room);
+        EditorUtility.SetDirty(_roomInstance._room);
     }
 }
 

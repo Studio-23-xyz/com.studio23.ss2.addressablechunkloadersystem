@@ -158,14 +158,14 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
         public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
         {
-            if (_currentEnteredRoom == null && !_roomLoader.RoomExteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing)
+            if (_currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing)
             {
                 //the room has been entered but the exterior isn't marked as loaded
                 //this is possible if we start in this scene from the editor
                 //in which case, exterior is already loaded.
                 //we just need to add a dummy handle
                 //that won't unload the scene as an addressable.
-                _roomLoader.AddHandleForAlreadyLoadedExterior(room, RoomFlag.IsCurrentRoom);
+                _roomLoader.AddHandleForAlreadyLoadedInterior(room, RoomFlag.IsCurrentRoom);
             }
 
             Debug.Log("enter room "+ room, room);

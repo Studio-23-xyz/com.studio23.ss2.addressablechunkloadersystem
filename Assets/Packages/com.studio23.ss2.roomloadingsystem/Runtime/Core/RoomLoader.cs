@@ -164,31 +164,12 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             OnRoomInteriorLoaded?.Invoke(handle.Room);
         }
         
-
-
-        // public void RemoveExteriorLoadRequest(RoomData room)
-        // {
-        //     if (_roomExteriorLoadHandles.TryGetValue(room, out var handle))
-        //     {
-        //         //#TODO in the case of an existing handle, we may want to update priority
-        //         handle.RemoveRoomLoadRequester(loadRequester);
-        //     }
-        // }
-        
         public RoomLoadHandle AddExteriorLoadRequest(RoomLoadRequestData loadRequest, RoomFlag flags)
         {
             return GetOrCreateRoomExteriorLoadHandle(loadRequest, flags);
         }
         
-        // public void RemoveInteriorLoadRequest(RoomData room)
-        // {
-        //     if (_roomInteriorLoadHandles.TryGetValue(room, out var handle))
-        //     {
-        //         //#TODO in the case of an existing handle, we may want to update priority
-        //         handle.RemoveRoomLoadRequester(loadRequester);
-        //     }
-        // }
-        //
+
         public RoomLoadHandle AddInteriorLoadRequest(RoomLoadRequestData loadRequest, RoomFlag flags)
         {
             var handle = GetOrCreateRoomInteriorLoadHandle(loadRequest,flags);
@@ -226,9 +207,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             return handle;
         }
 
-        public void AddHandleForAlreadyLoadedExterior(RoomData room, RoomFlag flags)
+        public void AddHandleForAlreadyLoadedInterior(RoomData room, RoomFlag flags)
         {
-            _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
+            _roomInteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,true));
         }
 
         private void OnDestroy()

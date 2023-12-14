@@ -1,32 +1,35 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.RoomLoadingSystem.Core
 {
     public class RoomInstance:MonoBehaviour
     {
-        public Transform defaultPlayerSpawnPoint;
-        public RoomData Room;
-        public bool DoesRoomPosMatch() => Room.WorldPosition == transform.position;
+        [FormerlySerializedAs("defaultPlayerSpawnPoint")] 
+        public Transform _defaultPlayerSpawnPoint;
+        [FormerlySerializedAs("Room")] 
+        public RoomData _room;
+        public bool DoesRoomPosMatch() => _room.WorldPosition == transform.position;
 
         private void Awake()
         {
             if (!DoesRoomPosMatch())
             {
-                UnityEngine.Debug.Log($"Room {Room} worldpos {Room.WorldPosition} doesn't match roominstance worldPos {transform.position}");
+                UnityEngine.Debug.Log($"Room {_room} worldpos {_room.WorldPosition} doesn't match roominstance worldPos {transform.position}");
             }
         }
 
 
         private void OnDrawGizmosSelected()
         {
-            if (Room == null)
+            if (_room == null)
             {
                 return;
             }
             Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(Room.WorldPosition, .125f);
-            Gizmos.DrawRay(Room.WorldPosition, Vector3.up* 9);
+            Gizmos.DrawSphere(_room.WorldPosition, .125f);
+            Gizmos.DrawRay(_room.WorldPosition, Vector3.up* 9);
 
             if (!DoesRoomPosMatch())
             {
@@ -34,18 +37,18 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 Gizmos.DrawSphere(transform.position, .125f);
                 Gizmos.DrawRay(transform.position, Vector3.up* 9);
 
-                Gizmos.DrawLine(Room.WorldPosition, transform.position); 
+                Gizmos.DrawLine(_room.WorldPosition, transform.position); 
             }
         }
 
         private void OnDrawGizmos()
         {
-            if (Room == null)
+            if (_room == null)
             {
                 return;
             }
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, Room.RoomLoadRadius);
+            Gizmos.DrawWireSphere(transform.position, _room.RoomLoadRadius);
         }
     }
 }

@@ -22,7 +22,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  WorldPosition: {x: 0, y: 0, z: 0}
+  WorldPosition: {x: 0, y: -0, z: 0.4893}
   RoomLoadRadius: 36
   MinUnloadTimeout: 3
   _alwaysLoadRooms: []

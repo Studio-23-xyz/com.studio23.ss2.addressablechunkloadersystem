@@ -19,7 +19,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
         {
             if (TestPlayerManager.Instance == null)
             {
-                Instantiate(playerPrefab, roomInstance.defaultPlayerSpawnPoint.position, quaternion.identity);
+                Instantiate(playerPrefab, roomInstance._defaultPlayerSpawnPoint.position, quaternion.identity);
             }
         }
     }

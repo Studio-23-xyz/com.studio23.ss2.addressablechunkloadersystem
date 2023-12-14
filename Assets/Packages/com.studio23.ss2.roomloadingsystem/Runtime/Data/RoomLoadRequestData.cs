@@ -1,7 +1,8 @@
 using System;
+using Studio23.SS2.RoomLoadingSystem.Core;
 using UnityEngine.SceneManagement;
 
-namespace Studio23.SS2.RoomLoadingSystem.Core
+namespace Studio23.SS2.RoomLoadingSystem.Data
 {
     [Serializable]
     public struct RoomLoadRequestData

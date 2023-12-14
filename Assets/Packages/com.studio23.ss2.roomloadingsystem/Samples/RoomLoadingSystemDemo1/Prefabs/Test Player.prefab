@@ -402,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197fb4c77d70b014cbc8056c9f9656e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Inputs: {fileID: 0}
+  Player: {fileID: 8327133432032226468}
+  Inputs: {fileID: 5144406056086656771}
   DoorLayer:
     serializedVersion: 2
     m_Bits: 8192

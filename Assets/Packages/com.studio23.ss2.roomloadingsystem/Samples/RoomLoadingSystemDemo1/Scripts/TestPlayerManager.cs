@@ -12,9 +12,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
     //which and how many rooms are loaded
     public class TestPlayerManager : MonoBehaviourSingletonPersistent<TestPlayerManager>
     {
-        [FormerlySerializedAs("player")] public TestCharacterController Player;
-        [FormerlySerializedAs("inputs")] public TestCharacterInputs Inputs;
-        [FormerlySerializedAs("doorLayer")] public LayerMask DoorLayer;
+        public TestCharacterController Player;
+        public TestCharacterInputs Inputs;
+        public LayerMask DoorLayer;
         public Camera _cam;
         private bool _isInteracting = false;
         private Door prevDoor;

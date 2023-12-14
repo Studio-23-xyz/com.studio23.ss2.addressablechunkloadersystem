@@ -10,14 +10,16 @@ namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
     public class Door:MonoBehaviour
     {
         private Renderer _renderer;
-        [FormerlySerializedAs("innerRoom")] public RoomData InnerRoom;
-        [FormerlySerializedAs("outerRoom")] public RoomData OuterRoom;
+        [FormerlySerializedAs("innerRoom")] 
+        public RoomData InnerRoom;
+        [FormerlySerializedAs("outerRoom")] 
+        public RoomData OuterRoom;
 
-        [FormerlySerializedAs("offsetDist")] public float OffsetDist = 1.5f;
+        public float OffsetDist = 1.5f;
         public Vector3 OuterPoint => transform.position +  transform.right *OffsetDist;
         public Vector3 InnerPoint => transform.position +  -transform.right *OffsetDist;
         private Vector3 _ogPos;
-        [FormerlySerializedAs("openingOffset")] public Vector3 OpeningOffset = Vector3.up * 4;
+        public Vector3 OpeningOffset = Vector3.up * 4;
         public Material HoverMat;
         public Material NormalMat;
         

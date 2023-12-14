@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000008, guid: 0a3896da6ab6db843a255a7bd4d4755c,
+  m_LightingDataAsset: {fileID: 112000004, guid: 0a3896da6ab6db843a255a7bd4d4755c,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 6974e6d6c622abe49b676d5c56e23429,
     type: 2}
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c530a8581b4d2e91f7af5ec1abd7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomData: {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}
+  RoomData: {fileID: 11400000, guid: 36c637ec31cfc1b4eac331227d7cd0b9, type: 2}
   RoomEnteredAndLoadedEvent:
     m_PersistentCalls:
       m_Calls: []

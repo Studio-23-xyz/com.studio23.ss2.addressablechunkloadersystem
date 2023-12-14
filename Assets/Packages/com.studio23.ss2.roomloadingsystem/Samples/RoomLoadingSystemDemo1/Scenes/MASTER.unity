@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 493543293}
-  m_IndirectSpecularColor: {r: 0.7278529, g: 0.9016181, b: 1.193494, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -484,7 +484,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 4484.254
   m_Range: 10
   m_SpotAngle: 30
@@ -528,7 +528,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 11972
+  m_ColorTemperature: 7000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 1.4108e-41, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -543,13 +543,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493543292}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.22534315, y: -0.20802931, z: 0.15398417, w: 0.93927276}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 29.169, y: -21.597, z: 12.938}
 --- !u!114 &493543295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +672,210 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!1 &551746030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551746031}
+  - component: {fileID: 551746032}
+  m_Layer: 0
+  m_Name: Room 22 Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551746031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551746030}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -44, y: 6.25, z: 22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &551746032
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551746030}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 4.5, z: 1}
+  - {x: 1, y: 4.5, z: -7.5}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -7.5}
+  - {x: -8.5, y: 4.5, z: 1}
+  - {x: -8.5, y: 4.5, z: -7.5}
+  - {x: -8.5, y: -1, z: 1}
+  - {x: -8.5, y: -1, z: -7.5}
+  - {x: 1, y: 2, z: 1}
+  - {x: 1, y: 2, z: -7.5}
+  - {x: -8.5, y: 2, z: 1}
+  - {x: -8.5, y: 2, z: -7.5}
+  - {x: -1, y: 4.5, z: 1}
+  - {x: -1, y: 4.5, z: -7.5}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -7.5}
+  - {x: -1, y: 2, z: 1}
+  - {x: -1, y: 2, z: -7.5}
+  - {x: -3.5, y: 4.5, z: 1}
+  - {x: -3.5, y: 4.5, z: -7.5}
+  - {x: -3.5, y: -1, z: 1}
+  - {x: -3.5, y: -1, z: -7.5}
+  - {x: -3.5, y: 2, z: 1}
+  - {x: -3.5, y: 2, z: -7.5}
+  - {x: -6, y: 4.5, z: 1}
+  - {x: -6, y: 4.5, z: -7.5}
+  - {x: -6, y: -1, z: 1}
+  - {x: -6, y: -1, z: -7.5}
+  - {x: -6, y: 2, z: 1}
+  - {x: -6, y: 2, z: -7.5}
+  - {x: 1, y: 4.5, z: -2}
+  - {x: 1, y: -1, z: -2}
+  - {x: -8.5, y: 4.5, z: -2}
+  - {x: -8.5, y: -1, z: -2}
+  - {x: 1, y: 2, z: -2}
+  - {x: -8.5, y: 2, z: -2}
+  - {x: -1, y: 4.5, z: -2}
+  - {x: -1, y: -1, z: -2}
+  - {x: -1, y: 2, z: -2}
+  - {x: -3.5, y: 4.5, z: -2}
+  - {x: -3.5, y: -1, z: -2}
+  - {x: -3.5, y: 2, z: -2}
+  - {x: -6, y: 4.5, z: -2}
+  - {x: -6, y: -1, z: -2}
+  - {x: -6, y: 2, z: -2}
+  - {x: 1, y: 4.5, z: -6}
+  - {x: 1, y: -1, z: -6}
+  - {x: -8.5, y: 4.5, z: -6}
+  - {x: -8.5, y: -1, z: -6}
+  - {x: 1, y: 2, z: -6}
+  - {x: -8.5, y: 2, z: -6}
+  - {x: -1, y: 4.5, z: -6}
+  - {x: -1, y: -1, z: -6}
+  - {x: -1, y: 2, z: -6}
+  - {x: -3.5, y: 4.5, z: -6}
+  - {x: -3.5, y: -1, z: -6}
+  - {x: -3.5, y: 2, z: -6}
+  - {x: -6, y: 4.5, z: -6}
+  - {x: -6, y: -1, z: -6}
+  - {x: -6, y: 2, z: -6}
+  m_Dering: 1
+--- !u!1 &699347491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699347493}
+  - component: {fileID: 699347492}
+  m_Layer: 0
+  m_Name: Room 11 probe group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &699347492
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699347491}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 4.5, z: 1}
+  - {x: 1, y: 4.5, z: -7.5}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -7.5}
+  - {x: -8.5, y: 4.5, z: 1}
+  - {x: -8.5, y: 4.5, z: -7.5}
+  - {x: -8.5, y: -1, z: 1}
+  - {x: -8.5, y: -1, z: -7.5}
+  - {x: 1, y: 2, z: 1}
+  - {x: 1, y: 2, z: -7.5}
+  - {x: -8.5, y: 2, z: 1}
+  - {x: -8.5, y: 2, z: -7.5}
+  - {x: -1, y: 4.5, z: 1}
+  - {x: -1, y: 4.5, z: -7.5}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -7.5}
+  - {x: -1, y: 2, z: 1}
+  - {x: -1, y: 2, z: -7.5}
+  - {x: -3.5, y: 4.5, z: 1}
+  - {x: -3.5, y: 4.5, z: -7.5}
+  - {x: -3.5, y: -1, z: 1}
+  - {x: -3.5, y: -1, z: -7.5}
+  - {x: -3.5, y: 2, z: 1}
+  - {x: -3.5, y: 2, z: -7.5}
+  - {x: -6, y: 4.5, z: 1}
+  - {x: -6, y: 4.5, z: -7.5}
+  - {x: -6, y: -1, z: 1}
+  - {x: -6, y: -1, z: -7.5}
+  - {x: -6, y: 2, z: 1}
+  - {x: -6, y: 2, z: -7.5}
+  - {x: 1, y: 4.5, z: -2}
+  - {x: 1, y: -1, z: -2}
+  - {x: -8.5, y: 4.5, z: -2}
+  - {x: -8.5, y: -1, z: -2}
+  - {x: 1, y: 2, z: -2}
+  - {x: -8.5, y: 2, z: -2}
+  - {x: -1, y: 4.5, z: -2}
+  - {x: -1, y: -1, z: -2}
+  - {x: -1, y: 2, z: -2}
+  - {x: -3.5, y: 4.5, z: -2}
+  - {x: -3.5, y: -1, z: -2}
+  - {x: -3.5, y: 2, z: -2}
+  - {x: -6, y: 4.5, z: -2}
+  - {x: -6, y: -1, z: -2}
+  - {x: -6, y: 2, z: -2}
+  - {x: 1, y: 4.5, z: -6}
+  - {x: 1, y: -1, z: -6}
+  - {x: -8.5, y: 4.5, z: -6}
+  - {x: -8.5, y: -1, z: -6}
+  - {x: 1, y: 2, z: -6}
+  - {x: -8.5, y: 2, z: -6}
+  - {x: -1, y: 4.5, z: -6}
+  - {x: -1, y: -1, z: -6}
+  - {x: -1, y: 2, z: -6}
+  - {x: -3.5, y: 4.5, z: -6}
+  - {x: -3.5, y: -1, z: -6}
+  - {x: -3.5, y: 2, z: -6}
+  - {x: -6, y: 4.5, z: -6}
+  - {x: -6, y: -1, z: -6}
+  - {x: -6, y: 2, z: -6}
+  m_Dering: 1
+--- !u!4 &699347493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699347491}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 1, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &835907223
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +973,288 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 13.25, z: 15.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1613322699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613322701}
+  - component: {fileID: 1613322700}
+  m_Layer: 0
+  m_Name: Hallway 11 Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &1613322700
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613322699}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 22.5, y: 8.5, z: 5}
+  - {x: 22.5, y: 8.5, z: -4}
+  - {x: 22.5, y: -1, z: 5}
+  - {x: 22.5, y: -1, z: -4}
+  - {x: -72.85, y: 8.5, z: 5}
+  - {x: -72.85, y: 8.5, z: -4}
+  - {x: -72.85, y: -1, z: 5}
+  - {x: -72.85, y: -1, z: -4}
+  - {x: 22.5, y: 2.2211351, z: 5}
+  - {x: 22.5, y: 2.2211351, z: -4}
+  - {x: -72.85, y: 2.2211351, z: 5}
+  - {x: -72.85, y: 2.2211351, z: -4}
+  - {x: 22.5, y: 5.11197, z: 5}
+  - {x: 22.5, y: 5.11197, z: -4}
+  - {x: -72.85, y: 5.11197, z: 5}
+  - {x: -72.85, y: 5.11197, z: -4}
+  - {x: 22.5, y: 8.5, z: -2.5}
+  - {x: 22.5, y: -1, z: -2.5}
+  - {x: -72.85, y: 8.5, z: -2.5}
+  - {x: -72.85, y: -1, z: -2.5}
+  - {x: 22.5, y: 2.2211351, z: -2.5}
+  - {x: -72.85, y: 2.2211351, z: -2.5}
+  - {x: 22.5, y: 5.11197, z: -2.5}
+  - {x: -72.85, y: 5.11197, z: -2.5}
+  - {x: 22.5, y: 8.5, z: 0}
+  - {x: 22.5, y: -1, z: 0}
+  - {x: -72.85, y: 8.5, z: 0}
+  - {x: -72.85, y: -1, z: 0}
+  - {x: 22.5, y: 2.2211351, z: 0}
+  - {x: -72.85, y: 2.2211351, z: 0}
+  - {x: 22.5, y: 5.11197, z: 0}
+  - {x: -72.85, y: 5.11197, z: 0}
+  - {x: 22.5, y: 8.5, z: 2.5}
+  - {x: 22.5, y: -1, z: 2.5}
+  - {x: -72.85, y: 8.5, z: 2.5}
+  - {x: -72.85, y: -1, z: 2.5}
+  - {x: 22.5, y: 2.2211351, z: 2.5}
+  - {x: -72.85, y: 2.2211351, z: 2.5}
+  - {x: 22.5, y: 5.11197, z: 2.5}
+  - {x: -72.85, y: 5.11197, z: 2.5}
+  - {x: -17.5, y: 8.5, z: 5}
+  - {x: -17.5, y: 8.5, z: -4}
+  - {x: -17.5, y: -1, z: 5}
+  - {x: -17.5, y: -1, z: -4}
+  - {x: -17.5, y: 2.2211351, z: 5}
+  - {x: -17.5, y: 2.2211351, z: -4}
+  - {x: -17.5, y: 5.11197, z: 5}
+  - {x: -17.5, y: 5.11197, z: -4}
+  - {x: -17.5, y: 8.5, z: -2.5}
+  - {x: -17.5, y: -1, z: -2.5}
+  - {x: -17.5, y: 2.2211351, z: -2.5}
+  - {x: -17.5, y: 5.11197, z: -2.5}
+  - {x: -17.5, y: 8.5, z: 0}
+  - {x: -17.5, y: -1, z: 0}
+  - {x: -17.5, y: 2.2211351, z: 0}
+  - {x: -17.5, y: 5.11197, z: 0}
+  - {x: -17.5, y: 8.5, z: 2.5}
+  - {x: -17.5, y: -1, z: 2.5}
+  - {x: -17.5, y: 2.2211351, z: 2.5}
+  - {x: -17.5, y: 5.11197, z: 2.5}
+  - {x: -10, y: 8.5, z: 5}
+  - {x: -10, y: 8.5, z: -4}
+  - {x: -10, y: -1, z: 5}
+  - {x: -12, y: -1, z: -4}
+  - {x: -10, y: 2.2211351, z: 5}
+  - {x: -10, y: 2.2211351, z: -4}
+  - {x: -10, y: 5.11197, z: 5}
+  - {x: -10, y: 5.11197, z: -4}
+  - {x: -10, y: 8.5, z: -2.5}
+  - {x: -10, y: -1, z: -2.5}
+  - {x: -10, y: 2.2211351, z: -2.5}
+  - {x: -10, y: 5.11197, z: -2.5}
+  - {x: -10, y: 8.5, z: 0}
+  - {x: -10, y: -1, z: 0}
+  - {x: -10, y: 2.2211351, z: 0}
+  - {x: -10, y: 5.11197, z: 0}
+  - {x: -10, y: 8.5, z: 2.5}
+  - {x: -10, y: -1, z: 2.5}
+  - {x: -10, y: 2.2211351, z: 2.5}
+  - {x: -10, y: 5.11197, z: 2.5}
+  - {x: -2.5, y: 8.5, z: 5}
+  - {x: -2.5, y: 8.5, z: -4}
+  - {x: -2.5, y: -1, z: 5}
+  - {x: -2.5, y: -1, z: -4}
+  - {x: -2.5, y: 2.2211351, z: 5}
+  - {x: -2.5, y: 2.2211351, z: -4}
+  - {x: -2.5, y: 5.11197, z: 5}
+  - {x: -2.5, y: 5.11197, z: -4}
+  - {x: -2.5, y: 8.5, z: -2.5}
+  - {x: -2.5, y: -1, z: -2.5}
+  - {x: -2.5, y: 2.2211351, z: -2.5}
+  - {x: -2.5, y: 5.11197, z: -2.5}
+  - {x: -2.5, y: 8.5, z: 0}
+  - {x: -2.5, y: -1, z: 0}
+  - {x: -2.5, y: 2.2211351, z: 0}
+  - {x: -2.5, y: 5.11197, z: 0}
+  - {x: -2.5, y: 8.5, z: 2.5}
+  - {x: -2.5, y: -1, z: 2.5}
+  - {x: -2.5, y: 2.2211351, z: 2.5}
+  - {x: -2.5, y: 5.11197, z: 2.5}
+  - {x: 5, y: 8.5, z: 5}
+  - {x: 5, y: 8.5, z: -4}
+  - {x: 5, y: -1, z: 5}
+  - {x: 5, y: -1, z: -4}
+  - {x: 5, y: 2.2211351, z: 5}
+  - {x: 5, y: 2.2211351, z: -4}
+  - {x: 5, y: 5.11197, z: 5}
+  - {x: 5, y: 5.11197, z: -4}
+  - {x: 5, y: 8.5, z: -2.5}
+  - {x: 5, y: -1, z: -2.5}
+  - {x: 5, y: 2.2211351, z: -2.5}
+  - {x: 5, y: 5.11197, z: -2.5}
+  - {x: 5, y: 8.5, z: 0}
+  - {x: 5, y: -1, z: 0}
+  - {x: 5, y: 2.2211351, z: 0}
+  - {x: 5, y: 5.11197, z: 0}
+  - {x: 5, y: 8.5, z: 2.5}
+  - {x: 5, y: -1, z: 2.5}
+  - {x: 5, y: 2.2211351, z: 2.5}
+  - {x: 5, y: 5.11197, z: 2.5}
+  - {x: -25, y: 8.5, z: 5}
+  - {x: -25, y: 8.5, z: -4}
+  - {x: -25, y: -1, z: 5}
+  - {x: -25, y: -1, z: -4}
+  - {x: -25, y: 2.2211351, z: 5}
+  - {x: -25, y: 2.2211351, z: -4}
+  - {x: -25, y: 5.11197, z: 5}
+  - {x: -25, y: 5.11197, z: -4}
+  - {x: -25, y: 8.5, z: -2.5}
+  - {x: -25, y: -1, z: -2.5}
+  - {x: -25, y: 2.2211351, z: -2.5}
+  - {x: -25, y: 5.11197, z: -2.5}
+  - {x: -25, y: 8.5, z: 0}
+  - {x: -25, y: -1, z: 0}
+  - {x: -25, y: 2.2211351, z: 0}
+  - {x: -25, y: 5.11197, z: 0}
+  - {x: -25, y: 8.5, z: 2.5}
+  - {x: -25, y: -1, z: 2.5}
+  - {x: -25, y: 2.2211351, z: 2.5}
+  - {x: -25, y: 5.11197, z: 2.5}
+  - {x: -35, y: 8.5, z: 5}
+  - {x: -35, y: 8.5, z: -4}
+  - {x: -35, y: -1, z: 5}
+  - {x: -35, y: -1, z: -4}
+  - {x: -35, y: 2.2211351, z: 5}
+  - {x: -35, y: 2.2211351, z: -4}
+  - {x: -35, y: 5.11197, z: 5}
+  - {x: -35, y: 5.11197, z: -4}
+  - {x: -35, y: 8.5, z: -2.5}
+  - {x: -35, y: -1, z: -2.5}
+  - {x: -35, y: 2.2211351, z: -2.5}
+  - {x: -35, y: 5.11197, z: -2.5}
+  - {x: -35, y: 8.5, z: 0}
+  - {x: -35, y: -1, z: 0}
+  - {x: -35, y: 2.2211351, z: 0}
+  - {x: -35, y: 5.11197, z: 0}
+  - {x: -35, y: 8.5, z: 2.5}
+  - {x: -35, y: -1, z: 2.5}
+  - {x: -35, y: 2.2211351, z: 2.5}
+  - {x: -35, y: 5.11197, z: 2.5}
+  - {x: -42.85, y: 8.5, z: 5}
+  - {x: -42.85, y: 8.5, z: -4}
+  - {x: -42.85, y: -1, z: 5}
+  - {x: -42.85, y: -1, z: -4}
+  - {x: -42.85, y: 2.2211351, z: 5}
+  - {x: -42.85, y: 2.2211351, z: -4}
+  - {x: -42.85, y: 5.11197, z: 5}
+  - {x: -42.85, y: 5.11197, z: -4}
+  - {x: -42.85, y: 8.5, z: -2.5}
+  - {x: -42.85, y: -1, z: -2.5}
+  - {x: -42.85, y: 2.2211351, z: -2.5}
+  - {x: -42.85, y: 5.11197, z: -2.5}
+  - {x: -42.85, y: 8.5, z: 0}
+  - {x: -42.85, y: -1, z: 0}
+  - {x: -42.85, y: 2.2211351, z: 0}
+  - {x: -42.85, y: 5.11197, z: 0}
+  - {x: -42.85, y: 8.5, z: 2.5}
+  - {x: -42.85, y: -1, z: 2.5}
+  - {x: -42.85, y: 2.2211351, z: 2.5}
+  - {x: -42.85, y: 5.11197, z: 2.5}
+  - {x: -50.35, y: 8.5, z: 5}
+  - {x: -50.35, y: 8.5, z: -4}
+  - {x: -50.35, y: -1, z: 5}
+  - {x: -50.35, y: -1, z: -4}
+  - {x: -50.35, y: 2.2211351, z: 5}
+  - {x: -50.35, y: 2.2211351, z: -4}
+  - {x: -50.35, y: 5.11197, z: 5}
+  - {x: -50.35, y: 5.11197, z: -4}
+  - {x: -50.35, y: 8.5, z: -2.5}
+  - {x: -50.35, y: -1, z: -2.5}
+  - {x: -50.35, y: 2.2211351, z: -2.5}
+  - {x: -50.35, y: 5.11197, z: -2.5}
+  - {x: -50.35, y: 8.5, z: 0}
+  - {x: -50.35, y: -1, z: 0}
+  - {x: -50.35, y: 2.2211351, z: 0}
+  - {x: -50.35, y: 5.11197, z: 0}
+  - {x: -50.35, y: 8.5, z: 2.5}
+  - {x: -50.35, y: -1, z: 2.5}
+  - {x: -50.35, y: 2.2211351, z: 2.5}
+  - {x: -50.35, y: 5.11197, z: 2.5}
+  - {x: -57.85, y: 8.5, z: 5}
+  - {x: -57.85, y: 8.5, z: -4}
+  - {x: -57.85, y: -1, z: 5}
+  - {x: -57.85, y: -1, z: -4}
+  - {x: -57.85, y: 2.2211351, z: 5}
+  - {x: -57.85, y: 2.2211351, z: -4}
+  - {x: -57.85, y: 5.11197, z: 5}
+  - {x: -57.85, y: 5.11197, z: -4}
+  - {x: -57.85, y: 8.5, z: -2.5}
+  - {x: -57.85, y: -1, z: -2.5}
+  - {x: -57.85, y: 2.2211351, z: -2.5}
+  - {x: -57.85, y: 5.11197, z: -2.5}
+  - {x: -57.85, y: 8.5, z: 0}
+  - {x: -57.85, y: -1, z: 0}
+  - {x: -57.85, y: 2.2211351, z: 0}
+  - {x: -57.85, y: 5.11197, z: 0}
+  - {x: -57.85, y: 8.5, z: 2.5}
+  - {x: -57.85, y: -1, z: 2.5}
+  - {x: -57.85, y: 2.2211351, z: 2.5}
+  - {x: -57.85, y: 5.11197, z: 2.5}
+  - {x: -65.35, y: 8.5, z: 5}
+  - {x: -65.35, y: 8.5, z: -4}
+  - {x: -65.35, y: -1, z: 5}
+  - {x: -65.35, y: -1, z: -4}
+  - {x: -65.35, y: 2.2211351, z: 5}
+  - {x: -65.35, y: 2.2211351, z: -4}
+  - {x: -65.35, y: 5.11197, z: 5}
+  - {x: -65.35, y: 5.11197, z: -4}
+  - {x: -65.35, y: 8.5, z: -2.5}
+  - {x: -65.35, y: -1, z: -2.5}
+  - {x: -65.35, y: 2.2211351, z: -2.5}
+  - {x: -65.35, y: 5.11197, z: -2.5}
+  - {x: -65.35, y: 8.5, z: 0}
+  - {x: -65.35, y: -1, z: 0}
+  - {x: -65.35, y: 2.2211351, z: 0}
+  - {x: -65.35, y: 5.11197, z: 0}
+  - {x: -65.35, y: 8.5, z: 2.5}
+  - {x: -65.35, y: -1, z: 2.5}
+  - {x: -65.35, y: 2.2211351, z: 2.5}
+  - {x: -65.35, y: 5.11197, z: 2.5}
+  m_Dering: 1
+--- !u!4 &1613322701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613322699}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 62.9293, y: -2, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1055,7 +1541,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930643093}
-  - component: {fileID: 1930643092}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1063,19 +1548,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1930643092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930643091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c530a8581b4d2e91f7af5ec1abd7f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RoomData: {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}
 --- !u!4 &1930643093
 Transform:
   m_ObjectHideFlags: 0
@@ -1100,6 +1572,9 @@ SceneRoots:
   - {fileID: 382981439}
   - {fileID: 1930643093}
   - {fileID: 171298637}
+  - {fileID: 1613322701}
   - {fileID: 835907225}
   - {fileID: 1923770982}
   - {fileID: 1919661164}
+  - {fileID: 699347493}
+  - {fileID: 551746031}

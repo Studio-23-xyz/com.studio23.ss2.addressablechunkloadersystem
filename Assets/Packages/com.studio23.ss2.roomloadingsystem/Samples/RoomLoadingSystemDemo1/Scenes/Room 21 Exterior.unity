@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7278529, g: 0.9016181, b: 1.193494, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000014, guid: 0a3896da6ab6db843a255a7bd4d4755c,
+  m_LightingDataAsset: {fileID: 112000030, guid: 0a3896da6ab6db843a255a7bd4d4755c,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 6974e6d6c622abe49b676d5c56e23429,
     type: 2}
@@ -308,6 +308,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 284180441}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &944349223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 944349224}
+  m_Layer: 0
+  m_Name: Player spawn point
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &944349224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944349223}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -10, z: -13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1631286755}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1229576079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +440,7 @@ GameObject:
   - component: {fileID: 1631286756}
   - component: {fileID: 1631286758}
   - component: {fileID: 1631286757}
+  - component: {fileID: 1631286759}
   m_Layer: 0
   m_Name: Exterior
   m_TagString: Untagged
@@ -435,6 +467,7 @@ Transform:
   - {fileID: 1855477954}
   - {fileID: 1744822212}
   - {fileID: 52770998}
+  - {fileID: 944349224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1631286756
@@ -449,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b4eb7acd746589fad55de9fbf0b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultPlayerSpawnPoint: {fileID: 944349224}
   Room: {fileID: 11400000, guid: 8c8c15309db380f48a65bf25901e3ce2, type: 2}
 --- !u!114 &1631286757
 MonoBehaviour:
@@ -462,7 +496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca738cf32b9448cbaa96c7e412cc615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRoom: 0
 --- !u!65 &1631286758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -484,6 +517,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 5.5, z: 10}
   m_Center: {x: 0, y: 2.75, z: 0}
+--- !u!114 &1631286759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631286751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ec3b84ec74479b14554587d5e62a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomInstance: {fileID: 0}
+  playerPrefab: {fileID: 5563923120775215575, guid: b82bf2baa04325644b39537fe0c1d069,
+    type: 3}
 --- !u!4 &1695109244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 181342954621900564, guid: 905c91e915749644986b955fc80dbd69,

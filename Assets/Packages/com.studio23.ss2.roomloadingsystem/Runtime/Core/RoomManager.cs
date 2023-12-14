@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using Studio23.SS2.RoomLoadingSystem.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,8 +41,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         [ShowNativeProperty]
         public FloorData CurrentFloor => _currentEnteredRoom ? _currentEnteredRoom.Floor : null;
 
-        //#TODO separate this
-        private Transform _player;
+        public Transform Player;
         
         protected override void Initialize()
         {
@@ -77,30 +77,13 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
         }
 
-        private void Start()
-        {
-            FindPlayer();
-        }
-
-        protected virtual void FindPlayer()
-        {
-            _player = GameObject.FindWithTag("Player")?.transform;
-        }
-
-
 
         private void Update()
         {
-            if (_player == null)
-            {
-                FindPlayer();
-            }
-
-            if (_player != null)
+            if (Player != null)
             {
                 UpdateRoomsInPlayerRange();
             }
-
             //called explicitly to ensure that timer starts on same frame
             RoomLoader.UpdateRoomUnloadTimer();
         }
@@ -114,7 +97,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
                 return;
             foreach (var roomData in CurrentFloor.RoomsInFloor)
             {
-                if (roomData.IsPosInLoadingRange(_player.transform.position) ||
+                if (roomData.IsPosInLoadingRange(Player.transform.position) ||
                     CurrentEnteredRoom == roomData)
                 {
                     HandleRoomEnteredLoadingRange(roomData);
@@ -237,6 +220,12 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             
             foreach (var roomToUnload in prevRoom.AlwaysLoadRooms)
             {
+                // note:
+                // if this is the only flag, this can start an unload
+                // say, the next room/floor has this room as an AlwaysLoadRoom
+                // then the room would be loaded again
+                // this is only in the edge case where the timer runs out between swapping rooms
+                // so not fixing atm
                 RemoveExteriorRoomFlag(roomToUnload, RoomFlag.IsCurrentFloorMustLoad);
             }
         }
@@ -283,13 +272,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
 
             return false;
         }
-
-
-        public void UnloadAllRooms()
-        {
-            _roomLoader.UnloadAllRooms();
-        }
         
+
+
         /// <summary>
         /// Returns if the exterior for the room is loaded
         /// NOTE: For rooms with invalid exterior scene asset ref, this returns false
@@ -304,6 +289,11 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             }
 
             return false;
+        }
+        
+        public async UniTask UnloadAllRooms()
+        {
+            await _roomLoader.UnloadAllRooms();
         }
         
 

@@ -4,6 +4,7 @@ using System.Linq;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using Studio23.SS2.RoomLoadingSystem.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

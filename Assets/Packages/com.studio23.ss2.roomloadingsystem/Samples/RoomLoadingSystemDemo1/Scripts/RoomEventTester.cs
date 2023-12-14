@@ -1,5 +1,6 @@
 using System;
 using Studio23.SS2.RoomLoadingSystem.Core;
+using Studio23.SS2.RoomLoadingSystem.Data;
 using UnityEngine;
 
 namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1

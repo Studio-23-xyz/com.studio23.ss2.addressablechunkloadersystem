@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using Studio23.SS2.RoomLoadingSystem.Data;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -80,7 +81,9 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         }
         public bool IsPosInLoadingRange(Vector3 position)
         {
-            return (position - WorldPosition).magnitude <= RoomLoadRadius;
+            var dir = (position - WorldPosition);
+            dir.y = 0;
+            return dir.magnitude <= RoomLoadRadius;
         }
     }
 }

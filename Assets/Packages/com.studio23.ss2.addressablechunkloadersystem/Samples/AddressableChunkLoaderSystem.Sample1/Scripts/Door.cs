@@ -1,11 +1,12 @@
 using System;
 using Bdeshi.Helpers.Utility;
 using Cysharp.Threading.Tasks;
-using Studio23.SS2.RoomLoadingSystem.Core;
+using Studio23.SS2.AddressableChunkLoaderSystem.Core;
+using Studio23.SS2.AddressableChunkLoaderSystem.Data;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 {
     public class Door:MonoBehaviour
     {

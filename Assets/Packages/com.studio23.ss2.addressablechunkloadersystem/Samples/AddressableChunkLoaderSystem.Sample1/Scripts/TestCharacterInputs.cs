@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 {
 	public class TestCharacterInputs : MonoBehaviour
 	{

@@ -1,11 +1,12 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Studio23.SS2.RoomLoadingSystem.Core;
+using Studio23.SS2.AddressableChunkLoaderSystem.Core;
+using Studio23.SS2.AddressableChunkLoaderSystem.Data;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 {
     public class RoomLoadExample:MonoBehaviour
     {

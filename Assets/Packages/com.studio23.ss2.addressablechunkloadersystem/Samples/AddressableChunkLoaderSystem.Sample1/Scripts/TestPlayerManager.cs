@@ -2,14 +2,14 @@
 using Bdeshi.Helpers.Utility;
 using System.Collections;
 using Cysharp.Threading.Tasks;
-using Studio23.SS2.RoomLoadingSystem.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 {
     //we want to ensure that there is only one player regardless of
     //which and how many rooms are loaded
+    //this is just an example for doing that
     public class TestPlayerManager : MonoBehaviourSingletonPersistent<TestPlayerManager>
     {
         public TestCharacterController Player;

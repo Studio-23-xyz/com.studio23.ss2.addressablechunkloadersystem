@@ -1,6 +1,6 @@
 {
-    "name": "com.studio23.s22.roomloadingsystem.editor",
-    "rootNamespace": "Studio23.SS2.RoomLoadingSystem.Editor",
+    "name": "com.studio23.ss2.addressablechunkloadersystem.editor",
+    "rootNamespace": "Studio23.SS2.AddressableChunkLoadersystem.Editor",
     "references": [
         "GUID:6c9731e4a0600e140a2b00f51547e830"
     ],

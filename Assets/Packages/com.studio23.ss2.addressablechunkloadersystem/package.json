@@ -29,7 +29,7 @@
       {
         "displayName": "Functional Example",
         "description": "Sample scene with multiple floors and rooms and lightmap setup.",
-        "path": "Samples~/RoomLoadingSystemDemo1"
+        "path": "Samples~/AddressableChunkLoaderSystem.Sample1"
       }
     ],  
   "repository": {

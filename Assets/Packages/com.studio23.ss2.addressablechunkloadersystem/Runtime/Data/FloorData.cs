@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using NaughtyAttributes;
-using Studio23.SS2.RoomLoadingSystem.Core;
 using UnityEngine;
 
-namespace Studio23.SS2.RoomLoadingSystem.Data
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
 {
     [CreateAssetMenu(menuName = "Studio-23/RoomLoadingSystem/FloorData", fileName = "FloorData")]
     public class FloorData:ScriptableObject

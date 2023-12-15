@@ -1,8 +1,8 @@
-using System;
+using Studio23.SS2.AddressableChunkLoaderSystem.Data;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Studio23.SS2.RoomLoadingSystem.Core
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 {
     public class RoomInstance:MonoBehaviour
     {

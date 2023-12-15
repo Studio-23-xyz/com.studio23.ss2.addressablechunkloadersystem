@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Studio23.SS2.RoomLoadingSystem.Data;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.SceneManagement;
-namespace Studio23.SS2.RoomLoadingSystem.Core
+
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
 {
     [CreateAssetMenu(menuName = "Studio-23/RoomLoadingSystem/RoomData", fileName = "RoomData")]
     public class RoomData:ScriptableObject

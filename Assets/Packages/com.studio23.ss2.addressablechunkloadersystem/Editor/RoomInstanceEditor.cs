@@ -1,11 +1,11 @@
-using Studio23.SS2.RoomLoadingSystem.Core;
+using Studio23.SS2.AddressableChunkLoaderSystem.Core;
 using UnityEditor;
 using UnityEngine;
 
-namespace Studio23.SS2.RoomLoadingSystem.Editor
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
 {
 
-    [CustomEditor(typeof(Studio23.SS2.RoomLoadingSystem.Core.RoomInstance))]
+    [CustomEditor(typeof(RoomInstance))]
     public class RoomInstanceEditor : UnityEditor.Editor
     {
         private RoomInstance _roomInstance;

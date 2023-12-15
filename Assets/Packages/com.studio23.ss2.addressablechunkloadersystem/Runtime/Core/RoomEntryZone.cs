@@ -1,9 +1,6 @@
-using System;
-using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Studio23.SS2.RoomLoadingSystem.Core
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 {
     [RequireComponent(typeof(RoomInstance))]
     /// <summary>

@@ -1,6 +1,6 @@
 using System;
 
-namespace Studio23.SS2.RoomLoadingSystem.Core
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
 {
     [Flags]
     public enum RoomFlag

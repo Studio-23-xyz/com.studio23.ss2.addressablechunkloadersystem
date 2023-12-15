@@ -5,6 +5,9 @@ for SS2 using addressables. It handles:
 2. Marking rooms/chunks to always keep loaded for particular areas or game needs.
 3. Async await API + events for handling room loading/unloading.
 
+   ![ezgif-3-4da803510b](https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/assets/17526821/fa62fb56-6769-4f74-92b8-e4cc40a6bbea)
+
+
 # Scene Setup:
 1. Each room has an exterior and an interior scene.
 2. Both scenes are addressable.

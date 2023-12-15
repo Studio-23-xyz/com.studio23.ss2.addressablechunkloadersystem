@@ -12,4 +12,5 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         IsGeneralMustLoad = 1 << 3,
         IsInLoadingRange = 1<< 4,
     }
+    //#TODO refactor into class
 }

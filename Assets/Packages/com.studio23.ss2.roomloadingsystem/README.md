@@ -1,5 +1,9 @@
-# Room Loader System
-Room Loader System is a package for loading rooms(mainly for the castle area) for SS2 using addressables.
+# Addressable Chunk Loader System
+Addressable Chunk Loader is a package for loading rooms(mainly for the castle area) as addressable chunks/scenes 
+for SS2 using addressables. It handles:
+1. Loading/Unloading rooms/addressable chunks based on distance from player.
+2. Marking rooms/chunks to always keep loaded for particular areas or game needs.
+3. Async await API + events for handling room loading/unloading.
 
 # Scene Setup:
 1. Each room has an exterior and an interior scene.

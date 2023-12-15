@@ -1,12 +1,12 @@
 {
-    "name": "com.studio23.ss2.roomloadingsystem",
+    "name": "com.studio23.ss2.addressablechunkloadersystem",
     "version": "1.0.0",
-    "displayName": "Room loading System",
-    "description": "Room loading System for SS2",
+    "displayName": "Addressable Chunk Loader System",
+    "description": "Addressable Chunk Loader System made for SS2",
     "unity": "2022.3",
     "unityRelease": "10f1",
-    "documentationUrl": "https://openupm.com/packages/com.studio23.ss2.roomloadersystem/",
-    "changelogUrl": "https://openupm.com/packages/com.studio23.ss2.roomloadersystem/",
+    "documentationUrl": "https://openupm.com/packages/com.studio23.ss2.addressablechunkloadersystem/",
+    "changelogUrl": "https://openupm.com/packages/com.studio23.ss2.addressablechunkloadersystem/",
     "licensesUrl": "https://opensource.org/license/mit/",
     "scopedRegistries":  [
       {
@@ -19,8 +19,7 @@
     "dependencies": {
         "com.bdeshi.helpers": "1.0.0",
         "com.cysharp.unitask": "2.4.1",
-        "com.dbrizov.naughtyattributes": "2.1.4",
-        "com.unity.inputsystem": "1.7.0"
+        "com.dbrizov.naughtyattributes": "2.1.4"
    },
    "keywords": [
       "Scene loading System",
@@ -35,7 +34,7 @@
     ],  
   "repository": {
       "type": "git",
-      "url": "https://github.com/Studio-23-xyz/com.studio23.ss2.roomloadersystem.git"    
+      "url": "https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem.git"    
     },
     "license": "MIT",  
     "author": {

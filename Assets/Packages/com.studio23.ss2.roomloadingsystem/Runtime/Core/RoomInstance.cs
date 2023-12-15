@@ -10,13 +10,13 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         public Transform _defaultPlayerSpawnPoint;
         [FormerlySerializedAs("Room")] 
         public RoomData _room;
-        public bool DoesRoomPosMatch() => _room.WorldPosition == transform.position;
+        public bool DoesRoomPosMatch => _room.WorldPosition == transform.position;
 
         private void Awake()
         {
-            if (!DoesRoomPosMatch())
+            if (!DoesRoomPosMatch)
             {
-                UnityEngine.Debug.Log($"Room {_room} worldpos {_room.WorldPosition} doesn't match roominstance worldPos {transform.position}");
+                Debug.LogWarning($"<color=#0000FF>Room {_room}<color=#FF0000> worldpos {_room.WorldPosition} <color=#FF0000>doesn't match roominstance worldPos</color> {transform.position}");
             }
         }
 
@@ -31,7 +31,7 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
             Gizmos.DrawSphere(_room.WorldPosition, .125f);
             Gizmos.DrawRay(_room.WorldPosition, Vector3.up* 9);
 
-            if (!DoesRoomPosMatch())
+            if (!DoesRoomPosMatch)
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawSphere(transform.position, .125f);

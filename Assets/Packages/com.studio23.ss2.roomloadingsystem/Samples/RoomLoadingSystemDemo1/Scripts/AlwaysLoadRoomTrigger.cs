@@ -1,23 +1,24 @@
 using Studio23.SS2.RoomLoadingSystem.Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.RoomLoadingSystem.Samples.Demo1
 {
     public class AlwaysLoadRoomTrigger:MonoBehaviour
     {
-        public RoomData room;
-        public bool shouldLoad = true;
+        public RoomData Room;
+        public bool ShouldLoad = true;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                if (shouldLoad)
+                if (ShouldLoad)
                 {
-                    RoomManager.Instance.SetRoomAsMustLoad(room);
+                    RoomManager.Instance.SetRoomAsMustLoad(Room);
                 }
                 else
                 {
-                    RoomManager.Instance.UnsetRoomAsMustLoad(room);
+                    RoomManager.Instance.UnsetRoomAsMustLoad(Room);
                 }
             }
         }

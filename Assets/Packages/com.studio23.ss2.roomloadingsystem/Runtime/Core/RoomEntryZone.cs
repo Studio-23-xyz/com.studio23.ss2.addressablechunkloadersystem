@@ -19,7 +19,6 @@ namespace Studio23.SS2.RoomLoadingSystem.Core
         }
         
         
-        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))

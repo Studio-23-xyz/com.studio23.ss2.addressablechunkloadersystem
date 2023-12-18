@@ -5,9 +5,9 @@
     "description": "Addressable Chunk/Room Loader System using addressables we made for SS2",
     "unity": "2022.3",
     "unityRelease": "10f1",
-    "documentationUrl": "https://openupm.com/packages/com.studio23.ss2.addressablechunkloadersystem/",
-    "changelogUrl": "https://openupm.com/packages/com.studio23.ss2.addressablechunkloadersystem/",
-    "licensesUrl": "https://opensource.org/license/mit/",
+    "documentationUrl": " https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/manual/",
+    "changelogUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/changelog/CHANGELOG.html",
+    "licensesUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/license/LICENSE.html",
     "scopedRegistries":  [
       {
         "name": "Studio 23",

@@ -1,14 +1,11 @@
-# Room Loader System
-Room Loader System is a package for loading rooms(mainly for the castle area) for SS2 using addressables.
+# Addressable Chunk Loader System
+Addressable Chunk Loader is a package for loading rooms(mainly for the castle area) as addressable chunks/scenes 
+for SS2 using addressables. It handles:
+1. Loading/Unloading rooms/addressable chunks based on distance from player.
+2. Marking rooms/chunks to always keep loaded for particular areas or game needs.
+3. Async await API + events for handling room loading/unloading.
 
-# Installation
-## Install via Git URL
-You can also use the "Install from Git URL" option from Unity Package Manager to install the package.
-
-https://github.com/Studio-23-xyz/com.studio23.ss2.roomloadersystem.git#upm
-
-## Install from OpenUPM:
-https://openupm.com/packages/com.studio23.ss2.roomloadersystem/
+   ![ezgif-3-4da803510b](https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/assets/17526821/fa62fb56-6769-4f74-92b8-e4cc40a6bbea)
 
 
 # Scene Setup:

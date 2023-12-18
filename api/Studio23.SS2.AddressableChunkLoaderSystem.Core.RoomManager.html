@@ -1,0 +1,778 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RoomManager
+ |  |  </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RoomManager
+ |  |  ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:disablenewtab" content="true">
+      
+      <meta name="docfx:docurl" content="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/new/main/apiSpec/new?filename=Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager.md&amp;value=---%0Auid%3A%20Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager">
+
+
+
+  <h1 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager" class="text-break">
+    Class RoomManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Studio23.html">Studio23</a>.<a class="xref" href="Studio23.SS2.html">SS2</a>.<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.html">AddressableChunkLoaderSystem</a>.<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Core.html">Core</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RoomManager : MonoBehaviourSingletonPersistent&lt;RoomManager&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RoomManager</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Player" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Player">
+  Player
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform Player</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Transform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CurrentEnteredRoom_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentEnteredRoom*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CurrentEnteredRoom" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentEnteredRoom">
+  CurrentEnteredRoom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomData CurrentEnteredRoom { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CurrentFloor_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentFloor*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CurrentFloor" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentFloor">
+  CurrentFloor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FloorData CurrentFloor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData.html">FloorData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RoomLoader_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomLoader*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RoomLoader" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomLoader">
+  RoomLoader
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomLoader RoomLoader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html">RoomLoader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_EnterRoom_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_EnterRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_System_Boolean_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean)">
+  EnterRoom(RoomData, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+    <dt><code>forceLoadIfMissing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UniTask</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_HandleRoomEnteredLoadingRange_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.HandleRoomEnteredLoadingRange*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_HandleRoomEnteredLoadingRange_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.HandleRoomEnteredLoadingRange(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
+  HandleRoomEnteredLoadingRange(RoomData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HandleRoomEnteredLoadingRange(RoomData room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_HandleRoomExitedLoadingRange_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.HandleRoomExitedLoadingRange*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_HandleRoomExitedLoadingRange_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.HandleRoomExitedLoadingRange(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
+  HandleRoomExitedLoadingRange(RoomData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HandleRoomExitedLoadingRange(RoomData room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Initialize_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Initialize*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Initialize" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Initialize">
+  Initialize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Initialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_IsRoomExteriorLoaded_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomExteriorLoaded*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_IsRoomExteriorLoaded_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomExteriorLoaded(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
+  IsRoomExteriorLoaded(RoomData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if the exterior for the room is loaded
+NOTE: For rooms with invalid exterior scene asset ref, this returns false</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRoomExteriorLoaded(RoomData roomData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>roomData</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_IsRoomInteriorLoaded_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomInteriorLoaded*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_IsRoomInteriorLoaded_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomInteriorLoaded(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
+  IsRoomInteriorLoaded(RoomData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if the exterior for the room is loaded
+NOTE: For rooms with invalid exterior scene asset ref, this returns false</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRoomInteriorLoaded(RoomData roomData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>roomData</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RemoveExteriorRoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RemoveExteriorRoomFlag*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RemoveExteriorRoomFlag_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RemoveExteriorRoomFlag(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
+  RemoveExteriorRoomFlag(RoomData, RoomFlag)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveExteriorRoomFlag(RoomData room, RoomFlag flags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+    <dt><code>flags</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag.html">RoomFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RemoveInteriorRoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RemoveInteriorRoomFlag*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RemoveInteriorRoomFlag_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RemoveInteriorRoomFlag(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
+  RemoveInteriorRoomFlag(RoomData, RoomFlag)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveInteriorRoomFlag(RoomData room, RoomFlag flags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+    <dt><code>flags</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag.html">RoomFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_SetRoomAsMustLoad_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.SetRoomAsMustLoad*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_SetRoomAsMustLoad_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.SetRoomAsMustLoad(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
+  SetRoomAsMustLoad(RoomData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRoomAsMustLoad(RoomData room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_UnloadAllRooms_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.UnloadAllRooms*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_UnloadAllRooms" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.UnloadAllRooms">
+  UnloadAllRooms()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniTask UnloadAllRooms()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UniTask</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_UnsetRoomAsMustLoad_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.UnsetRoomAsMustLoad*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_UnsetRoomAsMustLoad_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.UnsetRoomAsMustLoad(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
+  UnsetRoomAsMustLoad(RoomData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnsetRoomAsMustLoad(RoomData room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnFloorEntered" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnFloorEntered">
+  OnFloorEntered
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;FloorData&gt; OnFloorEntered</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData.html">FloorData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnFloorExited" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnFloorExited">
+  OnFloorExited
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;FloorData&gt; OnFloorExited</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData.html">FloorData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnRoomEntered" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomEntered">
+  OnRoomEntered
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fired when room entered and loaded
+NOTE: DOES NOT FIRE IF THE ROOM'S FLOOR IS NOT IN _allFloors
+EX: STAIRS
+DIRECTLY SUB TO THE SCRIPTABLE IN SUCH CASES</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;RoomData&gt; OnRoomEntered</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnRoomExited" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomExited">
+  OnRoomExited
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fired when room entered and loaded
+NOTE: DOES NOT FIRE IF THE ROOM'S FLOOR IS NOT IN _allFloors
+EX: STAIRS
+DIRECTLY SUB TO THE SCRIPTABLE IN SUCH CASES</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;RoomData&gt; OnRoomExited</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made by <a href="https://github.com/Studio-23-xyz" target="_blank">Studio-23-xyz</a> using <a href="https://dotnet.github.io/docfx" target="_blank">DocFX</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

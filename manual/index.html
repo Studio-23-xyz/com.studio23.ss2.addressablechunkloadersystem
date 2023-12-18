@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Addressable Chunk Loader System |  |  </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Addressable Chunk Loader System |  |  ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:disablenewtab" content="true">
+      
+      <meta name="docfx:docurl" content="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Documentation~/manual/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="landing" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="addressable-chunk-loader-system">Addressable Chunk Loader System</h1>
+
+<p>Addressable Chunk Loader is a package for loading rooms(mainly for the castle area) as addressable chunks/scenes
+for SS2 using addressables. It handles:</p>
+<ol>
+<li><p>Loading/Unloading rooms/addressable chunks based on distance from player.</p>
+</li>
+<li><p>Marking rooms/chunks to always keep loaded for particular areas or game needs.</p>
+</li>
+<li><p>Async await API + events for handling room loading/unloading.</p>
+<p><img src="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/assets/17526821/fa62fb56-6769-4f74-92b8-e4cc40a6bbea" alt="ezgif-3-4da803510b"></p>
+</li>
+</ol>
+<h1 id="scene-setup">Scene Setup:</h1>
+<ol>
+<li>Each room has an exterior and an interior scene.</li>
+<li>Both scenes are addressable.</li>
+<li>Exterior is loaded when player is in range</li>
+<li>Interior is loaded when player enters the room(via door or function call)</li>
+<li>The room interior should have a RoomInstance monobehavior with a RoomEntryZone.</li>
+<li>RoomEntryZone detects player entry into a  trigger collider.</li>
+<li>You can hit play mode in any interior scene</li>
+<li>Keep a master scene and bake all scenes with that as the active scene. See lighting notes for details.</li>
+</ol>
+<h1 id="room-loading">Room loading:</h1>
+<p>A room can be loaded because:</p>
+<ol>
+<li>It is in always load list of current room
+radius distance from player within some threshold.</li>
+<li>It is in always load list for current room/floor.
+We may want to add other ways to determine if rooms should be loaded.
+As long as one system says that a room should be kept loaded, we should keep it loaded.</li>
+<li>If a room is no longer required at all, it is unloaded after a timer
+RoomLoader handles actual loading:</li>
+<li>It keeps a Dictionary&lt;Room, RoomLoadHandle&gt; for exterior and interior
+Any room that will be loaded/is loaded is in the dicts</li>
+<li>Once a room needs to be  unloaded(timer expired), it is also removed from the dict
+RoomManager handles loading rooms in player range/ adding/removing must load rooms(based on story reqs or whatever)</li>
+<li>You can wait till a room is loaded. In the samples, the door does not animate the door until the room is loaded.</li>
+</ol>
+<h1 id="usage">Usage:</h1>
+<ol>
+<li>Ensure that a RoomManager singleton exists in your scene.
+Set the player ref on the RoomManager.</li>
+<li>Use separate exterior and interior scenes per room.</li>
+<li>The RoomData scriptable stores and uses room world position.</li>
+<li>The scene root should always be in the room's correct position.</li>
+<li>When the root position has been moved, go to the RoomInstance object and update the position</li>
+<li>The gizmos indicate when they don't match to aid you.</li>
+<li>You are responsible to ensure that the scriptable is updated.</li>
+</ol>
+<h1 id="known-issues">Known issues:</h1>
+<p>Don't put the player objects in the rooms if you use RoomEntryZone:</p>
+<ol>
+<li>If multiple rooms each with RoomEntryZone and player objects are loaded.</li>
+<li>The roommanager will consider the player to be at the last room.</li>
+<li>This depends on execution and room dependency order. Don't do it.</li>
+<li>Sample scenes has a player spawning example that avoids the above scenario .</li>
+</ol>
+<h1 id="lighting-notes">Lighting Notes:</h1>
+<h2 id="do">Do:</h2>
+<h3 id="baking-workflow">Baking workflow:</h3>
+<ol>
+<li>Keep a &quot;master&quot; scene containing lightprobes for the other rooms.</li>
+<li>Load the master scene.</li>
+<li>Ensure that it is the active scene.</li>
+<li>Additively load room interior and exterior</li>
+<li>The additive scenes should share the same light settings asset.</li>
+<li>Bake.
+You must do this for any light update.</li>
+</ol>
+<h3 id="in-runtime">In runtime:</h3>
+<p>As of yet, it doesn't seem necessary to actually load the master scene in runtime after baking.
+So the package currently just loads assets separately.</p>
+<h3 id="do-not">Do not:</h3>
+<ol>
+<li>Do not bake rooms separately.</li>
+<li>Do not light probe them separately. Only the master scene should contain the light probes.</li>
+</ol>
+<h3 id="note">Note:</h3>
+<p>Unity can handle lightmaps from different additive scenes. But not light probes. The above workflow using a master scene is a workaround for that.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Documentation~/manual/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made by <a href="https://github.com/Studio-23-xyz" target="_blank">Studio-23-xyz</a> using <a href="https://dotnet.github.io/docfx" target="_blank">DocFX</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

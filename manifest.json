@@ -1,0 +1,354 @@
+{
+  "sitemap": {
+    "baseUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/"
+  },
+  "source_base_path": "/home/runner/work/com.studio23.ss2.addressablechunkloadersystem/com.studio23.ss2.addressablechunkloadersystem/Documentation~",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomEntryZone.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomEntryZone.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomInstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomInstance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomLoadRequestData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomLoadRequestData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.AlwaysLoadRoomTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.AlwaysLoadRoomTrigger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.Door.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.Door.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.PlayerDetector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.PlayerDetector.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomEventTester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomEventTester.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestPlayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestPlayerManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "changelog/CHANGELOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "changelog/CHANGELOG.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "changelog/toc.md",
+      "output": {
+        ".json": {
+          "relative_path": "changelog/toc.json"
+        },
+        ".html": {
+          "relative_path": "changelog/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "license/LICENSE.md",
+      "output": {
+        ".html": {
+          "relative_path": "license/LICENSE.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "license/toc.md",
+      "output": {
+        ".json": {
+          "relative_path": "license/toc.json"
+        },
+        ".html": {
+          "relative_path": "license/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

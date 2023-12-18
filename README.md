@@ -7,6 +7,8 @@ for SS2 using addressables. It handles:
 
    ![ezgif-3-4da803510b](https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/assets/17526821/fa62fb56-6769-4f74-92b8-e4cc40a6bbea)
 
+# Manual:
+https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/manual/
 
 # Scene Setup:
 1. Each room has an exterior and an interior scene.

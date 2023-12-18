@@ -2,7 +2,7 @@
     "name": "com.studio23.ss2.addressablechunkloadersystem",
     "version": "1.0.0",
     "displayName": "Addressable Chunk Loader System",
-    "description": "Addressable Chunk Loader System made for SS2",
+    "description": "Addressable Chunk/Room Loader System using addressables we made for SS2",
     "unity": "2022.3",
     "unityRelease": "10f1",
     "documentationUrl": "https://openupm.com/packages/com.studio23.ss2.addressablechunkloadersystem/",
@@ -29,7 +29,7 @@
       {
         "displayName": "Functional Example",
         "description": "Sample scene with multiple floors and rooms and lightmap setup.",
-        "path": "Samples~/AddressableChunkLoaderSystem.Sample1"
+        "path": "Samples/AddressableChunkLoaderSystem.Sample1"
       }
     ],  
   "repository": {

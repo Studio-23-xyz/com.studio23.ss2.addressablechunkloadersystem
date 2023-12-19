@@ -122,7 +122,7 @@
   "changelog/CHANGELOG.html": {
     "href": "changelog/CHANGELOG.html",
     "title": "Changelog | |",
-    "keywords": "Changelog 1.0.0 Initial version of package"
+    "keywords": "Changelog 1.0.1 Moved samples to samples~ 1.0.1 Dependency fix 1.0.0 Initial version of package"
   },
   "index.html": {
     "href": "index.html",

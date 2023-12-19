@@ -1,6 +1,6 @@
 {
     "name": "com.studio23.ss2.addressablechunkloadersystem",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "displayName": "Addressable Chunk Loader System",
     "description": "Addressable Chunk/Room Loader System using addressables we made for SS2",
     "unity": "2022.3",
@@ -29,7 +29,7 @@
       {
         "displayName": "Functional Example",
         "description": "Sample scene with multiple floors and rooms and lightmap setup.",
-        "path": "Samples/AddressableChunkLoaderSystem.Sample1"
+        "path": "Samples~/AddressableChunkLoaderSystem.Sample1"
       }
     ],  
   "repository": {

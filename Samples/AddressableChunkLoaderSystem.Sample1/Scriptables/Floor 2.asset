@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdc046e082342b391fee290ef6a27cf, type: 3}
+  m_Name: Floor 2
+  m_EditorClassIdentifier: 
+  RoomsInFloor:
+  - {fileID: 11400000, guid: 524c36add5efb3e4c8ef2ae7edab5801, type: 2}
+  - {fileID: 11400000, guid: 8c8c15309db380f48a65bf25901e3ce2, type: 2}
+  - {fileID: 11400000, guid: a4cbf968e8d35d14e9629221e71e4e9b, type: 2}
+  - {fileID: 11400000, guid: f6d24a4f5e39a23408375661cba00289, type: 2}
+  - {fileID: 11400000, guid: 5175d02333dacf24cbbf061b3f605024, type: 2}
+  AlwaysLoadRooms:
+  - {fileID: 11400000, guid: 36c637ec31cfc1b4eac331227d7cd0b9, type: 2}

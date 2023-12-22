@@ -41,14 +41,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             }
         }
 
-        private void OnDrawGizmos()
-        {
-            if (_room == null)
-            {
-                return;
-            }
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, _room.RoomLoadRadius);
-        }
+
     }
 }

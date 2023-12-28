@@ -1,6 +1,6 @@
 {
     "name": "com.studio23.ss2.addressablechunkloadersystem",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "displayName": "Addressable Chunk Loader System",
     "description": "Addressable Chunk/Room Loader System using addressables we made for SS2",
     "unity": "2022.3",

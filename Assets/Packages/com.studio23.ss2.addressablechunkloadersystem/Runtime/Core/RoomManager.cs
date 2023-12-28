@@ -79,6 +79,9 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         private void Update()
         {
+            if(_willGetDestroyed)
+                return;
+            
             if (Player != null)
             {
                 UpdateRoomsInPlayerRange();
@@ -143,17 +146,29 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             _roomLoader.RemoveRoomExteriorLoadFlag(room, RoomFlag.IsInLoadingRange);
         }
 
-        internal async UniTask AddRoomExteriorFlag(RoomData room, RoomFlag flags)
+        RoomLoadHandle AddRoomExteriorFlag(RoomData room, RoomFlag flags)
+        {
+            return _roomLoader.AddExteriorLoadRequest(new RoomLoadRequestData(room), flags);
+        }
+        
+        internal async UniTask AddRoomExteriorFlagAndWait(RoomData room, RoomFlag flags)
         {
             var handle = _roomLoader.AddExteriorLoadRequest(new RoomLoadRequestData(room), flags);
             await handle.LoadScene();
         }
         
-        internal async UniTask AddRoomInteriorFlag(RoomData room, RoomFlag flags)
+        internal async UniTask AddRoomInteriorFlagAndWait(RoomData room, RoomFlag flags)
         {
             var handle = _roomLoader.AddInteriorLoadRequest(new RoomLoadRequestData(room), flags);
             await handle.LoadScene();
         }
+        
+        RoomLoadHandle AddRoomInteriorFlag(RoomData room, RoomFlag flags)
+        {
+            return _roomLoader.AddInteriorLoadRequest(new RoomLoadRequestData(room), flags);
+        }
+
+        
 
         public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
         {
@@ -187,8 +202,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 
 
                 ForceEnterRoom(room);
-                await AddRoomExteriorFlag(room,RoomFlag.IsCurrentRoom);
-                await AddRoomInteriorFlag(room,RoomFlag.IsCurrentRoom);
+                await AddRoomExteriorFlagAndWait(room,RoomFlag.IsCurrentRoom);
+                await AddRoomInteriorFlagAndWait(room,RoomFlag.IsCurrentRoom);
                 OnRoomEntered?.Invoke(room);
 
                 LoadCurrentRoomDependencies(room, isDifferentFloor);
@@ -236,7 +251,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             //a better way would be to set all the flags and then wait on the handles
             foreach (var adjacentRoom in room.AlwaysLoadRooms)
             {
-                await AddRoomExteriorFlag(adjacentRoom, RoomFlag.IsCurrentFloorMustLoad);
+                await AddRoomExteriorFlagAndWait(adjacentRoom, RoomFlag.IsCurrentFloorMustLoad);
             }
     
             if (floorNewlyEntered)
@@ -246,7 +261,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     OnFloorEntered?.Invoke(room.Floor);
                     foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
                     {
-                        await AddRoomExteriorFlag(roomToLoad, RoomFlag.IsCurrentFloorMustLoad);
+                        await AddRoomExteriorFlagAndWait(roomToLoad, RoomFlag.IsCurrentFloorMustLoad);
                     }
                 }
             }

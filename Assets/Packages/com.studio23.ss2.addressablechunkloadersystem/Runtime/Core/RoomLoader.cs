@@ -151,14 +151,14 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
         {
             await handle.LoadScene();
-            handle.Room.HandleRoomExteriorLoaded();
-            OnRoomExteriorLoaded?.Invoke(handle.Room);
+            handle.Room.HandleRoomInteriorLoaded();
+            OnRoomInteriorLoaded?.Invoke(handle.Room);
         }
         private async UniTask ForceLoadRoomExterior(RoomLoadHandle handle)
         {
             await handle.LoadScene();
-            handle.Room.HandleRoomInteriorLoaded();
-            OnRoomInteriorLoaded?.Invoke(handle.Room);
+            handle.Room.HandleRoomExteriorLoaded();
+            OnRoomExteriorLoaded?.Invoke(handle.Room);
         }
         
         public RoomLoadHandle AddExteriorLoadRequest(RoomLoadRequestData loadRequest, RoomFlag flags)

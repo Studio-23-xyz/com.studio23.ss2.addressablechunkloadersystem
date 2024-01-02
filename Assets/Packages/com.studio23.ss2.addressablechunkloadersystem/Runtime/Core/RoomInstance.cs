@@ -27,6 +27,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             {
                 return;
             }
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(_room.WorldPosition, _room.RoomLoadRadius); 
             Gizmos.color = Color.blue;
             Gizmos.DrawSphere(_room.WorldPosition, .125f);
             Gizmos.DrawRay(_room.WorldPosition, Vector3.up* 9);

@@ -4,17 +4,23 @@ using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
 {
     [CreateAssetMenu(menuName = "Studio-23/RoomLoadingSystem/RoomData", fileName = "RoomData")]
     public class RoomData:ScriptableObject
     {
-        public AssetReferenceT<SceneAsset> InteriorScene;
-        public AssetReferenceT<SceneAsset> ExteriorScene;
+        [FormerlySerializedAs("InteriorScene1")] 
+        public AssetReference InteriorScene;
+        [FormerlySerializedAs("ExteriorScene2")] 
+        public AssetReference ExteriorScene;
+            
+
         public Vector3 WorldPosition;
         public float RoomLoadRadius = 4;
         public float MinUnloadTimeout = 10;
+        
         [ShowNativeProperty] public FloorData Floor { get; internal set; }
 
         [SerializeField] List<RoomData> _alwaysLoadRooms;

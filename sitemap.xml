@@ -2,169 +2,169 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomEntryZone.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomInstance.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Core.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomLoadRequestData.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Data.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.AlwaysLoadRoomTrigger.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.Door.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.PlayerDetector.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomEventTester.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterController.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestPlayerManager.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/api/index.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/changelog/CHANGELOG.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/index.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/license/LICENSE.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/manual/index.html</loc>
-    <lastmod>2024-01-04T06:02:36+00:00</lastmod>
+    <lastmod>2024-01-04T07:02:31+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

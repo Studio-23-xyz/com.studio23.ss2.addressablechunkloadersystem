@@ -135,6 +135,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     //we need to fetch the scene name from the asset ref
                     //and unload it manually
                     //But this situation shouldn't be ocurring in a build to begin with.
+                    //We need to do this in editor only for the initial scene
+                    //so doesn't matter perf wise,
                     var locations = await Addressables.LoadResourceLocationsAsync(_scene);
                     var sceneID = locations.First().InternalId;
                     await SceneManager.UnloadSceneAsync(sceneID);
@@ -179,6 +181,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         public override string ToString()
         {
             var s = $"{Room.name}{(_isInterior ? "interior" : "exterior")} {_flags} UsesAddressable: {UsesAddressable} {(LoadHandle.IsDone ? "is loaded" : $"loading ")} unload timer:{UnloadTimer.Timer}/{UnloadTimer.MaxValue} ";
+            var s = $"{Room.name}{(_isInterior ? "interior" : "exterior")} FLAGS {_flags} UsesAddressable: {UsesAddressable} {(LoadHandle.IsDone ? "is loaded" : $"loading ")} unload timer:{UnloadTimer.Timer}/{UnloadTimer.MaxValue} ";
 
             return s;
         }

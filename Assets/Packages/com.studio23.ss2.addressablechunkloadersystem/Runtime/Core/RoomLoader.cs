@@ -68,7 +68,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 {
                     if (handle.UnloadTimer.tryCompleteTimer(Time.deltaTime))
                     {
-                        Debug.Log($"{room} unload Try Unloading");
+                        Debug.Log($"{room} unload schedule");
 
                         _roomsToUnloadListCache.Add(room);
                     }
@@ -128,6 +128,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             if (_roomExteriorLoadHandles.TryGetValue(requestData.RoomToLoad, out handle))
             {
                 //#TODO in the case of an existing handle, we may want to update priority
+                // Debug.Log(requestData.RoomToLoad + " get handle " + handle);
+
                 handle.AddFlag(flags);
             }
             else
@@ -140,6 +142,9 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     requestData.ActivateOnLoad, 
                     requestData.Priority
                 );
+                
+                // Debug.Log(requestData.RoomToLoad + " start handle ");
+
                 _roomExteriorLoadHandles.Add(requestData.RoomToLoad, handle);
                 ForceLoadRoomExterior(handle);
             }
@@ -151,11 +156,22 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
         {
             await handle.LoadScene();
+            // while (handle.UsesAddressable && !handle.LoadHandle.IsDone)
+            // {
+            //     await UniTask.Yield();
+            // }
+            
+            
             handle.Room.HandleRoomInteriorLoaded();
             OnRoomInteriorLoaded?.Invoke(handle.Room);
         }
         private async UniTask ForceLoadRoomExterior(RoomLoadHandle handle)
         {
+            // while (handle.UsesAddressable && !handle.LoadHandle.IsDone)
+            // {
+            //     await UniTask.Yield();
+            //     Debug.Log(handle.Room + " loading " + handle.LoadHandle.PercentComplete);
+            // }
             await handle.LoadScene();
             handle.Room.HandleRoomExteriorLoaded();
             OnRoomExteriorLoaded?.Invoke(handle.Room);

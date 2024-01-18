@@ -223,7 +223,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         public void AddHandleForAlreadyLoadedRoom(RoomData room, RoomFlag flags)
         {
             _roomInteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,true));
-            RoomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
+            _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
         }
 
         private void OnDestroy()

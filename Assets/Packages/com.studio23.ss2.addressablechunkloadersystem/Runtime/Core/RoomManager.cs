@@ -186,7 +186,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
             if (_currentEnteredRoom != room)
             {
-                Debug.Log("enter new room " + room, room);
 
                 var prevFloor = CurrentFloor;
                 var prevRoom = _currentEnteredRoom;
@@ -215,16 +214,12 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 }
                 else
                 {
-                    Debug.Log("alreqady loaded room ");
+                    Debug.Log($"alreaady loaded room {room}");
                 }
 
                 OnRoomEntered?.Invoke(room);
 
                 LoadCurrentRoomDependencies(room, isDifferentFloor);
-            }
-            else
-            {
-                Debug.Log("enter dupe room " + room, room);
             }
         }
 

@@ -172,19 +172,21 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
         {
-            if (_currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing)
+            bool isAlreadyLoadedRoom = _currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing;
+            if (isAlreadyLoadedRoom)
             {
                 //the room has been entered but the exterior isn't marked as loaded
                 //this is possible if we start in this scene from the editor
                 //in which case, exterior is already loaded.
                 //we just need to add a dummy handle
                 //that won't unload the scene as an addressable.
-                _roomLoader.AddHandleForAlreadyLoadedInterior(room, RoomFlag.IsCurrentRoom);
+                Debug.Log("AddHandleForAlreadyLoadedInterior " + room, room);
+                _roomLoader.AddHandleForAlreadyLoadedRoom(room, RoomFlag.IsCurrentRoom);
             }
 
-            Debug.Log("enter room "+ room, room);
             if (_currentEnteredRoom != room)
             {
+
                 var prevFloor = CurrentFloor;
                 var prevRoom = _currentEnteredRoom;
 
@@ -202,8 +204,19 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 
 
                 ForceEnterRoom(room);
-                await AddRoomExteriorFlagAndWait(room,RoomFlag.IsCurrentRoom);
-                await AddRoomInteriorFlagAndWait(room,RoomFlag.IsCurrentRoom);
+
+                
+                if (!isAlreadyLoadedRoom)
+                {
+                    Debug.Log("load new room ");
+                    await AddRoomExteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
+                    await AddRoomInteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
+                }
+                else
+                {
+                    Debug.Log($"alreaady loaded room {room}");
+                }
+
                 OnRoomEntered?.Invoke(room);
 
                 LoadCurrentRoomDependencies(room, isDifferentFloor);

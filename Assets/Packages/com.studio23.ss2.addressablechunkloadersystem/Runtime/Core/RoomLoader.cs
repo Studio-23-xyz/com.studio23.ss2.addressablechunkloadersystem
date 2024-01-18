@@ -220,9 +220,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             return handle;
         }
 
-        public void AddHandleForAlreadyLoadedInterior(RoomData room, RoomFlag flags)
+        public void AddHandleForAlreadyLoadedRoom(RoomData room, RoomFlag flags)
         {
             _roomInteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,true));
+            _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
         }
 
         private void OnDestroy()

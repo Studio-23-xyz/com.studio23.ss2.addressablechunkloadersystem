@@ -276,19 +276,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddExteriorLoadRequest
   nameWithType: RoomLoader.AddExteriorLoadRequest
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedInterior(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
-  name: AddHandleForAlreadyLoadedInterior(RoomData, RoomFlag)
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddHandleForAlreadyLoadedInterior_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_
-  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedInterior(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedInterior(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
-  nameWithType: RoomLoader.AddHandleForAlreadyLoadedInterior(RoomData, RoomFlag)
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedInterior*
-  name: AddHandleForAlreadyLoadedInterior
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddHandleForAlreadyLoadedInterior_
-  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedInterior
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
+  name: AddHandleForAlreadyLoadedRoom(RoomData, RoomFlag)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddHandleForAlreadyLoadedRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
+  nameWithType: RoomLoader.AddHandleForAlreadyLoadedRoom(RoomData, RoomFlag)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom*
+  name: AddHandleForAlreadyLoadedRoom
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddHandleForAlreadyLoadedRoom_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom
   isSpec: "True"
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedInterior
-  nameWithType: RoomLoader.AddHandleForAlreadyLoadedInterior
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom
+  nameWithType: RoomLoader.AddHandleForAlreadyLoadedRoom
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddInteriorLoadRequest(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomLoadRequestData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
   name: AddInteriorLoadRequest(RoomLoadRequestData, RoomFlag)
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddInteriorLoadRequest_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomLoadRequestData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_

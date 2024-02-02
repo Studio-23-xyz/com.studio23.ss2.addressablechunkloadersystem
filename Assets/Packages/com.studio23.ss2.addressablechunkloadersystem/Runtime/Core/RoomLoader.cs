@@ -152,6 +152,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             return handle;
         }
         
+        
+        
     
         private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
         {
@@ -167,11 +169,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         }
         private async UniTask ForceLoadRoomExterior(RoomLoadHandle handle)
         {
-            // while (handle.UsesAddressable && !handle.LoadHandle.IsDone)
-            // {
-            //     await UniTask.Yield();
-            //     Debug.Log(handle.Room + " loading " + handle.LoadHandle.PercentComplete);
-            // }
             await handle.LoadScene();
             handle.Room.HandleRoomExteriorLoaded();
             OnRoomExteriorLoaded?.Invoke(handle.Room);
@@ -257,6 +254,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 Debug.Log($"Interior {(handle)} ");
             }
         }
+
 
         public async UniTask UnloadAllRooms()
         {

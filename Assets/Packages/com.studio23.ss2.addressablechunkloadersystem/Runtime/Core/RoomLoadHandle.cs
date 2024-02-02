@@ -177,6 +177,30 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 }
             }
         }
+
+        public bool HasLoaded()
+        {
+            if (UsesAddressable)
+            {
+                return LoadHandle.IsDone;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public float GetLoadingPercentage()
+        {
+            if (UsesAddressable)
+            {
+                return LoadHandle.PercentComplete;
+            }
+            else
+            {
+                return 1;
+            } 
+        }
         
         public override string ToString()
         {

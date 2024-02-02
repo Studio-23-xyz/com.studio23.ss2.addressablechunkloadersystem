@@ -223,6 +223,41 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             }
         }
 
+        //#TODO better unload 
+        public void ClearRoomLoads()
+        {
+            _roomLoader.RoomExteriorLoadHandles.Clear();
+            _roomLoader.RoomExteriorLoadHandles.Clear();
+        }
+        
+        public float LoadingPercentageForRoom(RoomData room, bool considerInterior, bool includeMustLoadRooms)
+        {
+            float progress = 0;
+            int numRoomsToLoad = 1;
+            if (considerInterior)
+            {
+                numRoomsToLoad++;
+            }
+
+            RoomLoadHandle handle;
+            
+            numRoomsToLoad += room.AlwaysLoadRooms.Count;
+            if (includeMustLoadRooms && 
+                _roomLoader.RoomExteriorLoadHandles.TryGetValue(room, out handle))
+            {
+                progress += handle.GetLoadingPercentage();
+            }
+
+            numRoomsToLoad += room.Floor == null ? room.Floor.AlwaysLoadRooms.Count : 0;
+            if (includeMustLoadRooms && 
+                _roomLoader.RoomExteriorLoadHandles.TryGetValue(room, out handle))
+            {
+                progress += handle.GetLoadingPercentage();
+            }
+    
+            return progress/numRoomsToLoad;
+        }
+
         private void ExitFloor(FloorData prevFloor)
         {
             Debug.Log("exit floor " + prevFloor, prevFloor);
@@ -281,6 +316,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             
             room.HandleRoomDependenciesLoaded();
         }
+
 
 
         

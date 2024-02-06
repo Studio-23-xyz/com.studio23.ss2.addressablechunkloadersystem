@@ -19,39 +19,12 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
         private bool _isLoading = false;
         
         public Button UnloadButton;
-        public Slider LoadSlider;
+        [SerializeField] private SampleLoadingBar _loadingBar;
         
         protected override void Initialize()
         {
             UnloadButton.gameObject.SetActive(false);
-            LoadSlider.gameObject.SetActive(false);
         }
-        async UniTask UpdateLoadingBar()
-        {
-            LoadSlider.gameObject.SetActive(true);
-            LoadSlider.value = 0;
-            while (_isLoading)
-            {
-
-                await UniTask.Yield();
-                await UniTask.NextFrame();
-                var percentage = RoomManager.Instance.LoadingPercentageForRoom(RoomData, true, true);
-                Debug.Log($"loading bar percentage {percentage}");
-                
-                LoadSlider.value = percentage;
-            }
-            Debug.Log("loading bar done. hiding in 1 sec");
-            //keep loading bar active for a bit to not miss it
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
-            Debug.Log("loading bar hidden ");
-            LoadSlider.gameObject.SetActive(false);
-        }
-        
-        private void handleRoomInteriorLoaded(RoomData obj)
-        {
-            Debug.Log($"ROOM {RoomData} Interior LOADED");
-        }
-        
 
         public void LoadRoomNonAsync()
         {
@@ -62,7 +35,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
             _isLoading = true;
 
             //non await call, will end when is loading ends 
-            UpdateLoadingBar().Forget();
+            _loadingBar.UpdateLoadingBar(RoomData).Forget();
             await RoomManager.Instance.EnterRoom(RoomData, true, true);
             
             Debug.Log($"ROOM {RoomData} Entered And Loaded ");
@@ -80,9 +53,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
             TestPlayerManager.Instance.Player.gameObject.SetActive(true);
         }
 
-        public void unloadRoomAndReturn()
+        public void UnloadRoomAndReturn()
         {
             RoomManager.Instance.UnloadAllRooms();
+            //hack code for disabling player 
             TestPlayerManager.Instance.Player.gameObject.SetActive(false);
         }
 

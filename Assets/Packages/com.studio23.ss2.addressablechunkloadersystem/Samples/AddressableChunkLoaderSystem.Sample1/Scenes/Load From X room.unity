@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 1510050753}
   - component: {fileID: 1510050752}
   - component: {fileID: 1510050756}
+  - component: {fileID: 1510050757}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1068,6 +1069,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   UnloadButton: {fileID: 1999216707}
+  _loadingBar: {fileID: 1510050757}
+--- !u!114 &1510050757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510050751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374566f6ff614383b67584c623397a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   LoadSlider: {fileID: 1837032199}
 --- !u!1001 &1694193520
 PrefabInstance:
@@ -1356,7 +1370,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1510050756}
         m_TargetAssemblyTypeName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample,
           Assembly-CSharp
-        m_MethodName: unloadRoomAndReturn
+        m_MethodName: UnloadRoomAndReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

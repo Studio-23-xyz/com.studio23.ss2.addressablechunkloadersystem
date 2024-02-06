@@ -45,6 +45,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         
         protected override void Initialize()
         {
+            _isUnloading = false;
             _roomLoader = GetComponent<RoomLoader>();
 
             foreach (var floor in _allFloors)

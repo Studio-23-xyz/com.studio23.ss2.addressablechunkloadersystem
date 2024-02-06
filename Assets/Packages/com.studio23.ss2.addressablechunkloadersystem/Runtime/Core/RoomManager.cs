@@ -13,6 +13,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
     {
         [SerializeField] List<FloorData> _allFloors;
         private RoomLoader _roomLoader;
+        private bool _isUnloading = false;
         public RoomLoader  RoomLoader=> _roomLoader;
         
         public event Action<FloorData> OnFloorEntered;
@@ -79,7 +80,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         private void Update()
         {
-            if(_willGetDestroyed)
+            if(_willGetDestroyed || _isUnloading)
                 return;
             
             if (Player != null)
@@ -172,6 +173,12 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
         {
+            if (_isUnloading)
+            {
+                Debug.LogWarning("Can't enter room when UNLOADING", gameObject);
+                return;
+            }
+            
             bool isAlreadyLoadedRoom = _currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing;
             if (isAlreadyLoadedRoom)
             {
@@ -202,19 +209,17 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     }
                 }
                 
-
                 ForceEnterRoom(room);
 
-                
                 if (!isAlreadyLoadedRoom)
                 {
-                    Debug.Log("load new room ");
+                    Debug.Log($"load new room {room}");
                     await AddRoomExteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
                     await AddRoomInteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
                 }
                 else
                 {
-                    Debug.Log($"alreaady loaded room {room}");
+                    Debug.Log($"already loaded room {room}");
                 }
 
                 OnRoomEntered?.Invoke(room);
@@ -224,10 +229,29 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         }
 
         //#TODO better unload 
-        public void ClearRoomLoads()
+        public async UniTask UnloadAllRooms()
         {
+            if (_isUnloading)
+            {
+                return;
+            }
+            Debug.Log("start unloading all rooms");
+
+            _isUnloading = true;
+            foreach (var (room,  handle) in _roomLoader.RoomExteriorLoadHandles)
+            {
+                await handle.UnloadScene();
+            }
+            foreach (var (room,  handle) in _roomLoader.RoomInteriorLoadHandles)
+            {
+                await handle.UnloadScene();
+            }
             _roomLoader.RoomExteriorLoadHandles.Clear();
-            _roomLoader.RoomExteriorLoadHandles.Clear();
+            _roomLoader.RoomInteriorLoadHandles.Clear();
+
+            _currentEnteredRoom = null;
+            _isUnloading = false;
+            Debug.Log("unloaded all rooms");
         }
         
         public float LoadingPercentageForRoom(RoomData room, bool considerInterior, bool includeMustLoadRooms)
@@ -354,11 +378,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             return false;
         }
         
-        public async UniTask UnloadAllRooms()
-        {
-            await _roomLoader.UnloadAllRooms();
-        }
-        
+
 
         [Button]
         void PrintRoomsInLoadingRange()

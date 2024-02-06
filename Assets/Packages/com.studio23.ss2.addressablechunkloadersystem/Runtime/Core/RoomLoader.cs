@@ -254,25 +254,5 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 Debug.Log($"Interior {(handle)} ");
             }
         }
-
-
-        public async UniTask UnloadAllRooms()
-        {
-            List<UniTask> handlesToUnload = new List<UniTask>();
-            
-            foreach (var (room, handle) in _roomInteriorLoadHandles)
-            {
-                handlesToUnload.Add(handle.UnloadScene());    
-            }
-            _roomInteriorLoadHandles.Clear();
-            
-            foreach (var (room, handle) in _roomExteriorLoadHandles)
-            {
-                handlesToUnload.Add(handle.UnloadScene());    
-            }
-            _roomExteriorLoadHandles.Clear();
-
-            await UniTask.WhenAll(handlesToUnload);
-        }
-    }
+}
 }

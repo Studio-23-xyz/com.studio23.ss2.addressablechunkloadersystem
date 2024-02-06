@@ -76,10 +76,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			SetCursorState(CursorLocked);
+			// SetCursorState(CursorLocked);
 		}
 
-		private void SetCursorState(bool newState)
+		public void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}

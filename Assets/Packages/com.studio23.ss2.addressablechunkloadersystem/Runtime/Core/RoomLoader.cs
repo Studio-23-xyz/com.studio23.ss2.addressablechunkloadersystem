@@ -26,6 +26,31 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             _roomsToUnloadListCache = new List<RoomData>();
         }
 
+        public float GetExteriorLoadingPercentage(RoomData data)
+        {
+            if (_roomExteriorLoadHandles.TryGetValue(data, out var handle))
+            {
+                return handle.GetLoadingPercentage();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        
+        public float GetInteriorLoadingPercentage(RoomData data)
+        {
+            if (_roomInteriorLoadHandles.TryGetValue(data, out var handle))
+            {
+                return handle.GetLoadingPercentage();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+
         public void UpdateRoomUnloadTimer()
         {
             _roomsToUnloadListCache.Clear();

@@ -171,7 +171,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         
 
-        public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
+        public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false, bool waitForDependencies = false)
         {
             if (_isUnloading)
             {
@@ -223,8 +223,14 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 }
 
                 OnRoomEntered?.Invoke(room);
-
-                LoadCurrentRoomDependencies(room, isDifferentFloor);
+                if (waitForDependencies)
+                {
+                    await LoadCurrentRoomDependencies(room, isDifferentFloor);
+                }
+                else
+                {
+                    LoadCurrentRoomDependencies(room, isDifferentFloor);
+                }
             }
         }
 
@@ -258,27 +264,33 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         {
             float progress = 0;
             int numRoomsToLoad = 1;
+            progress += _roomLoader.GetExteriorLoadingPercentage(room);
             if (considerInterior)
             {
                 numRoomsToLoad++;
+                progress += _roomLoader.GetInteriorLoadingPercentage(room);
             }
 
-            RoomLoadHandle handle;
-            
-            numRoomsToLoad += room.AlwaysLoadRooms.Count;
-            if (includeMustLoadRooms && 
-                _roomLoader.RoomExteriorLoadHandles.TryGetValue(room, out handle))
+            if (includeMustLoadRooms)
             {
-                progress += handle.GetLoadingPercentage();
-            }
+                //#TODO this doesn't account for room dependencies that are shared between room and floor
+                //#TODO store dependent rooms in a hashset
+                numRoomsToLoad += room.AlwaysLoadRooms.Count;
+                foreach (var mustLoadRoom in room.AlwaysLoadRooms)
+                {
+                    progress += _roomLoader.GetExteriorLoadingPercentage(mustLoadRoom);
+                }
+                
 
-            numRoomsToLoad += room.Floor == null ? room.Floor.AlwaysLoadRooms.Count : 0;
-            if (includeMustLoadRooms && 
-                _roomLoader.RoomExteriorLoadHandles.TryGetValue(room, out handle))
-            {
-                progress += handle.GetLoadingPercentage();
+                if (room.Floor != null)
+                {
+                    numRoomsToLoad += room.Floor.AlwaysLoadRooms.Count;
+                    foreach (var mustLoadRoom in room.Floor.AlwaysLoadRooms)
+                    {
+                        progress += _roomLoader.GetExteriorLoadingPercentage(mustLoadRoom);
+                    }
+                }
             }
-    
             return progress/numRoomsToLoad;
         }
 

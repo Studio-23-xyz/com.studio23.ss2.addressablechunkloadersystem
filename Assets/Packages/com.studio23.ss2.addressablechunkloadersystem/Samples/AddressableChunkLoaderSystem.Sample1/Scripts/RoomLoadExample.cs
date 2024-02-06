@@ -16,60 +16,60 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
         public RoomData RoomData;
         public UnityEvent RoomEnteredAndLoadedEvent;
         public UnityEvent RoomDependenciesLoaded;
-        bool hasLoaded = false;
-        private bool isLoading = false;
+        private bool _isLoading = false;
+        
         public Button UnloadButton;
-
+        public Slider LoadSlider;
         
         protected override void Initialize()
         {
             UnloadButton.gameObject.SetActive(false);
+            LoadSlider.gameObject.SetActive(false);
         }
-        private void Update()
+        async UniTask UpdateLoadingBar()
         {
-            if (isLoading)
+            LoadSlider.gameObject.SetActive(true);
+            LoadSlider.value = 0;
+            while (_isLoading)
             {
-                Debug.Log("VAR"+ RoomManager.Instance.LoadingPercentageForRoom(RoomData, true, true));
+
+                await UniTask.Yield();
+                await UniTask.NextFrame();
+                var percentage = RoomManager.Instance.LoadingPercentageForRoom(RoomData, true, true);
+                Debug.Log($"loading bar percentage {percentage}");
+                
+                LoadSlider.value = percentage;
             }
-        }
-        private void OnEnable()
-        {
-            RoomData.OnRoomDependenciesLoaded += handleDependenciesLoaded;
-        }
-
-
-        private void OnDisable()
-        {
-            RoomData.OnRoomDependenciesLoaded -= handleDependenciesLoaded;
+            Debug.Log("loading bar done. hiding in 1 sec");
+            //keep loading bar active for a bit to not miss it
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            Debug.Log("loading bar hidden ");
+            LoadSlider.gameObject.SetActive(false);
         }
         
         private void handleRoomInteriorLoaded(RoomData obj)
         {
             Debug.Log($"ROOM {RoomData} Interior LOADED");
         }
+        
 
-        private void handleDependenciesLoaded(RoomData obj)
+        public void LoadRoomNonAsync()
         {
-            //do what you want when the room's dependencies are loaded
-            Debug.Log($" ALL ROOM {RoomData} DEPENDENCIES LOADED");
-            isLoading = false;
-            RoomDependenciesLoaded?.Invoke();
+            LoadRoomWithDependencies();
         }
+        public async UniTask LoadRoomWithDependencies()
+        {
+            _isLoading = true;
 
-        public void LoadRoom1()
-        {
-            LoadRoom();
-        }
-        public async UniTask LoadRoom()
-        {
-            hasLoaded = false;
-            isLoading = true;
-            await RoomManager.Instance.EnterRoom(RoomData, true);
+            //non await call, will end when is loading ends 
+            UpdateLoadingBar().Forget();
+            await RoomManager.Instance.EnterRoom(RoomData, true, true);
             
             Debug.Log($"ROOM {RoomData} Entered And Loaded ");
-            
-            hasLoaded = true;
             RoomEnteredAndLoadedEvent?.Invoke();
+            Debug.Log($" ALL ROOM {RoomData} DEPENDENCIES LOADED");
+            _isLoading = false;
+            RoomDependenciesLoaded?.Invoke();
 
             await UniTask.Yield();
             await UniTask.NextFrame();
@@ -78,7 +78,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
             var roomInstance = GameObject.FindObjectOfType<RoomInstance>();
             TestPlayerManager.Instance.Player.transform.position = roomInstance._defaultPlayerSpawnPoint.position + 1 * Vector3.up;
             TestPlayerManager.Instance.Player.gameObject.SetActive(true);
-
         }
 
         public void unloadRoomAndReturn()

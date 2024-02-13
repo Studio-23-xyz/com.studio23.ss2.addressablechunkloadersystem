@@ -26,6 +26,31 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             _roomsToUnloadListCache = new List<RoomData>();
         }
 
+        public float GetExteriorLoadingPercentage(RoomData data)
+        {
+            if (_roomExteriorLoadHandles.TryGetValue(data, out var handle))
+            {
+                return handle.GetLoadingPercentage();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        
+        public float GetInteriorLoadingPercentage(RoomData data)
+        {
+            if (_roomInteriorLoadHandles.TryGetValue(data, out var handle))
+            {
+                return handle.GetLoadingPercentage();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+
         public void UpdateRoomUnloadTimer()
         {
             _roomsToUnloadListCache.Clear();
@@ -152,6 +177,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             return handle;
         }
         
+        
+        
     
         private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
         {
@@ -167,11 +194,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         }
         private async UniTask ForceLoadRoomExterior(RoomLoadHandle handle)
         {
-            // while (handle.UsesAddressable && !handle.LoadHandle.IsDone)
-            // {
-            //     await UniTask.Yield();
-            //     Debug.Log(handle.Room + " loading " + handle.LoadHandle.PercentComplete);
-            // }
             await handle.LoadScene();
             handle.Room.HandleRoomExteriorLoaded();
             OnRoomExteriorLoaded?.Invoke(handle.Room);
@@ -257,24 +279,5 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 Debug.Log($"Interior {(handle)} ");
             }
         }
-
-        public async UniTask UnloadAllRooms()
-        {
-            List<UniTask> handlesToUnload = new List<UniTask>();
-            
-            foreach (var (room, handle) in _roomInteriorLoadHandles)
-            {
-                handlesToUnload.Add(handle.UnloadScene());    
-            }
-            _roomInteriorLoadHandles.Clear();
-            
-            foreach (var (room, handle) in _roomExteriorLoadHandles)
-            {
-                handlesToUnload.Add(handle.UnloadScene());    
-            }
-            _roomExteriorLoadHandles.Clear();
-
-            await UniTask.WhenAll(handlesToUnload);
-        }
-    }
+}
 }

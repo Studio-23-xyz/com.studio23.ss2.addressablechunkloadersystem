@@ -13,6 +13,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
     {
         [SerializeField] List<FloorData> _allFloors;
         private RoomLoader _roomLoader;
+        private bool _isUnloading = false;
         public RoomLoader  RoomLoader=> _roomLoader;
         
         public event Action<FloorData> OnFloorEntered;
@@ -44,6 +45,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         
         protected override void Initialize()
         {
+            _isUnloading = false;
             _roomLoader = GetComponent<RoomLoader>();
 
             foreach (var floor in _allFloors)
@@ -79,7 +81,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         private void Update()
         {
-            if(_willGetDestroyed)
+            if(_willGetDestroyed || _isUnloading)
                 return;
             
             if (Player != null)
@@ -170,8 +172,14 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         
 
-        public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false)
+        public async UniTask EnterRoom(RoomData room, bool forceLoadIfMissing = false, bool waitForDependencies = false)
         {
+            if (_isUnloading)
+            {
+                Debug.LogWarning("Can't enter room when UNLOADING", gameObject);
+                return;
+            }
+            
             bool isAlreadyLoadedRoom = _currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing;
             if (isAlreadyLoadedRoom)
             {
@@ -202,25 +210,89 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     }
                 }
                 
-
                 ForceEnterRoom(room);
 
-                
                 if (!isAlreadyLoadedRoom)
                 {
-                    Debug.Log("load new room ");
+                    Debug.Log($"load new room {room}");
                     await AddRoomExteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
                     await AddRoomInteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
                 }
                 else
                 {
-                    Debug.Log($"alreaady loaded room {room}");
+                    Debug.Log($"already loaded room {room}");
                 }
 
                 OnRoomEntered?.Invoke(room);
-
-                LoadCurrentRoomDependencies(room, isDifferentFloor);
+                if (waitForDependencies)
+                {
+                    await LoadCurrentRoomDependencies(room, isDifferentFloor);
+                }
+                else
+                {
+                    LoadCurrentRoomDependencies(room, isDifferentFloor);
+                }
             }
+        }
+
+        //#TODO better unload 
+        public async UniTask UnloadAllRooms()
+        {
+            if (_isUnloading)
+            {
+                return;
+            }
+            Debug.Log("start unloading all rooms");
+
+            _isUnloading = true;
+            foreach (var (room,  handle) in _roomLoader.RoomExteriorLoadHandles)
+            {
+                await handle.UnloadScene();
+            }
+            foreach (var (room,  handle) in _roomLoader.RoomInteriorLoadHandles)
+            {
+                await handle.UnloadScene();
+            }
+            _roomLoader.RoomExteriorLoadHandles.Clear();
+            _roomLoader.RoomInteriorLoadHandles.Clear();
+
+            _currentEnteredRoom = null;
+            _isUnloading = false;
+            Debug.Log("unloaded all rooms");
+        }
+        
+        public float LoadingPercentageForRoom(RoomData room, bool considerInterior, bool includeMustLoadRooms)
+        {
+            float progress = 0;
+            int numRoomsToLoad = 1;
+            progress += _roomLoader.GetExteriorLoadingPercentage(room);
+            if (considerInterior)
+            {
+                numRoomsToLoad++;
+                progress += _roomLoader.GetInteriorLoadingPercentage(room);
+            }
+
+            if (includeMustLoadRooms)
+            {
+                //#TODO this doesn't account for room dependencies that are shared between room and floor
+                //#TODO store dependent rooms in a hashset
+                numRoomsToLoad += room.AlwaysLoadRooms.Count;
+                foreach (var mustLoadRoom in room.AlwaysLoadRooms)
+                {
+                    progress += _roomLoader.GetExteriorLoadingPercentage(mustLoadRoom);
+                }
+                
+
+                if (room.Floor != null)
+                {
+                    numRoomsToLoad += room.Floor.AlwaysLoadRooms.Count;
+                    foreach (var mustLoadRoom in room.Floor.AlwaysLoadRooms)
+                    {
+                        progress += _roomLoader.GetExteriorLoadingPercentage(mustLoadRoom);
+                    }
+                }
+            }
+            return progress/numRoomsToLoad;
         }
 
         private void ExitFloor(FloorData prevFloor)
@@ -283,6 +355,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         }
 
 
+
         
         /// <summary>
         /// Returns if the exterior for the room is loaded
@@ -318,11 +391,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             return false;
         }
         
-        public async UniTask UnloadAllRooms()
-        {
-            await _roomLoader.UnloadAllRooms();
-        }
-        
+
 
         [Button]
         void PrintRoomsInLoadingRange()

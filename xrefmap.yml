@@ -108,6 +108,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.ForAlreadyLoadedScene
   nameWithType: RoomLoadHandle.ForAlreadyLoadedScene
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage
+  name: GetLoadingPercentage()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_GetLoadingPercentage
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage()
+  nameWithType: RoomLoadHandle.GetLoadingPercentage()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage*
+  name: GetLoadingPercentage
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_GetLoadingPercentage_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage
+  nameWithType: RoomLoadHandle.GetLoadingPercentage
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasFlag(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)
   name: HasFlag(RoomFlag)
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_HasFlag_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_
@@ -121,6 +134,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasFlag
   nameWithType: RoomLoadHandle.HasFlag
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded
+  name: HasLoaded()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_HasLoaded
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded()
+  nameWithType: RoomLoadHandle.HasLoaded()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded*
+  name: HasLoaded
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_HasLoaded_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded
+  nameWithType: RoomLoadHandle.HasLoaded
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.IsLoaded
   name: IsLoaded()
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_IsLoaded
@@ -315,6 +341,32 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Awake
   nameWithType: RoomLoader.Awake
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  name: GetExteriorLoadingPercentage(RoomData)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_GetExteriorLoadingPercentage_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  nameWithType: RoomLoader.GetExteriorLoadingPercentage(RoomData)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage*
+  name: GetExteriorLoadingPercentage
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_GetExteriorLoadingPercentage_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage
+  nameWithType: RoomLoader.GetExteriorLoadingPercentage
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  name: GetInteriorLoadingPercentage(RoomData)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_GetInteriorLoadingPercentage_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  nameWithType: RoomLoader.GetInteriorLoadingPercentage(RoomData)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage*
+  name: GetInteriorLoadingPercentage
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_GetInteriorLoadingPercentage_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage
+  nameWithType: RoomLoader.GetInteriorLoadingPercentage
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.OnRoomExteriorLoaded
   name: OnRoomExteriorLoaded
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_OnRoomExteriorLoaded
@@ -391,19 +443,6 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.RoomInteriorLoadHandles
   nameWithType: RoomLoader.RoomInteriorLoadHandles
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UnloadAllRooms
-  name: UnloadAllRooms()
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_UnloadAllRooms
-  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UnloadAllRooms
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UnloadAllRooms()
-  nameWithType: RoomLoader.UnloadAllRooms()
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UnloadAllRooms*
-  name: UnloadAllRooms
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_UnloadAllRooms_
-  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UnloadAllRooms
-  isSpec: "True"
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UnloadAllRooms
-  nameWithType: RoomLoader.UnloadAllRooms
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UpdateRoomUnloadTimer
   name: UpdateRoomUnloadTimer()
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_UpdateRoomUnloadTimer
@@ -449,15 +488,15 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentFloor
   nameWithType: RoomManager.CurrentFloor
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean)
-  name: EnterRoom(RoomData, bool)
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_EnterRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_System_Boolean_
-  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean)
-  name.vb: EnterRoom(RoomData, Boolean)
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, bool)
-  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, Boolean)
-  nameWithType: RoomManager.EnterRoom(RoomData, bool)
-  nameWithType.vb: RoomManager.EnterRoom(RoomData, Boolean)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean,System.Boolean)
+  name: EnterRoom(RoomData, bool, bool)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_EnterRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_System_Boolean_System_Boolean_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean,System.Boolean)
+  name.vb: EnterRoom(RoomData, Boolean, Boolean)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, bool, bool)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, Boolean, Boolean)
+  nameWithType: RoomManager.EnterRoom(RoomData, bool, bool)
+  nameWithType.vb: RoomManager.EnterRoom(RoomData, Boolean, Boolean)
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.EnterRoom*
   name: EnterRoom
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_EnterRoom_
@@ -530,6 +569,22 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomInteriorLoaded
   nameWithType: RoomManager.IsRoomInteriorLoaded
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean,System.Boolean)
+  name: LoadingPercentageForRoom(RoomData, bool, bool)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_LoadingPercentageForRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_System_Boolean_System_Boolean_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Boolean,System.Boolean)
+  name.vb: LoadingPercentageForRoom(RoomData, Boolean, Boolean)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, bool, bool)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, Boolean, Boolean)
+  nameWithType: RoomManager.LoadingPercentageForRoom(RoomData, bool, bool)
+  nameWithType.vb: RoomManager.LoadingPercentageForRoom(RoomData, Boolean, Boolean)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom*
+  name: LoadingPercentageForRoom
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_LoadingPercentageForRoom_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom
+  nameWithType: RoomManager.LoadingPercentageForRoom
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnFloorEntered
   name: OnFloorEntered
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnFloorEntered
@@ -1270,6 +1325,45 @@ references:
   commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample
   nameWithType: RoomLoadExample
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.Initialize
+  name: Initialize()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_Initialize
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.Initialize
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.Initialize()
+  nameWithType: RoomLoadExample.Initialize()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.Initialize*
+  name: Initialize
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_Initialize_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.Initialize
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.Initialize
+  nameWithType: RoomLoadExample.Initialize
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomNonAsync
+  name: LoadRoomNonAsync()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_LoadRoomNonAsync
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomNonAsync
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomNonAsync()
+  nameWithType: RoomLoadExample.LoadRoomNonAsync()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomNonAsync*
+  name: LoadRoomNonAsync
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_LoadRoomNonAsync_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomNonAsync
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomNonAsync
+  nameWithType: RoomLoadExample.LoadRoomNonAsync
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomWithDependencies
+  name: LoadRoomWithDependencies()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_LoadRoomWithDependencies
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomWithDependencies
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomWithDependencies()
+  nameWithType: RoomLoadExample.LoadRoomWithDependencies()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomWithDependencies*
+  name: LoadRoomWithDependencies
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_LoadRoomWithDependencies_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomWithDependencies
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.LoadRoomWithDependencies
+  nameWithType: RoomLoadExample.LoadRoomWithDependencies
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.RoomData
   name: RoomData
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_RoomData
@@ -1288,6 +1382,25 @@ references:
   commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.RoomEnteredAndLoadedEvent
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.RoomEnteredAndLoadedEvent
   nameWithType: RoomLoadExample.RoomEnteredAndLoadedEvent
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadButton
+  name: UnloadButton
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_UnloadButton
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadButton
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadButton
+  nameWithType: RoomLoadExample.UnloadButton
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn
+  name: UnloadRoomAndReturn()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_UnloadRoomAndReturn
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn()
+  nameWithType: RoomLoadExample.UnloadRoomAndReturn()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn*
+  name: UnloadRoomAndReturn
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomLoadExample_UnloadRoomAndReturn_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn
+  nameWithType: RoomLoadExample.UnloadRoomAndReturn
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner
   name: RoomPlayerSpawner
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.html
@@ -1306,6 +1419,31 @@ references:
   commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.roomInstance
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.roomInstance
   nameWithType: RoomPlayerSpawner.roomInstance
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar
+  name: SampleLoadingBar
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar
+  nameWithType: SampleLoadingBar
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.LoadSlider
+  name: LoadSlider
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_SampleLoadingBar_LoadSlider
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.LoadSlider
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.LoadSlider
+  nameWithType: SampleLoadingBar.LoadSlider
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.UpdateLoadingBar(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  name: UpdateLoadingBar(RoomData)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_SampleLoadingBar_UpdateLoadingBar_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.UpdateLoadingBar(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.UpdateLoadingBar(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
+  nameWithType: SampleLoadingBar.UpdateLoadingBar(RoomData)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.UpdateLoadingBar*
+  name: UpdateLoadingBar
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_SampleLoadingBar_UpdateLoadingBar_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.UpdateLoadingBar
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.UpdateLoadingBar
+  nameWithType: SampleLoadingBar.UpdateLoadingBar
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterController
   name: TestCharacterController
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterController.html
@@ -1579,6 +1717,22 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.OnSprint
   nameWithType: TestCharacterInputs.OnSprint
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState(System.Boolean)
+  name: SetCursorState(bool)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_TestCharacterInputs_SetCursorState_System_Boolean_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState(System.Boolean)
+  name.vb: SetCursorState(Boolean)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState(bool)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState(Boolean)
+  nameWithType: TestCharacterInputs.SetCursorState(bool)
+  nameWithType.vb: TestCharacterInputs.SetCursorState(Boolean)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState*
+  name: SetCursorState
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_TestCharacterInputs_SetCursorState_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.SetCursorState
+  nameWithType: TestCharacterInputs.SetCursorState
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.Sprint
   name: Sprint
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.TestCharacterInputs.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_TestCharacterInputs_Sprint

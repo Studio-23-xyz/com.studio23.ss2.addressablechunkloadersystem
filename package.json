@@ -1,0 +1,46 @@
+{
+    "name": "com.studio23.ss2.addressablechunkloadersystem",
+    "version": "1.1.1",
+    "displayName": "Addressable Chunk Loader System",
+    "description": "Addressable Chunk/Room Loader System using addressables we made for SS2",
+    "unity": "2022.3",
+    "unityRelease": "10f1",
+    "documentationUrl": " https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/manual/",
+    "changelogUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/changelog/CHANGELOG.html",
+    "licensesUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.addressablechunkloadersystem/license/LICENSE.html",
+    "scopedRegistries":  [
+      {
+        "name": "Studio 23",
+        "url": "https://package.openupm.com",
+        "scopes": [
+          "com.studio23.ss2"
+        ]
+      }], 
+    "dependencies": {
+        "com.bdeshi.helpers": "1.0.0",
+        "com.cysharp.unitask": "2.4.1",
+        "com.dbrizov.naughtyattributes": "2.1.4"
+   },
+   "keywords": [
+      "Scene loading System",
+      "Addressable"
+    ],
+  "samples": [
+      {
+        "displayName": "Functional Example",
+        "description": "Sample scene with multiple floors and rooms and lightmap setup.",
+        "path": "Samples~/AddressableChunkLoaderSystem.Sample1"
+      }
+    ],  
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem.git"    
+    },
+    "license": "MIT",  
+    "author": {
+      "name": "Studio 23",
+      "email": "contact@studio-23.xyz",
+      "url": "https://studio-23.xyz"
+    }
+  }
+

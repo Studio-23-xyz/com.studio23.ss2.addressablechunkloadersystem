@@ -5,13 +5,15 @@ using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 {
     [RequireComponent(typeof(RoomLoader))]
     public class RoomManager:MonoBehaviourSingletonPersistent<RoomManager>
     {
-        [SerializeField] List<FloorData> _allFloors;
+        [SerializeField] List<AssetReferenceT<FloorData>> _allFloorAssets;
+        List<FloorData> _allFloors = new List<FloorData>();
         private RoomLoader _roomLoader;
         private bool _isUnloading = false;
         public RoomLoader  RoomLoader=> _roomLoader;
@@ -45,9 +47,15 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         
         protected override void Initialize()
         {
+            Debug.Log("Initialize RoomaManager", this);
             _isUnloading = false;
             _roomLoader = GetComponent<RoomLoader>();
-
+            foreach (var floorAssetRef in _allFloorAssets)
+            {
+                var loadHandle = floorAssetRef.LoadAssetAsync();
+                var floor = loadHandle.WaitForCompletion();
+                _allFloors.Add(floor);
+            }
             foreach (var floor in _allFloors)
             {
                 floor.Initialize();
@@ -65,17 +73,21 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         private void OnDestroy()
         {
-            foreach (var floor in _allFloors)
+            if (Instance == this)
             {
-                floor.OnFloorEntered -= OnFloorEntered;
-                floor.OnFloorExited -= OnFloorExited;
-
-                foreach (var roomData in floor.RoomsInFloor)
+                foreach (var floor in _allFloors)
                 {
-                    roomData.OnRoomEntered -= OnRoomEntered;
-                    roomData.OnRoomExited -= OnRoomExited;
+                    floor.OnFloorEntered -= OnFloorEntered;
+                    floor.OnFloorExited -= OnFloorExited;
+
+                    foreach (var roomData in floor.RoomsInFloor)
+                    {
+                        roomData.OnRoomEntered -= OnRoomEntered;
+                        roomData.OnRoomExited -= OnRoomExited;
+                    }
                 }
             }
+            
         }
 
 
@@ -180,6 +192,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 return;
             }
             
+            Debug.Log($"try enter {room} currently {_currentEnteredRoom} are same {room == _currentEnteredRoom}");
+            
             bool isAlreadyLoadedRoom = _currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing;
             if (isAlreadyLoadedRoom)
             {
@@ -192,20 +206,29 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 _roomLoader.AddHandleForAlreadyLoadedRoom(room, RoomFlag.IsCurrentRoom);
             }
 
+            //#NOTE: scriptable references become different in build between addressable and 
+            //non addressable scenes
+            //resulting in the == check failing for same room 
+            //instead, check for equality with name for now
             if (_currentEnteredRoom != room)
+            // if (_currentEnteredRoom == null || room.name !=  _currentEnteredRoom.name )
             {
 
                 var prevFloor = CurrentFloor;
                 var prevRoom = _currentEnteredRoom;
 
                 _currentEnteredRoom = room;
-                bool isDifferentFloor = prevFloor != _currentEnteredRoom.Floor;
+                // bool isDifferentFloor = prevFloor != _currentEnteredRoom.Floor;
+                bool isDifferentFloor = prevFloor != room.Floor;
 
                 if (prevRoom != null)
                 {
+                    Debug.Log($"Change room {prevRoom} -> {room}");
+
                     ExitRoom(prevRoom);
                     if (isDifferentFloor && prevFloor != null)
                     {
+                        Debug.Log($"Change floor {prevFloor} -> {room.Floor}");
                         ExitFloor(prevFloor);
                     }
                 }
@@ -343,6 +366,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             {
                 if (room.Floor != null)
                 {
+                    Debug.Log($"LOAD FLOOR DEPENDENCIES {room.Floor}");
                     OnFloorEntered?.Invoke(room.Floor);
                     foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
                     {

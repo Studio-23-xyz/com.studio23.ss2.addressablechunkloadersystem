@@ -16,7 +16,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
         [FormerlySerializedAs("ExteriorScene2")] 
         public AssetReference ExteriorScene;
             
-
         public Vector3 WorldPosition;
         public float RoomLoadRadius = 4;
         public float MinUnloadTimeout = 10;
@@ -87,6 +86,11 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
             var dir = (position - WorldPosition);
             dir.y = 0;
             return dir.magnitude <= RoomLoadRadius;
+        }
+
+        public override string ToString()
+        {
+            return $"{name} {Floor}";
         }
     }
 }

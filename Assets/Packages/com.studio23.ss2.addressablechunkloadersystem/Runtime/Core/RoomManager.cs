@@ -47,7 +47,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         
         protected override void Initialize()
         {
-            Debug.Log("Initialize RoomaManager", this);
             _isUnloading = false;
             _roomLoader = GetComponent<RoomLoader>();
             foreach (var floorAssetRef in _allFloorAssets)
@@ -87,7 +86,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     }
                 }
             }
-            
         }
 
 
@@ -192,8 +190,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 return;
             }
             
-            Debug.Log($"try enter {room} currently {_currentEnteredRoom} are same {room == _currentEnteredRoom}");
-            
             bool isAlreadyLoadedRoom = _currentEnteredRoom == null && !_roomLoader.RoomInteriorLoadHandles.ContainsKey(room) && !forceLoadIfMissing;
             if (isAlreadyLoadedRoom)
             {
@@ -218,7 +214,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 var prevRoom = _currentEnteredRoom;
 
                 _currentEnteredRoom = room;
-                // bool isDifferentFloor = prevFloor != _currentEnteredRoom.Floor;
                 bool isDifferentFloor = prevFloor != room.Floor;
 
                 if (prevRoom != null)

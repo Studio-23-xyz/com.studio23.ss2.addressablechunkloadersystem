@@ -87,10 +87,5 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
             dir.y = 0;
             return dir.magnitude <= RoomLoadRadius;
         }
-
-        public override string ToString()
-        {
-            return $"{name} {Floor}";
-        }
     }
 }

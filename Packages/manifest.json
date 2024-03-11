@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.bdeshi.categorylogger": "1.0.9",
     "com.bdeshi.helpers": "2.0.0",
     "com.cysharp.unitask": "2.4.1",
     "com.dbrizov.naughtyattributes": "2.1.4",
@@ -42,7 +43,7 @@
       "scopes": [
         "com.studio23.ss2",
         "com.cysharp.unitask",
-        "com.bdeshi.helpers",
+        "com.bdeshi",
         "com.dbrizov.naughtyattributes"
       ]
     }

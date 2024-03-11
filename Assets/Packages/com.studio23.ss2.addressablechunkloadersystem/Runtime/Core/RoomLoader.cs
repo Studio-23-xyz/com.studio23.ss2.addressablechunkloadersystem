@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BDeshi.Logging;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 {
-    public class RoomLoader: MonoBehaviour
+    public class RoomLoader: MonoBehaviour, ISubLoggerMixin<RoomLoadLogCategory>
     {
         private Dictionary<RoomData, RoomLoadHandle> _roomInteriorLoadHandles;
         public Dictionary<RoomData, RoomLoadHandle> RoomInteriorLoadHandles => _roomInteriorLoadHandles;
@@ -130,6 +131,11 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             {
                 //#TODO in the case of an existing handle, we may want to update priority
                 handle.AddFlag(flags);
+                
+                if (handle.AddFlag(flags))
+                {
+                    Logger.Log(RoomLoadLogCategory.AddFlag, $"{requestData.RoomToLoad} add flag {flags}", requestData.RoomToLoad);
+                }
             }
             else
             {
@@ -142,6 +148,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     requestData.Priority
                 );
                 _roomInteriorLoadHandles.Add(requestData.RoomToLoad, handle);
+                Logger.Log(RoomLoadLogCategory.AddFlag, $"{requestData.RoomToLoad} add flag {flags}", requestData.RoomToLoad);
                 ForceLoadRoomInterior(handle);
             }
             return handle;
@@ -155,7 +162,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 //#TODO in the case of an existing handle, we may want to update priority
                 // Debug.Log(requestData.RoomToLoad + " get handle " + handle);
 
-                handle.AddFlag(flags);
+                if (handle.AddFlag(flags))
+                {
+                    Logger.Log(RoomLoadLogCategory.AddFlag, $"{requestData.RoomToLoad} add flag {flags}", requestData.RoomToLoad);
+                }
             }
             else
             {
@@ -168,7 +178,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     requestData.Priority
                 );
                 
-                // Debug.Log(requestData.RoomToLoad + " start handle ");
+                Logger.Log(RoomLoadLogCategory.AddFlag, $"{requestData.RoomToLoad} add flag {flags}", requestData.RoomToLoad);
 
                 _roomExteriorLoadHandles.Add(requestData.RoomToLoad, handle);
                 ForceLoadRoomExterior(handle);
@@ -224,6 +234,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             if (_roomExteriorLoadHandles.TryGetValue(room, out var handle))
             {
                 handle.RemoveFlag(flags);
+                Logger.Log(RoomLoadLogCategory.RemoveFlag, $"{room} remove Flag {flags}", room);
             }
         }
 
@@ -279,5 +290,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 Debug.Log($"Interior {(handle)} ");
             }
         }
-}
+
+        public ICategoryLogger<RoomLoadLogCategory> Logger => RoomManager.Instance.Logger;
+    }
 }

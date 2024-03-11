@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Bdeshi.Helpers.Utility;
+using BDeshi.Logging;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
@@ -44,9 +45,14 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         public FloorData CurrentFloor => _currentEnteredRoom ? _currentEnteredRoom.Floor : null;
 
         public Transform Player;
+
+        public ICategoryLogger<RoomLoadLogCategory> Logger => _logger; 
+        [SerializeField] SerializableCategoryLogger<RoomLoadLogCategory> _logger = new ((RoomLoadLogCategory)~0); 
         
         protected override void Initialize()
         {
+            _logger.DefaultContext = this;
+            
             _isUnloading = false;
             _roomLoader = GetComponent<RoomLoader>();
             foreach (var floorAssetRef in _allFloorAssets)
@@ -126,12 +132,15 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         public void SetRoomAsMustLoad(RoomData room)
         {
+            _logger.Log(RoomLoadLogCategory.MustLoad, $"Add Must load {room}");
             AddRoomExteriorFlag(room, RoomFlag.IsGeneralMustLoad);
             AddRoomInteriorFlag(room, RoomFlag.IsGeneralMustLoad);
         }
 
         public void UnsetRoomAsMustLoad(RoomData room)
         {
+            _logger.Log(RoomLoadLogCategory.MustLoad, $"Remove Must load {room}");
+
             RemoveExteriorRoomFlag(room, RoomFlag.IsGeneralMustLoad);
             RemoveInteriorRoomFlag(room, RoomFlag.IsGeneralMustLoad);
         }
@@ -186,7 +195,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         {
             if (_isUnloading)
             {
-                Debug.LogWarning("Can't enter room when UNLOADING", gameObject);
+                Logger.LogWarning(RoomLoadLogCategory.RoomEntry,$"Can't enter room {room} when UNLOADING");
                 return;
             }
             
@@ -198,7 +207,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 //in which case, exterior is already loaded.
                 //we just need to add a dummy handle
                 //that won't unload the scene as an addressable.
-                Debug.Log("AddHandleForAlreadyLoadedInterior " + room, room);
+                Logger.LogWarning(RoomLoadLogCategory.HandleCreation,"AddHandleForAlreadyLoadedInterior " + room, room);
                 _roomLoader.AddHandleForAlreadyLoadedRoom(room, RoomFlag.IsCurrentRoom);
             }
 
@@ -218,12 +227,11 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
                 if (prevRoom != null)
                 {
-                    Debug.Log($"Change room {prevRoom} -> {room}");
-
+                    Logger.LogWarning(RoomLoadLogCategory.RoomExit,$"Change room {prevRoom} -> {room}");
                     ExitRoom(prevRoom);
                     if (isDifferentFloor && prevFloor != null)
                     {
-                        Debug.Log($"Change floor {prevFloor} -> {room.Floor}");
+                        Logger.LogWarning(RoomLoadLogCategory.FloorExit,$"Change floor {prevFloor} -> {room.Floor}");
                         ExitFloor(prevFloor);
                     }
                 }
@@ -232,13 +240,13 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
                 if (!isAlreadyLoadedRoom)
                 {
-                    Debug.Log($"load new room {room}");
+                    Logger.Log(RoomLoadLogCategory.Load,$"load new room {room}");
                     await AddRoomExteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
                     await AddRoomInteriorFlagAndWait(room, RoomFlag.IsCurrentRoom);
                 }
                 else
                 {
-                    Debug.Log($"already loaded room {room}");
+                    Logger.Log(RoomLoadLogCategory.Load,$"already loaded room {room}");
                 }
 
                 OnRoomEntered?.Invoke(room);
@@ -248,7 +256,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 }
                 else
                 {
-                    LoadCurrentRoomDependencies(room, isDifferentFloor);
+                    LoadCurrentRoomDependencies(room, isDifferentFloor).Forget();
                 }
             }
         }
@@ -260,7 +268,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             {
                 return;
             }
-            Debug.Log("start unloading all rooms");
+            Logger.Log(RoomLoadLogCategory.Unload,"start unloading all rooms");
 
             _isUnloading = true;
             foreach (var (room,  handle) in _roomLoader.RoomExteriorLoadHandles)
@@ -276,7 +284,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
             _currentEnteredRoom = null;
             _isUnloading = false;
-            Debug.Log("unloaded all rooms");
+            Logger.Log(RoomLoadLogCategory.Unload,"unloaded all rooms");
         }
         
         public float LoadingPercentageForRoom(RoomData room, bool considerInterior, bool includeMustLoadRooms)
@@ -315,7 +323,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
         private void ExitFloor(FloorData prevFloor)
         {
-            Debug.Log("exit floor " + prevFloor, prevFloor);
             OnFloorExited?.Invoke(prevFloor);
 
             foreach (var roomToUnload in prevFloor.RoomsInFloor)
@@ -361,7 +368,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             {
                 if (room.Floor != null)
                 {
-                    Debug.Log($"LOAD FLOOR DEPENDENCIES {room.Floor}");
+                    Logger.Log(RoomLoadLogCategory.FloorEnter, $"LOAD FLOOR DEPENDENCIES {room.Floor}");
                     OnFloorEntered?.Invoke(room.Floor);
                     foreach (var roomToLoad in room.Floor.AlwaysLoadRooms)
                     {
@@ -448,5 +455,20 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             _currentEnteredRoom = room;
             room.HandleRoomEntered();
         }
+    }
+    
+    [Flags]
+    public enum RoomLoadLogCategory
+    {
+        RoomEntry = 1 << 0,
+        RoomExit = 1 << 1,
+        FloorEnter = 1 << 2,
+        FloorExit = 1 << 3,
+        Load = 1 << 4,
+        Unload = 1 << 5,
+        MustLoad = 1 << 7,
+        HandleCreation = 1 << 8,
+        AddFlag = 1 << 9,
+        RemoveFlag = 1 << 10,
     }
 }

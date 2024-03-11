@@ -105,9 +105,17 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             }
         }
 
-        public void AddFlag(RoomFlag flags)
+        public bool AddFlag(RoomFlag flags)
         {
-            _flags |= flags;
+            if (HasFlag(flags))
+            {
+                return false;
+            }
+            else
+            {
+                _flags |= flags;
+                return true;
+            }
         }
         public void RemoveFlag(RoomFlag flags)
         {

@@ -17,6 +17,7 @@
         ]
       }], 
     "dependencies": {
+        "com.bdeshi.categorylogger": "1.0.9",
         "com.bdeshi.helpers": "1.0.0",
         "com.cysharp.unitask": "2.4.1",
         "com.dbrizov.naughtyattributes": "2.1.4"

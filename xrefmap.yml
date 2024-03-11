@@ -283,6 +283,72 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.UsesAddressable
   nameWithType: RoomLoadHandle.UsesAddressable
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory
+  name: RoomLoadLogCategory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory
+  nameWithType: RoomLoadLogCategory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.AddFlag
+  name: AddFlag
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_AddFlag
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.AddFlag
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.AddFlag
+  nameWithType: RoomLoadLogCategory.AddFlag
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.FloorEnter
+  name: FloorEnter
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_FloorEnter
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.FloorEnter
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.FloorEnter
+  nameWithType: RoomLoadLogCategory.FloorEnter
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.FloorExit
+  name: FloorExit
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_FloorExit
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.FloorExit
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.FloorExit
+  nameWithType: RoomLoadLogCategory.FloorExit
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.HandleCreation
+  name: HandleCreation
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_HandleCreation
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.HandleCreation
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.HandleCreation
+  nameWithType: RoomLoadLogCategory.HandleCreation
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.Load
+  name: Load
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_Load
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.Load
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.Load
+  nameWithType: RoomLoadLogCategory.Load
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.MustLoad
+  name: MustLoad
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_MustLoad
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.MustLoad
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.MustLoad
+  nameWithType: RoomLoadLogCategory.MustLoad
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RemoveFlag
+  name: RemoveFlag
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_RemoveFlag
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RemoveFlag
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RemoveFlag
+  nameWithType: RoomLoadLogCategory.RemoveFlag
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RoomEntry
+  name: RoomEntry
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_RoomEntry
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RoomEntry
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RoomEntry
+  nameWithType: RoomLoadLogCategory.RoomEntry
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RoomExit
+  name: RoomExit
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_RoomExit
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RoomExit
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.RoomExit
+  nameWithType: RoomLoadLogCategory.RoomExit
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.Unload
+  name: Unload
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadLogCategory_Unload
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.Unload
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.Unload
+  nameWithType: RoomLoadLogCategory.Unload
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader
   name: RoomLoader
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html
@@ -367,6 +433,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage
   nameWithType: RoomLoader.GetInteriorLoadingPercentage
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger
+  name: Logger
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_Logger
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger
+  nameWithType: RoomLoader.Logger
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger*
+  name: Logger
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_Logger_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger
+  nameWithType: RoomLoader.Logger
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.OnRoomExteriorLoaded
   name: OnRoomExteriorLoaded
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_OnRoomExteriorLoaded
@@ -585,6 +664,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom
   nameWithType: RoomManager.LoadingPercentageForRoom
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger
+  name: Logger
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Logger
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger
+  nameWithType: RoomManager.Logger
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger*
+  name: Logger
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Logger_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger
+  nameWithType: RoomManager.Logger
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnFloorEntered
   name: OnFloorEntered
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnFloorEntered

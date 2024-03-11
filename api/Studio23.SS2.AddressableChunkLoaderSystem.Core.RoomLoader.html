@@ -89,7 +89,7 @@
 
 
   <h1 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader" class="text-break">
-Class RoomLoader  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class RoomLoader  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -101,7 +101,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RoomLoader : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public class RoomLoader : MonoBehaviour, ISubLoggerMixin&lt;RoomLoadLogCategory&gt;</code></pre>
   </div>
 
 
@@ -115,6 +115,12 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISubLoggerMixin</span>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html">RoomLoadLogCategory</a>&gt;</div>
+    </dd>
+  </dl>
 
 
 
@@ -127,11 +133,42 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 </h2>
 
 
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_Logger_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_Logger" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger">
+  Logger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICategoryLogger&lt;RoomLoadLogCategory&gt; Logger { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ICategoryLogger</span>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadLogCategory.html">RoomLoadLogCategory</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_RoomExteriorLoadHandles_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.RoomExteriorLoadHandles*"></a>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_RoomExteriorLoadHandles" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.RoomExteriorLoadHandles">
   RoomExteriorLoadHandles
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -162,7 +199,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_RoomInteriorLoadHandles" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.RoomInteriorLoadHandles">
   RoomInteriorLoadHandles
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -197,7 +234,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddExteriorLoadRequest_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomLoadRequestData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddExteriorLoadRequest(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomLoadRequestData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
   AddExteriorLoadRequest(RoomLoadRequestData, RoomFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L212"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -235,7 +272,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddHandleForAlreadyLoadedRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddHandleForAlreadyLoadedRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
   AddHandleForAlreadyLoadedRoom(RoomData, RoomFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L256"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -268,7 +305,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_AddInteriorLoadRequest_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomLoadRequestData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.AddInteriorLoadRequest(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomLoadRequestData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
   AddInteriorLoadRequest(RoomLoadRequestData, RoomFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L218"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -306,7 +343,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_Awake" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Awake">
   Awake()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -332,7 +369,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_GetExteriorLoadingPercentage_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetExteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
   GetExteriorLoadingPercentage(RoomData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -368,7 +405,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_GetInteriorLoadingPercentage_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
   GetInteriorLoadingPercentage(RoomData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -404,7 +441,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_RemoveRoomExteriorLoadFlag_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.RemoveRoomExteriorLoadFlag(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
   RemoveRoomExteriorLoadFlag(RoomData, RoomFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L232"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -437,7 +474,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_RemoveRoomInteriorLoadFlag_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.RemoveRoomInteriorLoadFlag(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
   RemoveRoomInteriorLoadFlag(RoomData, RoomFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L224"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -470,7 +507,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_UpdateRoomUnloadTimer" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.UpdateRoomUnloadTimer">
   UpdateRoomUnloadTimer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -499,7 +536,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_OnRoomExteriorLoaded" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.OnRoomExteriorLoaded">
   OnRoomExteriorLoaded
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -529,7 +566,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_OnRoomExteriorUnloaded" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.OnRoomExteriorUnloaded">
   OnRoomExteriorUnloaded
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -559,7 +596,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_OnRoomInteriorLoaded" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.OnRoomInteriorLoaded">
   OnRoomInteriorLoaded
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -589,7 +626,7 @@ Class RoomLoader  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_OnRoomInteriorUnloaded" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.OnRoomInteriorUnloaded">
   OnRoomInteriorUnloaded
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoader.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

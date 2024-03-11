@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e6db1bc8d9411ca807d96be6853f7f, type: 3}
+  m_Name: Room 11
+  m_EditorClassIdentifier: 
+  InteriorScene:
+    m_AssetGUID: 806db07b9fb75d849980e68c1fbed0ce
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  ExteriorScene:
+    m_AssetGUID: cc60df284f43a0a458b880e79e685990
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  WorldPosition: {x: 0, y: -0, z: 0.4893}
+  RoomLoadRadius: 36
+  MinUnloadTimeout: 3
+  _alwaysLoadRooms: []

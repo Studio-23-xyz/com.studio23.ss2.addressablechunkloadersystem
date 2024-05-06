@@ -19,6 +19,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
         public Vector3 WorldPosition;
         public float RoomLoadRadius = 4;
         public float MinUnloadTimeout = 10;
+        public bool SetExteriorAsActiveSceneOnLoad = false;
         
         [ShowNativeProperty] public FloorData Floor { get; internal set; }
 
@@ -30,7 +31,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
 
         public event Action<RoomData> OnRoomEntered;
         public event Action<RoomData> OnRoomExited;
-        
         public event Action<RoomData> OnRoomExteriorLoaded;
         public event Action<RoomData> OnRoomExteriorUnloaded;
         
@@ -81,6 +81,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
         {
             return _alwaysLoadRooms.Contains(room);
         }
+        
         public bool IsPosInLoadingRange(Vector3 position)
         {
             var dir = (position - WorldPosition);

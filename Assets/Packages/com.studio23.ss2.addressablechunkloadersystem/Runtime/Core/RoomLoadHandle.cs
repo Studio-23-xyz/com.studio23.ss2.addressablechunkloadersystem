@@ -167,6 +167,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             if (UsesAddressable)
             {
                 await LoadHandle;
+                if (Room.SetExteriorAsActiveSceneOnLoad)
+                {
+                    SceneManager.SetActiveScene(LoadHandle.Result.Scene);
+                }
             }
         }
 

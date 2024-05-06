@@ -1088,6 +1088,12 @@ references:
   commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.RoomLoadRadius
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.RoomLoadRadius
   nameWithType: RoomData.RoomLoadRadius
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.SetExteriorAsActiveSceneOnLoad
+  name: SetExteriorAsActiveSceneOnLoad
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_SetExteriorAsActiveSceneOnLoad
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.SetExteriorAsActiveSceneOnLoad
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.SetExteriorAsActiveSceneOnLoad
+  nameWithType: RoomData.SetExteriorAsActiveSceneOnLoad
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.WantsToAlwaysLoad(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
   name: WantsToAlwaysLoad(RoomData)
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_WantsToAlwaysLoad_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_

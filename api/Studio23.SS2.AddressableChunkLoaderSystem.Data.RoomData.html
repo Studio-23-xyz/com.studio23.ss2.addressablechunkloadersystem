@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -248,6 +248,36 @@ Class RoomData  <a class="header-action link-secondary" title="View source" href
 
 
 
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_SetExteriorAsActiveSceneOnLoad" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.SetExteriorAsActiveSceneOnLoad">
+  SetExteriorAsActiveSceneOnLoad
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetExteriorAsActiveSceneOnLoad</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_WorldPosition" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.WorldPosition">
   WorldPosition
   <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L19"><i class="bi bi-code-slash"></i></a>
@@ -285,7 +315,7 @@ Class RoomData  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_AlwaysLoadRooms" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.AlwaysLoadRooms">
   AlwaysLoadRooms
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -316,7 +346,7 @@ Class RoomData  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Floor" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.Floor">
   Floor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -564,7 +594,7 @@ Class RoomData  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_IsPosInLoadingRange_Vector3_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange(Vector3)">
   IsPosInLoadingRange(Vector3)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -669,7 +699,7 @@ Class RoomData  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_OnRoomEntered" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.OnRoomEntered">
   OnRoomEntered
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -699,7 +729,7 @@ Class RoomData  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_OnRoomExited" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.OnRoomExited">
   OnRoomExited
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Data/RoomData.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

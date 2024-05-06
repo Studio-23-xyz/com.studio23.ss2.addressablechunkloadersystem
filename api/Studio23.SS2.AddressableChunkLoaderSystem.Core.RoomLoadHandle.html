@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -433,7 +433,7 @@ This can be null when this room is not loaded as an addressable</p>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_Cleanup" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.Cleanup">
   Cleanup()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L177"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -501,7 +501,7 @@ Ex: As the initial scene you have when you hit playmode</p>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_GetLoadingPercentage" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.GetLoadingPercentage">
   GetLoadingPercentage()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L205"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -532,7 +532,7 @@ Ex: As the initial scene you have when you hit playmode</p>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_HasFlag_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomFlag_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasFlag(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomFlag)">
   HasFlag(RoomFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L224"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -568,7 +568,7 @@ Ex: As the initial scene you have when you hit playmode</p>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_HasLoaded" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.HasLoaded">
   HasLoaded()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L193"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -692,7 +692,7 @@ Ex: As the initial scene you have when you hit playmode</p>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoadHandle_ToString" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoadHandle.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomLoadHandle.cs/#L217"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>

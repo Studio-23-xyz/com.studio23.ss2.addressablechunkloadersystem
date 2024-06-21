@@ -892,6 +892,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.AlwaysLoadRooms
   nameWithType: RoomData.AlwaysLoadRooms
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.CanBeLoaded(Vector3)
+  name: CanBeLoaded(Vector3)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_CanBeLoaded_Vector3_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.CanBeLoaded(Vector3)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.CanBeLoaded(Vector3)
+  nameWithType: RoomData.CanBeLoaded(Vector3)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.CanBeLoaded*
+  name: CanBeLoaded
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_CanBeLoaded_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.CanBeLoaded
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.CanBeLoaded
+  nameWithType: RoomData.CanBeLoaded
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.ExteriorScene
   name: ExteriorScene
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_ExteriorScene
@@ -1021,19 +1034,19 @@ references:
   commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.InteriorScene
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.InteriorScene
   nameWithType: RoomData.InteriorScene
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange(Vector3)
-  name: IsPosInLoadingRange(Vector3)
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_IsPosInLoadingRange_Vector3_
-  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange(Vector3)
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange(Vector3)
-  nameWithType: RoomData.IsPosInLoadingRange(Vector3)
-- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange*
-  name: IsPosInLoadingRange
-  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_IsPosInLoadingRange_
-  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPlayerInLoadingRange(Vector3)
+  name: IsPlayerInLoadingRange(Vector3)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_IsPlayerInLoadingRange_Vector3_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPlayerInLoadingRange(Vector3)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPlayerInLoadingRange(Vector3)
+  nameWithType: RoomData.IsPlayerInLoadingRange(Vector3)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPlayerInLoadingRange*
+  name: IsPlayerInLoadingRange
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_IsPlayerInLoadingRange_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPlayerInLoadingRange
   isSpec: "True"
-  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPosInLoadingRange
-  nameWithType: RoomData.IsPosInLoadingRange
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.IsPlayerInLoadingRange
+  nameWithType: RoomData.IsPlayerInLoadingRange
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.MinUnloadTimeout
   name: MinUnloadTimeout
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html#Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_MinUnloadTimeout

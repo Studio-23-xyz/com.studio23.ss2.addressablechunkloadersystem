@@ -82,9 +82,14 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
             return _alwaysLoadRooms.Contains(room);
         }
         
-        public bool IsPosInLoadingRange(Vector3 position)
+        public virtual bool CanBeLoaded(Vector3 playerPosition)
         {
-            var dir = (position - WorldPosition);
+            return IsPlayerInLoadingRange(playerPosition);
+        }
+
+        public virtual bool IsPlayerInLoadingRange(Vector3 playerPosition)
+        {
+            var dir = (playerPosition - WorldPosition);
             dir.y = 0;
             return dir.magnitude <= RoomLoadRadius;
         }

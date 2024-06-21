@@ -117,7 +117,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 return;
             foreach (var roomData in CurrentFloor.RoomsInFloor)
             {
-                if (roomData.IsPosInLoadingRange(Player.transform.position) ||
+                if (roomData.CanBeLoaded(Player.transform.position) ||
                     CurrentEnteredRoom == roomData)
                 {
                     HandleRoomEnteredLoadingRange(roomData);

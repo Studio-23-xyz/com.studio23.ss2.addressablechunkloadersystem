@@ -701,6 +701,18 @@ references:
   commentId: E:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomExited
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomExited
   nameWithType: RoomManager.OnRoomExited
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomLoaded
+  name: OnRoomLoaded
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnRoomLoaded
+  commentId: E:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomLoaded
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomLoaded
+  nameWithType: RoomManager.OnRoomLoaded
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomUnloaded
+  name: OnRoomUnloaded
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_OnRoomUnloaded
+  commentId: E:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomUnloaded
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.OnRoomUnloaded
+  nameWithType: RoomManager.OnRoomUnloaded
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Player
   name: Player
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Player

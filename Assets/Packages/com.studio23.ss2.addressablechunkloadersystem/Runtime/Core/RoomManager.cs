@@ -21,6 +21,22 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
+        
+        /// <summary>
+        /// Fired when room loaded
+        /// NOTE: DOES NOT FIRE IF THE ROOM'S FLOOR IS NOT IN _allFloors
+        /// EX: STAIRS
+        /// DIRECTLY SUB TO THE SCRIPTABLE IN SUCH CASES
+        /// </summary>
+        public event Action<RoomData> OnRoomLoaded;
+
+        /// <summary>
+        /// Fired when room loaded
+        /// NOTE: DOES NOT FIRE IF THE ROOM'S FLOOR IS NOT IN _allFloors
+        /// EX: STAIRS
+        /// DIRECTLY SUB TO THE SCRIPTABLE IN SUCH CASES
+        /// </summary>
+        public event Action<RoomData> OnRoomUnloaded;
 
         /// <summary>
         /// Fired when room entered and loaded
@@ -72,6 +88,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 {
                     roomData.OnRoomEntered += OnRoomEntered;
                     roomData.OnRoomExited += OnRoomExited;
+                    roomData.OnRoomExteriorLoaded += OnRoomLoaded;
+                    roomData.OnRoomExteriorUnloaded += OnRoomUnloaded;
                 }
             }
         }
@@ -89,6 +107,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                     {
                         roomData.OnRoomEntered -= OnRoomEntered;
                         roomData.OnRoomExited -= OnRoomExited;
+                        roomData.OnRoomExteriorLoaded -= OnRoomLoaded;
+                        roomData.OnRoomExteriorUnloaded -= OnRoomUnloaded;
                     }
                 }
             }

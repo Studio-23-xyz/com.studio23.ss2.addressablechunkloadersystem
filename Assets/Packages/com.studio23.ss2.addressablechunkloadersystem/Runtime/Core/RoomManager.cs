@@ -15,6 +15,9 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
     {
         [SerializeField] List<AssetReferenceT<FloorData>> _allFloorAssets;
         List<FloorData> _allFloors = new List<FloorData>();
+        public bool CanLoadNewRoomsInRange = true;
+        public bool CanUnloadRoomsOutOfRange = true;
+
         private RoomLoader _roomLoader;
         private bool _isUnloading = false;
         public RoomLoader  RoomLoader=> _roomLoader;
@@ -140,11 +143,17 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 if (roomData.CanBeLoaded(Player.transform.position) ||
                     CurrentEnteredRoom == roomData)
                 {
-                    HandleRoomEnteredLoadingRange(roomData);
+                    if (CanLoadNewRoomsInRange)
+                    {
+                        HandleRoomEnteredLoadingRange(roomData);
+                    }
                 }
                 else
                 {
-                    HandleRoomExitedLoadingRange(roomData);
+                    if(CanUnloadRoomsOutOfRange)
+                    {
+                        HandleRoomExitedLoadingRange(roomData);
+                    }
                 }
             }
         }

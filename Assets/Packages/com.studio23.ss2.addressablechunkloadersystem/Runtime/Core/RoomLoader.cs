@@ -259,10 +259,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             _roomExteriorLoadHandles.Add(room, RoomLoadHandle.ForAlreadyLoadedScene(room, flags,false));
         }
 
-        private void OnDestroy()
-        {
-            Cleanup();
-        }
 
         private void Cleanup()
         {

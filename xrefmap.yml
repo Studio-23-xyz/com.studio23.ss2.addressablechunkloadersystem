@@ -541,6 +541,18 @@ references:
   commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager
   nameWithType: RoomManager
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanLoadNewRoomsInRange
+  name: CanLoadNewRoomsInRange
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CanLoadNewRoomsInRange
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanLoadNewRoomsInRange
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanLoadNewRoomsInRange
+  nameWithType: RoomManager.CanLoadNewRoomsInRange
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanUnloadRoomsOutOfRange
+  name: CanUnloadRoomsOutOfRange
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CanUnloadRoomsOutOfRange
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanUnloadRoomsOutOfRange
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanUnloadRoomsOutOfRange
+  nameWithType: RoomManager.CanUnloadRoomsOutOfRange
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentEnteredRoom
   name: CurrentEnteredRoom
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CurrentEnteredRoom

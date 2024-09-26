@@ -4,6 +4,7 @@ using Bdeshi.Helpers.Utility;
 using BDeshi.Logging;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -11,6 +12,7 @@ using UnityEngine.AddressableAssets;
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 {
     [RequireComponent(typeof(RoomLoader))]
+    [RequireComponent(typeof(RoomMemorySaver))]
     public class RoomManager:MonoBehaviourSingletonPersistent<RoomManager>
     {
         [SerializeField] List<AssetReferenceT<FloorData>> _allFloorAssets;
@@ -21,6 +23,9 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         private RoomLoader _roomLoader;
         private bool _isUnloading = false;
         public RoomLoader  RoomLoader=> _roomLoader;
+        [SerializeField] RoomMemorySaver _roomMemorySaver;
+        public RoomMemorySaver RoomMemorySaver => _roomMemorySaver;
+        
         
         public event Action<FloorData> OnFloorEntered;
         public event Action<FloorData> OnFloorExited;
@@ -74,6 +79,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             
             _isUnloading = false;
             _roomLoader = GetComponent<RoomLoader>();
+            _roomMemorySaver = GetComponent<RoomMemorySaver>();
             foreach (var floorAssetRef in _allFloorAssets)
             {
                 var loadHandle = floorAssetRef.LoadAssetAsync();

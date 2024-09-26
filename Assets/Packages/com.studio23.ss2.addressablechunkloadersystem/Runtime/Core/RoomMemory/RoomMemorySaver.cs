@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Studio23.SS2.AddressableChunkLoaderSystem.Data;
+using UnityEngine;
+
+namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
+{
+    public class RoomMemorySaver:MonoBehaviour
+    {
+        /// <summary>
+        /// Please use this as the default value for uninitialized room memory ID
+        /// Any negative val is considered invalid
+        /// </summary>
+        public const int INVALID_ROOM_MEMORY_ID = -69;
+        /// <summary>
+        /// Generates unique save path for  roomMemory for a given room
+        /// This has the benefit of the ID only needing to be unique in the same room aka scene
+        /// </summary>
+        /// <param name="roomData"></param>
+        /// <param name="roomMemory"></param>
+        /// <returns></returns>
+        public string GetRoomMemorySavePath(RoomData roomData, IRoomMemory roomMemory)
+        {
+            var dirPath = Path.Combine(
+                Application.persistentDataPath,
+                "addressableChunkloader"
+            );
+            System.IO.Directory.CreateDirectory(dirPath);
+            return Path.Combine(
+                dirPath,
+                $"{roomMemory}_{roomMemory.ID}.ff"
+                );
+        }
+
+        public void SaveAllMemoriesInRoom(RoomData room, List<IRoomMemory> roomMemories)
+        {
+            foreach (var roomMemory in roomMemories)
+            {
+                SaveRoomMemoryAsync(room,roomMemory);
+            }
+        }
+
+        private void SaveRoomMemoryAsync(RoomData roomToSaveUnder, IRoomMemory roomMemory)
+        {
+            var data = roomMemory.GetTempSaveData();
+            var path = GetRoomMemorySavePath(roomToSaveUnder,roomMemory);
+                
+            if (File.Exists(path)) File.Delete(path);
+            //The string is generated and has no dependency on the IRoomMemory afterwards
+            //so we can call writeAllTextAsync
+            File.WriteAllTextAsync(path, data);
+        }
+
+        public void LoadAllMemoriesInRoom(RoomData room, List<IRoomMemory> roomMemories)
+        {
+            foreach (var roomMemory in roomMemories)
+            {
+                LoadMemory(room, roomMemory);
+            }
+        }
+        
+
+        private void LoadMemory(RoomData room,IRoomMemory roomMemory)
+        {
+            var path = GetRoomMemorySavePath(room, roomMemory);
+
+            if (File.Exists(path))
+            {
+                var data = File.ReadAllText(path);
+                //IRoomMemory may get destroyed by the time we call this
+                if (roomMemory != null)
+                {
+                    roomMemory.TempLoadData(data);
+                }
+            }
+        }
+    }
+}

@@ -8,11 +8,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
 {
     public class RoomMemorySaver:MonoBehaviour
     {
-        /// <summary>
-        /// Please use this as the default value for uninitialized room memory ID
-        /// Any negative val is considered invalid
-        /// </summary>
-        public const int INVALID_ROOM_MEMORY_ID = -69;
+
         /// <summary>
         /// Generates unique save path for  roomMemory for a given room
         /// This has the benefit of the ID only needing to be unique in the same room aka scene
@@ -20,7 +16,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         /// <param name="roomData"></param>
         /// <param name="roomMemory"></param>
         /// <returns></returns>
-        public string GetRoomMemorySavePath(RoomData roomData, IRoomMemory roomMemory)
+        public static string GetRoomMemorySavePath(RoomData roomData, IRoomMemory roomMemory)
         {
             var dirPath = Path.Combine(
                 Application.persistentDataPath,
@@ -29,7 +25,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
             System.IO.Directory.CreateDirectory(dirPath);
             return Path.Combine(
                 dirPath,
-                $"{roomMemory}_{roomMemory.ID}.ff"
+                $"{roomData.name}_{roomMemory.ID}.ff"
                 );
         }
 

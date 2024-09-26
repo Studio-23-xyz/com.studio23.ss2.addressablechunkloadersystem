@@ -8,12 +8,14 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
     public class RoomMemoryTest:MonoBehaviour,IRoomMemory
     {
         public int EntryCount = 0;
-        
+        public RoomInstanceMemorySaver Saver { get; set; }
+
         public string ID
         {
             get => _id;
             set => _id = value;
         }
+
 
         [SerializeField] string _id;
         public string GetTempSaveData()

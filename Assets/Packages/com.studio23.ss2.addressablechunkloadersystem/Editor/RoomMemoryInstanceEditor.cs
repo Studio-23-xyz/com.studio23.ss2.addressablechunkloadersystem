@@ -36,9 +36,18 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
             GUILayout.Label("Room Instance Memory Saver", EditorStyles.boldLabel);
 
             // ObjectField for selecting a RoomInstanceMemorySaver
-            _selectedSaver = (RoomInstanceMemorySaver)EditorGUILayout.ObjectField("Room Instance Memory Saver",
+            var newSaver = (RoomInstanceMemorySaver)EditorGUILayout.ObjectField("Room Instance Memory Saver",
                 _selectedSaver, typeof(RoomInstanceMemorySaver), true);
-
+            
+            if (roomMemoryTreeView == null)
+            {
+                roomMemoryTreeView = new IRoomMemoryTreeView(treeViewState);
+            }
+            if (_selectedSaver != newSaver)
+            {
+                roomMemoryTreeView.Reload();
+                _selectedSaver = newSaver;
+            }
             if (GUILayout.Button("Update Selected RoomInstanceMemorySaver GUID "))
             {
                 ForceGenerateUniqueIDs(_selectedSaver);
@@ -49,10 +58,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
                 GenerateForAllSaversInLoadedScenes();
             }
 
-            if (roomMemoryTreeView == null)
-            {
-                roomMemoryTreeView = new IRoomMemoryTreeView(treeViewState);
-            }
+ 
             roomMemoryTreeView.OnGUI(new Rect(0, 120, position.width, position.height - 120));
         }
 

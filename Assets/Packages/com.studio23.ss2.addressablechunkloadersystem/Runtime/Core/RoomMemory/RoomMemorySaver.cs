@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
+using UnityEditor;
 using UnityEngine;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
@@ -18,15 +19,20 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         /// <returns></returns>
         public static string GetRoomMemorySavePath(RoomData roomData, IRoomMemory roomMemory)
         {
-            var dirPath = Path.Combine(
-                Application.persistentDataPath,
-                "addressableChunkloader"
-            );
+            var dirPath = GetSaveDir();
             System.IO.Directory.CreateDirectory(dirPath);
             return Path.Combine(
                 dirPath,
                 $"{roomData.name}_{roomMemory.ID}.ff"
                 );
+        }
+
+        private static string GetSaveDir()
+        {
+            return Path.Combine(
+                Application.persistentDataPath,
+                "addressableChunkloader"
+            );
         }
 
         public void SaveAllMemoriesInRoom(RoomData room, List<IRoomMemory> roomMemories)
@@ -55,7 +61,13 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
                 LoadMemory(room, roomMemory);
             }
         }
-        
+
+        [ContextMenu("ClearAllMemory")]
+        public void ClearAllMemory()
+        {
+            FileUtil.DeleteFileOrDirectory(GetSaveDir());
+        }
+
 
         private void LoadMemory(RoomData room,IRoomMemory roomMemory)
         {

@@ -58,8 +58,15 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
                 GenerateForAllSaversInLoadedScenes();
             }
 
- 
-            roomMemoryTreeView.OnGUI(new Rect(0, 120, position.width, position.height - 120));
+            var defualtGuiColor = GUI.color;
+            GUI.color = Color.red;
+            if (GUILayout.Button("Delete all room memory "))
+            {
+                RoomMemorySaver.ClearAllMemory();
+            }
+            GUI.color = defualtGuiColor;
+            
+            roomMemoryTreeView.OnGUI(new Rect(0, 120, position.width, position.height - 180));
         }
 
         

@@ -59,13 +59,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         [ContextMenu("log RoomMemoriesInRoom")]
         protected virtual void Start()
         {
-            Debug.Log($"{gameObject} roomMemories X {RoomMemories.Count} {RoomInstance._room}", gameObject);
-            foreach (var roomMemory in RoomMemories)
-            {
-                Debug.Log($"roomMemory {roomMemory}", gameObject);
-            }
-            Debug.Log($"{gameObject} load Room Memory {RoomInstance._room}", gameObject);
-
             LoadRoomMemory();
         }
 

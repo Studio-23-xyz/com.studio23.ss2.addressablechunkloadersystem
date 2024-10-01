@@ -18,7 +18,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         {
             GetRoomMemoriesInRoom();
         }
-
+        protected virtual void Start()
+        {
+            LoadRoomMemory();
+        }
         public bool isDuplicateRoomMemory(IRoomMemory roomMemory)
         {
             return IDToCountMap[roomMemory.ID] > 1;
@@ -56,11 +59,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
             }
         }
 
-        [ContextMenu("log RoomMemoriesInRoom")]
-        protected virtual void Start()
-        {
-            LoadRoomMemory();
-        }
+
 
         protected virtual void OnDestroy()
         {

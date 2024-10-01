@@ -9,7 +9,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
 {
     public class RoomMemorySaver:MonoBehaviour
     {
-        public bool ClearRoomMemoryOnDisable = true;
         /// <summary>
         /// Generates unique save path for  roomMemory for a given room
         /// This has the benefit of the ID only needing to be unique in the same room aka scene
@@ -53,13 +52,9 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
             //so we can call writeAllTextAsync
             File.WriteAllTextAsync(path, data);
         }
-
-        private void OnDisable()
+        private void Awake()
         {
-            if (ClearRoomMemoryOnDisable)
-            {
-                ClearAllMemory();
-            }
+            ClearAllMemory();
         }
 
         public void LoadAllMemoriesInRoom(RoomData room, List<IRoomMemory> roomMemories)
@@ -73,8 +68,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         [ContextMenu("ClearAllMemory")]
         public static  void ClearAllMemory()
         {
-            Debug.Log("Clear all room memory");
-            FileUtil.DeleteFileOrDirectory(GetSaveDir());
+            var clearSuccess =FileUtil.DeleteFileOrDirectory(GetSaveDir());
+            Debug.Log($"Clear all room memory clearSuccess {clearSuccess}");
         }
         
         public static void ForceClearSingleRoomMemory(IRoomMemory roomMemory)

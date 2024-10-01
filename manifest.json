@@ -75,6 +75,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Core.yml",
       "output": {
         ".html": {
@@ -135,10 +175,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.yml",
       "output": {
         ".html": {
           "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html"
         }
       },
       "version": ""
@@ -199,6 +259,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html"
         }
       },
       "version": ""

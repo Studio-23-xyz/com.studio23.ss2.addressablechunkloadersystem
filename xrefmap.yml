@@ -770,6 +770,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomLoader
   nameWithType: RoomManager.RoomLoader
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomMemorySaver
+  name: RoomMemorySaver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RoomMemorySaver
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomMemorySaver
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomMemorySaver
+  nameWithType: RoomManager.RoomMemorySaver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomMemorySaver*
+  name: RoomMemorySaver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_RoomMemorySaver_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomMemorySaver
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.RoomMemorySaver
+  nameWithType: RoomManager.RoomMemorySaver
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.SetRoomAsMustLoad(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)
   name: SetRoomAsMustLoad(RoomData)
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_SetRoomAsMustLoad_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_
@@ -809,6 +822,320 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.UnsetRoomAsMustLoad
   nameWithType: RoomManager.UnsetRoomAsMustLoad
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
+  name: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.html
+  commentId: N:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
+  nameWithType: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory
+  name: IRoomMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory
+  nameWithType: IRoomMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetPath
+  name: GetPath()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_GetPath
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetPath
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetPath()
+  nameWithType: IRoomMemory.GetPath()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetPath*
+  name: GetPath
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_GetPath_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetPath
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetPath
+  nameWithType: IRoomMemory.GetPath
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetTempSaveData
+  name: GetTempSaveData()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_GetTempSaveData
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetTempSaveData
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetTempSaveData()
+  nameWithType: IRoomMemory.GetTempSaveData()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetTempSaveData*
+  name: GetTempSaveData
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_GetTempSaveData_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetTempSaveData
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.GetTempSaveData
+  nameWithType: IRoomMemory.GetTempSaveData
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.ID
+  name: ID
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_ID
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.ID
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.ID
+  nameWithType: IRoomMemory.ID
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.ID*
+  name: ID
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_ID_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.ID
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.ID
+  nameWithType: IRoomMemory.ID
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.Saver
+  name: Saver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_Saver
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.Saver
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.Saver
+  nameWithType: IRoomMemory.Saver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.Saver*
+  name: Saver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_Saver_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.Saver
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.Saver
+  nameWithType: IRoomMemory.Saver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData(System.String)
+  name: TempLoadData(string)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_TempLoadData_System_String_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData(System.String)
+  name.vb: TempLoadData(String)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData(string)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData(String)
+  nameWithType: IRoomMemory.TempLoadData(string)
+  nameWithType.vb: IRoomMemory.TempLoadData(String)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData*
+  name: TempLoadData
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_TempLoadData_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.TempLoadData
+  nameWithType: IRoomMemory.TempLoadData
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.gameObject
+  name: gameObject
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_gameObject
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.gameObject
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.gameObject
+  nameWithType: IRoomMemory.gameObject
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.gameObject*
+  name: gameObject
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_gameObject_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.gameObject
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory.gameObject
+  nameWithType: IRoomMemory.gameObject
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver
+  name: RoomInstanceMemorySaver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver
+  nameWithType: RoomInstanceMemorySaver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Awake
+  name: Awake()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_Awake
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Awake
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Awake()
+  nameWithType: RoomInstanceMemorySaver.Awake()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Awake*
+  name: Awake
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_Awake_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Awake
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Awake
+  nameWithType: RoomInstanceMemorySaver.Awake
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.ClearRoomIDs
+  name: ClearRoomIDs()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_ClearRoomIDs
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.ClearRoomIDs
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.ClearRoomIDs()
+  nameWithType: RoomInstanceMemorySaver.ClearRoomIDs()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.ClearRoomIDs*
+  name: ClearRoomIDs
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_ClearRoomIDs_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.ClearRoomIDs
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.ClearRoomIDs
+  nameWithType: RoomInstanceMemorySaver.ClearRoomIDs
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.GetRoomMemoriesInRoom
+  name: GetRoomMemoriesInRoom()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_GetRoomMemoriesInRoom
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.GetRoomMemoriesInRoom
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.GetRoomMemoriesInRoom()
+  nameWithType: RoomInstanceMemorySaver.GetRoomMemoriesInRoom()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.GetRoomMemoriesInRoom*
+  name: GetRoomMemoriesInRoom
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_GetRoomMemoriesInRoom_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.GetRoomMemoriesInRoom
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.GetRoomMemoriesInRoom
+  nameWithType: RoomInstanceMemorySaver.GetRoomMemoriesInRoom
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.IDToCountMap
+  name: IDToCountMap
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_IDToCountMap
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.IDToCountMap
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.IDToCountMap
+  nameWithType: RoomInstanceMemorySaver.IDToCountMap
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.LoadRoomMemory
+  name: LoadRoomMemory()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_LoadRoomMemory
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.LoadRoomMemory
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.LoadRoomMemory()
+  nameWithType: RoomInstanceMemorySaver.LoadRoomMemory()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.LoadRoomMemory*
+  name: LoadRoomMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_LoadRoomMemory_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.LoadRoomMemory
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.LoadRoomMemory
+  nameWithType: RoomInstanceMemorySaver.LoadRoomMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.OnDestroy
+  name: OnDestroy()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_OnDestroy
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.OnDestroy
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.OnDestroy()
+  nameWithType: RoomInstanceMemorySaver.OnDestroy()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.OnDestroy*
+  name: OnDestroy
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_OnDestroy_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.OnDestroy
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.OnDestroy
+  nameWithType: RoomInstanceMemorySaver.OnDestroy
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory,System.String)
+  name: RegisterRoomMemoryUnderID(IRoomMemory, string)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_RegisterRoomMemoryUnderID_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_System_String_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory,System.String)
+  name.vb: RegisterRoomMemoryUnderID(IRoomMemory, String)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory, string)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory, String)
+  nameWithType: RoomInstanceMemorySaver.RegisterRoomMemoryUnderID(IRoomMemory, string)
+  nameWithType.vb: RoomInstanceMemorySaver.RegisterRoomMemoryUnderID(IRoomMemory, String)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID*
+  name: RegisterRoomMemoryUnderID
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_RegisterRoomMemoryUnderID_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RegisterRoomMemoryUnderID
+  nameWithType: RoomInstanceMemorySaver.RegisterRoomMemoryUnderID
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RoomInstance
+  name: RoomInstance
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_RoomInstance
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RoomInstance
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RoomInstance
+  nameWithType: RoomInstanceMemorySaver.RoomInstance
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RoomMemories
+  name: RoomMemories
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_RoomMemories
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RoomMemories
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.RoomMemories
+  nameWithType: RoomInstanceMemorySaver.RoomMemories
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.SaveRoomMemory
+  name: SaveRoomMemory()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_SaveRoomMemory
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.SaveRoomMemory
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.SaveRoomMemory()
+  nameWithType: RoomInstanceMemorySaver.SaveRoomMemory()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.SaveRoomMemory*
+  name: SaveRoomMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_SaveRoomMemory_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.SaveRoomMemory
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.SaveRoomMemory
+  nameWithType: RoomInstanceMemorySaver.SaveRoomMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Start
+  name: Start()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_Start
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Start
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Start()
+  nameWithType: RoomInstanceMemorySaver.Start()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Start*
+  name: Start
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_Start_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Start
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.Start
+  nameWithType: RoomInstanceMemorySaver.Start
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.isDuplicateRoomMemory(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  name: isDuplicateRoomMemory(IRoomMemory)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_isDuplicateRoomMemory_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.isDuplicateRoomMemory(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.isDuplicateRoomMemory(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  nameWithType: RoomInstanceMemorySaver.isDuplicateRoomMemory(IRoomMemory)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.isDuplicateRoomMemory*
+  name: isDuplicateRoomMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_isDuplicateRoomMemory_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.isDuplicateRoomMemory
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver.isDuplicateRoomMemory
+  nameWithType: RoomInstanceMemorySaver.isDuplicateRoomMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver
+  name: RoomMemorySaver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver
+  nameWithType: RoomMemorySaver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ClearAllMemory
+  name: ClearAllMemory()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_ClearAllMemory
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ClearAllMemory
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ClearAllMemory()
+  nameWithType: RoomMemorySaver.ClearAllMemory()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ClearAllMemory*
+  name: ClearAllMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_ClearAllMemory_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ClearAllMemory
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ClearAllMemory
+  nameWithType: RoomMemorySaver.ClearAllMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ForceClearSingleRoomMemory(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  name: ForceClearSingleRoomMemory(IRoomMemory)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_ForceClearSingleRoomMemory_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ForceClearSingleRoomMemory(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ForceClearSingleRoomMemory(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  nameWithType: RoomMemorySaver.ForceClearSingleRoomMemory(IRoomMemory)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ForceClearSingleRoomMemory*
+  name: ForceClearSingleRoomMemory
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_ForceClearSingleRoomMemory_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ForceClearSingleRoomMemory
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.ForceClearSingleRoomMemory
+  nameWithType: RoomMemorySaver.ForceClearSingleRoomMemory
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.GetRoomMemorySavePath(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  name: GetRoomMemorySavePath(RoomData, IRoomMemory)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_GetRoomMemorySavePath_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.GetRoomMemorySavePath(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.GetRoomMemorySavePath(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  nameWithType: RoomMemorySaver.GetRoomMemorySavePath(RoomData, IRoomMemory)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.GetRoomMemorySavePath*
+  name: GetRoomMemorySavePath
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_GetRoomMemorySavePath_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.GetRoomMemorySavePath
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.GetRoomMemorySavePath
+  nameWithType: RoomMemorySaver.GetRoomMemorySavePath
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Collections.Generic.List{Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory})
+  name: LoadAllMemoriesInRoom(RoomData, List<IRoomMemory>)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_LoadAllMemoriesInRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_System_Collections_Generic_List_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory__
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Collections.Generic.List{Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory})
+  name.vb: LoadAllMemoriesInRoom(RoomData, List(Of IRoomMemory))
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, System.Collections.Generic.List<Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory>)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, System.Collections.Generic.List(Of Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory))
+  nameWithType: RoomMemorySaver.LoadAllMemoriesInRoom(RoomData, List<IRoomMemory>)
+  nameWithType.vb: RoomMemorySaver.LoadAllMemoriesInRoom(RoomData, List(Of IRoomMemory))
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom*
+  name: LoadAllMemoriesInRoom
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_LoadAllMemoriesInRoom_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.LoadAllMemoriesInRoom
+  nameWithType: RoomMemorySaver.LoadAllMemoriesInRoom
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Collections.Generic.List{Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory})
+  name: SaveAllMemoriesInRoom(RoomData, List<IRoomMemory>)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_SaveAllMemoriesInRoom_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_System_Collections_Generic_List_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory__
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData,System.Collections.Generic.List{Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory})
+  name.vb: SaveAllMemoriesInRoom(RoomData, List(Of IRoomMemory))
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, System.Collections.Generic.List<Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory>)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData, System.Collections.Generic.List(Of Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory))
+  nameWithType: RoomMemorySaver.SaveAllMemoriesInRoom(RoomData, List<IRoomMemory>)
+  nameWithType.vb: RoomMemorySaver.SaveAllMemoriesInRoom(RoomData, List(Of IRoomMemory))
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom*
+  name: SaveAllMemoriesInRoom
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomMemorySaver_SaveAllMemoriesInRoom_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomMemorySaver.SaveAllMemoriesInRoom
+  nameWithType: RoomMemorySaver.SaveAllMemoriesInRoom
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Data
   name: Studio23.SS2.AddressableChunkLoaderSystem.Data
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Data.html
@@ -1247,6 +1574,73 @@ references:
   commentId: N:Studio23.SS2.AddressableChunkLoaderSystem.Editor
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor
   nameWithType: Studio23.SS2.AddressableChunkLoaderSystem.Editor
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView
+  name: IRoomMemoryTreeView
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView
+  nameWithType: IRoomMemoryTreeView
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.#ctor(TreeViewState)
+  name: IRoomMemoryTreeView(TreeViewState)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView__ctor_TreeViewState_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.#ctor(TreeViewState)
+  name.vb: New(TreeViewState)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.IRoomMemoryTreeView(TreeViewState)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.New(TreeViewState)
+  nameWithType: IRoomMemoryTreeView.IRoomMemoryTreeView(TreeViewState)
+  nameWithType.vb: IRoomMemoryTreeView.New(TreeViewState)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.#ctor*
+  name: IRoomMemoryTreeView
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView__ctor_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.IRoomMemoryTreeView
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.New
+  nameWithType: IRoomMemoryTreeView.IRoomMemoryTreeView
+  nameWithType.vb: IRoomMemoryTreeView.New
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.BuildRoot
+  name: BuildRoot()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView_BuildRoot
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.BuildRoot
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.BuildRoot()
+  nameWithType: IRoomMemoryTreeView.BuildRoot()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.BuildRoot*
+  name: BuildRoot
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView_BuildRoot_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.BuildRoot
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.BuildRoot
+  nameWithType: IRoomMemoryTreeView.BuildRoot
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.RowGUI(RowGUIArgs)
+  name: RowGUI(RowGUIArgs)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView_RowGUI_RowGUIArgs_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.RowGUI(RowGUIArgs)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.RowGUI(RowGUIArgs)
+  nameWithType: IRoomMemoryTreeView.RowGUI(RowGUIArgs)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.RowGUI*
+  name: RowGUI
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView_RowGUI_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.RowGUI
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.RowGUI
+  nameWithType: IRoomMemoryTreeView.RowGUI
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem(System.Int32)
+  name: SingleClickedItem(int)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView_SingleClickedItem_System_Int32_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem(System.Int32)
+  name.vb: SingleClickedItem(Integer)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem(int)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem(Integer)
+  nameWithType: IRoomMemoryTreeView.SingleClickedItem(int)
+  nameWithType.vb: IRoomMemoryTreeView.SingleClickedItem(Integer)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem*
+  name: SingleClickedItem
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_IRoomMemoryTreeView_SingleClickedItem_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.IRoomMemoryTreeView.SingleClickedItem
+  nameWithType: IRoomMemoryTreeView.SingleClickedItem
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor
   name: RoomInstanceEditor
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.html
@@ -1266,6 +1660,51 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceEditor.OnInspectorGUI
   nameWithType: RoomInstanceEditor.OnInspectorGUI
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow
+  name: RoomInstanceMemorySaverEditorWindow
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow
+  nameWithType: RoomInstanceMemorySaverEditorWindow
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver)
+  name: ForceGenerateUniqueIDs(RoomInstanceMemorySaver)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_RoomInstanceMemorySaverEditorWindow_ForceGenerateUniqueIDs_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver)
+  nameWithType: RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs(RoomInstanceMemorySaver)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs*
+  name: ForceGenerateUniqueIDs
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_RoomInstanceMemorySaverEditorWindow_ForceGenerateUniqueIDs_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs
+  nameWithType: RoomInstanceMemorySaverEditorWindow.ForceGenerateUniqueIDs
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver,Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  name: ForceUpdateUniqueID(RoomInstanceMemorySaver, IRoomMemory)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_RoomInstanceMemorySaverEditorWindow_ForceUpdateUniqueID_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_RoomInstanceMemorySaver_Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomMemory_IRoomMemory_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver,Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID(Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.RoomInstanceMemorySaver, Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory.IRoomMemory)
+  nameWithType: RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID(RoomInstanceMemorySaver, IRoomMemory)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID*
+  name: ForceUpdateUniqueID
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_RoomInstanceMemorySaverEditorWindow_ForceUpdateUniqueID_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID
+  nameWithType: RoomInstanceMemorySaverEditorWindow.ForceUpdateUniqueID
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ShowWindow
+  name: ShowWindow()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_RoomInstanceMemorySaverEditorWindow_ShowWindow
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ShowWindow
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ShowWindow()
+  nameWithType: RoomInstanceMemorySaverEditorWindow.ShowWindow()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ShowWindow*
+  name: ShowWindow
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.html#Studio23_SS2_AddressableChunkLoaderSystem_Editor_RoomInstanceMemorySaverEditorWindow_ShowWindow_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ShowWindow
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Editor.RoomInstanceMemorySaverEditorWindow.ShowWindow
+  nameWithType: RoomInstanceMemorySaverEditorWindow.ShowWindow
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1
   name: Studio23.SS2.AddressableChunkLoaderSystem.Sample1
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.html
@@ -1536,6 +1975,73 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomLoadExample.UnloadRoomAndReturn
   nameWithType: RoomLoadExample.UnloadRoomAndReturn
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest
+  name: RoomMemoryTest
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest
+  nameWithType: RoomMemoryTest
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.EntryCount
+  name: EntryCount
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_EntryCount
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.EntryCount
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.EntryCount
+  nameWithType: RoomMemoryTest.EntryCount
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.GetTempSaveData
+  name: GetTempSaveData()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_GetTempSaveData
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.GetTempSaveData
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.GetTempSaveData()
+  nameWithType: RoomMemoryTest.GetTempSaveData()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.GetTempSaveData*
+  name: GetTempSaveData
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_GetTempSaveData_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.GetTempSaveData
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.GetTempSaveData
+  nameWithType: RoomMemoryTest.GetTempSaveData
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.ID
+  name: ID
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_ID
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.ID
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.ID
+  nameWithType: RoomMemoryTest.ID
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.ID*
+  name: ID
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_ID_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.ID
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.ID
+  nameWithType: RoomMemoryTest.ID
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.Saver
+  name: Saver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_Saver
+  commentId: P:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.Saver
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.Saver
+  nameWithType: RoomMemoryTest.Saver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.Saver*
+  name: Saver
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_Saver_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.Saver
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.Saver
+  nameWithType: RoomMemoryTest.Saver
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData(System.String)
+  name: TempLoadData(string)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_TempLoadData_System_String_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData(System.String)
+  name.vb: TempLoadData(String)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData(string)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData(String)
+  nameWithType: RoomMemoryTest.TempLoadData(string)
+  nameWithType.vb: RoomMemoryTest.TempLoadData(String)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData*
+  name: TempLoadData
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomMemoryTest_TempLoadData_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomMemoryTest.TempLoadData
+  nameWithType: RoomMemoryTest.TempLoadData
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner
   name: RoomPlayerSpawner
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.html

@@ -15,7 +15,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
         private static RoomInstanceMemorySaver _selectedSaver;
         private TreeViewState treeViewState;
         private IRoomMemoryTreeView roomMemoryTreeView;
-        [MenuItem("Window/Room Instance Memory Saver Editor")]
+        [MenuItem("Window/RoomInstanceMemorySaver EditorWindow")]
         public static void ShowWindow()
         {
             GetWindow<RoomInstanceMemorySaverEditorWindow>("Room Instance Memory Saver");

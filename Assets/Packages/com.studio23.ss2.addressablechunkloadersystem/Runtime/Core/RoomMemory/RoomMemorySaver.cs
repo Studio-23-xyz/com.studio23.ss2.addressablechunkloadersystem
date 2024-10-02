@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
-using UnityEditor;
 using UnityEngine;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
@@ -68,7 +67,12 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         [ContextMenu("ClearAllMemory")]
         public static  void ClearAllMemory()
         {
-            var clearSuccess =FileUtil.DeleteFileOrDirectory(GetSaveDir());
+            var clearSuccess = false;
+            var path = GetSaveDir();
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+            }
             Debug.Log($"Clear all room memory clearSuccess {clearSuccess}");
         }
         
@@ -76,7 +80,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
         {
             var roomInstance = roomMemory.gameObject.GetComponentInParent<RoomInstance>(true);
             var p = GetRoomMemorySavePath(roomInstance._room, roomMemory);
-            FileUtil.DeleteFileOrDirectory(p);
+            if (File.Exists(p))
+            {
+                File.Delete(p);
+            }
         }
 
 

@@ -15,10 +15,12 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
         private static RoomInstanceMemorySaver _selectedSaver;
         private TreeViewState treeViewState;
         private IRoomMemoryTreeView roomMemoryTreeView;
-        [MenuItem("Window/RoomInstanceMemorySaver EditorWindow")]
+        
+        
+        [MenuItem("Studio-23/AddressableChunkLoader/RoomInstanceMemorySaver EditorWindow")]
         public static void ShowWindow()
         {
-            GetWindow<RoomInstanceMemorySaverEditorWindow>("Room Instance Memory Saver");
+            GetWindow<RoomInstanceMemorySaverEditorWindow>("Room Instance Memory Saver EditorWindow");
         }
 
         private void OnEnable()
@@ -59,6 +61,11 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
             }
 
             var defualtGuiColor = GUI.color;
+            GUI.color = Color.yellow;
+            if (GUILayout.Button("Reload"))
+            {
+                roomMemoryTreeView.Reload();
+            }
             GUI.color = Color.red;
             if (GUILayout.Button("Delete all room memory "))
             {
@@ -157,6 +164,10 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
             var roomMemorySavers = FindAllIRoomMemorySavers();
             roomMemories = new();
             int id = 1;
+            if (roomMemorySavers.Count == 0)
+            {
+                root.AddChild(new TreeViewItem { id = id++, displayName = "NO ROOM MEMORY OBJECTS"});
+            }
             foreach (var roomMemorySaver in roomMemorySavers)
             {
                 var memories =  roomMemorySaver.GetRoomMemoriesInRoom();

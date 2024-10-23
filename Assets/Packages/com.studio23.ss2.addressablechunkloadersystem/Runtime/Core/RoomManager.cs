@@ -16,7 +16,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
     public class RoomManager:MonoBehaviourSingletonPersistent<RoomManager>
     {
         [SerializeField] List<AssetReferenceT<FloorData>> _allFloorAssets;
-        List<FloorData> _allFloors = new List<FloorData>();
+        [SerializeField] List<FloorData> _allFloors = new List<FloorData>();
         public bool CanLoadNewRoomsInRange = true;
         public bool CanUnloadRoomsOutOfRange = true;
 
@@ -86,8 +86,41 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 var floor = loadHandle.WaitForCompletion();
                 _allFloors.Add(floor);
             }
+            InitializeFloors(_allFloors);
+        }
+
+        private void InitializeFloors(List<FloorData> floors)
+        {
+            _allFloors = floors;
+            SubToFloor();
+        }
+
+  
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                UnsubToFloor();
+            }
+        }
+
+        public void ChangeFloorSetup(List<FloorData> floors)
+        {
+            if (_allFloors != null)
+            {
+                UnsubToFloor();
+            }
+
+            _logger.Log(RoomLoadLogCategory.FloorEnter,"FLoor change");
+            InitializeFloors(floors);
+        }
+        
+        private void SubToFloor()
+        {
             foreach (var floor in _allFloors)
             {
+                _logger.Log(RoomLoadLogCategory.FloorEnter,$"Sub to floor {floor}");
                 floor.Initialize();
 
                 floor.OnFloorEntered += OnFloorEntered;
@@ -103,22 +136,19 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             }
         }
 
-        private void OnDestroy()
+        private void UnsubToFloor()
         {
-            if (Instance == this)
+            foreach (var floor in _allFloors)
             {
-                foreach (var floor in _allFloors)
-                {
-                    floor.OnFloorEntered -= OnFloorEntered;
-                    floor.OnFloorExited -= OnFloorExited;
+                floor.OnFloorEntered -= OnFloorEntered;
+                floor.OnFloorExited -= OnFloorExited;
 
-                    foreach (var roomData in floor.RoomsInFloor)
-                    {
-                        roomData.OnRoomEntered -= OnRoomEntered;
-                        roomData.OnRoomExited -= OnRoomExited;
-                        roomData.OnRoomExteriorLoaded -= OnRoomLoaded;
-                        roomData.OnRoomExteriorUnloaded -= OnRoomUnloaded;
-                    }
+                foreach (var roomData in floor.RoomsInFloor)
+                {
+                    roomData.OnRoomEntered -= OnRoomEntered;
+                    roomData.OnRoomExited -= OnRoomExited;
+                    roomData.OnRoomExteriorLoaded -= OnRoomLoaded;
+                    roomData.OnRoomExteriorUnloaded -= OnRoomUnloaded;
                 }
             }
         }

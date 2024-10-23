@@ -553,6 +553,22 @@ references:
   commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanUnloadRoomsOutOfRange
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CanUnloadRoomsOutOfRange
   nameWithType: RoomManager.CanUnloadRoomsOutOfRange
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup(System.Collections.Generic.List{Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData})
+  name: ChangeFloorSetup(List<FloorData>)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_ChangeFloorSetup_System_Collections_Generic_List_Studio23_SS2_AddressableChunkLoaderSystem_Data_FloorData__
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup(System.Collections.Generic.List{Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData})
+  name.vb: ChangeFloorSetup(List(Of FloorData))
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup(System.Collections.Generic.List<Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData>)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup(System.Collections.Generic.List(Of Studio23.SS2.AddressableChunkLoaderSystem.Data.FloorData))
+  nameWithType: RoomManager.ChangeFloorSetup(List<FloorData>)
+  nameWithType.vb: RoomManager.ChangeFloorSetup(List(Of FloorData))
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup*
+  name: ChangeFloorSetup
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_ChangeFloorSetup_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.ChangeFloorSetup
+  nameWithType: RoomManager.ChangeFloorSetup
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.CurrentEnteredRoom
   name: CurrentEnteredRoom
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_CurrentEnteredRoom

@@ -14,7 +14,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Editor
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
-
             _roomInstance = (RoomInstance)target;
 
             if (_roomInstance._room == null)

@@ -34,7 +34,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 
         private void HandleInteractPressed()
         {
-            TryEnterDoor();
+            TryEnterDoor().Forget();
         }
 
         private void OnDisable()

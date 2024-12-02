@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
@@ -20,7 +21,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         {
             if (other.CompareTag("Player"))
             {
-                RoomManager.Instance.EnterRoom(_roomInstance._room);
+                RoomManager.Instance.EnterRoom(_roomInstance._room).Forget();
             }
         }
 

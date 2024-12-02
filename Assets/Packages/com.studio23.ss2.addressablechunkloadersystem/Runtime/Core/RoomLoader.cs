@@ -68,7 +68,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 {
                     if (handle.UnloadTimer.tryCompleteTimer(Time.deltaTime))
                     {
-                        Debug.Log($"{room} Try Unloading");
+                        Logger.Log(RoomLoadLogCategory.Unload,$"{room} unload schedule");
 
                         _roomsToUnloadListCache.Add(room);
                     }
@@ -77,7 +77,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 
             foreach (var roomToUnload in _roomsToUnloadListCache)
             {
-                ForceUnloadRoomExterior(roomToUnload);
+                ForceUnloadRoomExterior(roomToUnload).Forget();
             }
             
             _roomsToUnloadListCache.Clear();
@@ -94,7 +94,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 {
                     if (handle.UnloadTimer.tryCompleteTimer(Time.deltaTime))
                     {
-                        Debug.Log($"{room} unload schedule");
+                        Logger.Log(RoomLoadLogCategory.Unload,$"{room} unload schedule");
 
                         _roomsToUnloadListCache.Add(room);
                     }
@@ -103,7 +103,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             
             foreach (var roomToUnload in _roomsToUnloadListCache)
             {
-                ForceUnloadRoomInterior(roomToUnload);
+                ForceUnloadRoomInterior(roomToUnload).Forget();
             }
         }
 
@@ -149,7 +149,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 );
                 _roomInteriorLoadHandles.Add(requestData.RoomToLoad, handle);
                 Logger.Log(RoomLoadLogCategory.AddFlag, $"{requestData.RoomToLoad} add flag {flags}", requestData.RoomToLoad);
-                ForceLoadRoomInterior(handle);
+                ForceLoadRoomInterior(handle).Forget();
             }
             return handle;
         }
@@ -181,24 +181,16 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
                 Logger.Log(RoomLoadLogCategory.AddFlag, $"{requestData.RoomToLoad} add flag {flags}", requestData.RoomToLoad);
 
                 _roomExteriorLoadHandles.Add(requestData.RoomToLoad, handle);
-                ForceLoadRoomExterior(handle);
+                ForceLoadRoomExterior(handle).Forget();
             }
 
             return handle;
         }
         
-        
-        
     
         private async UniTask ForceLoadRoomInterior(RoomLoadHandle handle)
         {
             await handle.LoadScene();
-            // while (handle.UsesAddressable && !handle.LoadHandle.IsDone)
-            // {
-            //     await UniTask.Yield();
-            // }
-            
-            
             handle.Room.HandleRoomInteriorLoaded();
             OnRoomInteriorLoaded?.Invoke(handle.Room);
         }

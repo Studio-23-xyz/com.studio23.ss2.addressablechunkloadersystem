@@ -11,6 +11,16 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
     [CreateAssetMenu(menuName = "Studio-23/RoomLoadingSystem/RoomData", fileName = "RoomData")]
     public class RoomData:ScriptableObject
     {
+        /// <summary>
+        /// LoadEnabled Initial value comes from here
+        /// </summary>
+        public bool LoadEnabledAtStart = true;
+        
+        /// <summary>
+        /// If false, never load
+        /// </summary>
+        [NonSerialized] public bool LoadEnabled = false;
+
         [FormerlySerializedAs("InteriorScene1")] 
         public AssetReference InteriorScene;
         [FormerlySerializedAs("ExteriorScene2")] 
@@ -23,11 +33,8 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
         
         [ShowNativeProperty] public FloorData Floor { get; internal set; }
 
-        [SerializeField] List<RoomData> _alwaysLoadRooms;
+        [SerializeField] List<RoomData> _alwaysLoadRooms = new();
         public List<RoomData> AlwaysLoadRooms => _alwaysLoadRooms;
-
-        //#TODO figure out how to include FMOD
-        //List<FMODBank> banks
 
         public event Action<RoomData> OnRoomEntered;
         public event Action<RoomData> OnRoomExited;
@@ -65,6 +72,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
         public void Initialize(FloorData floor)
         {
             Floor = floor;
+            LoadEnabled = LoadEnabledAtStart;
         }
 
         public void HandleRoomEntered()
@@ -82,7 +90,16 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Data
             return _alwaysLoadRooms.Contains(room);
         }
         
-        public virtual bool CanBeLoaded(Vector3 playerPosition)
+        public bool CanBeLoaded(Vector3 playerPosition)
+        {
+            if (!LoadEnabled)
+            {
+                return false;
+            }
+            return CanBeLoadedInternal(playerPosition);
+        }
+        
+        public virtual bool CanBeLoadedInternal(Vector3 playerPosition)
         {
             return IsPlayerInLoadingRange(playerPosition);
         }

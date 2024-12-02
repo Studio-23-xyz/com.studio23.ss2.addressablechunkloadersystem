@@ -16,11 +16,11 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
         public RoomData RoomData;
         public UnityEvent RoomEnteredAndLoadedEvent;
         public UnityEvent RoomDependenciesLoaded;
-        private bool _isLoading = false;
+        [SerializeField] private bool _isLoading = false;
+        public bool IsLoading => _isLoading;
         
         public Button UnloadButton;
         [SerializeField] private SampleLoadingBar _loadingBar;
-        
         protected override void Initialize()
         {
             UnloadButton.gameObject.SetActive(false);
@@ -28,7 +28,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Sample1
 
         public void LoadRoomNonAsync()
         {
-            LoadRoomWithDependencies();
+            LoadRoomWithDependencies().Forget();
         }
         public async UniTask LoadRoomWithDependencies()
         {

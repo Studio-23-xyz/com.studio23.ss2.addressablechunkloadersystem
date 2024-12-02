@@ -59,8 +59,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomMemory
             }
         }
 
-
-
         protected virtual void OnDestroy()
         {
             Debug.Log($"{gameObject} Save Room Memory {RoomInstance._room}", gameObject);

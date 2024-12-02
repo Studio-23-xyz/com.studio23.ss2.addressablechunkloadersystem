@@ -15,7 +15,7 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
     [RequireComponent(typeof(RoomMemorySaver))]
     public class RoomManager:MonoBehaviourSingletonPersistent<RoomManager>
     {
-        [SerializeField] List<AssetReferenceT<FloorData>> _allFloorAssets;
+        [SerializeField] List<AssetReferenceT<FloorData>> _allFloorAssets = new();
         [SerializeField] List<FloorData> _allFloors = new List<FloorData>();
         public bool CanLoadNewRoomsInRange = true;
         public bool CanUnloadRoomsOutOfRange = true;
@@ -194,6 +194,11 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             }
         }
 
+        public void ToggleLockRoomLoading(bool shouldLoadRooms)
+        {
+            CanLoadNewRoomsInRange = shouldLoadRooms;
+            CanUnloadRoomsOutOfRange = shouldLoadRooms;
+        }
 
         public void SetRoomAsMustLoad(RoomData room)
         {

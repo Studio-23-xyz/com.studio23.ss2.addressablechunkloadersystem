@@ -449,9 +449,6 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             
             room.HandleRoomDependenciesLoaded();
         }
-
-
-
         
         /// <summary>
         /// Returns if the exterior for the room is loaded
@@ -485,6 +482,22 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
             }
 
             return false;
+        }
+
+
+        /// <summary>
+        /// Loads rooms in passed list, unloads rest
+        /// lockproximity load should be set to true to disable loading nearby room loading
+        /// Otherwise rooms outside of list will get loaded back through it
+        /// </summary>
+        public void LockRoomLoadSet(ICollection<RoomData> allowedRoomsToLoad, bool keepCurRoomLoaded, bool disableProximityLoading)
+        {
+            if (disableProximityLoading)
+            {
+                ToggleLockRoomLoading(false);
+            }
+
+            _roomLoader.LockRoomLoadSet(allowedRoomsToLoad, keepCurRoomLoaded);
         }
         
 

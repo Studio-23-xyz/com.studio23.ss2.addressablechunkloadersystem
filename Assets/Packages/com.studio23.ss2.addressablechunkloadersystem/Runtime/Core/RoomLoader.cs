@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BDeshi.Logging;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using Studio23.SS2.AddressableChunkLoaderSystem.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
 {
     public class RoomLoader: MonoBehaviour, ISubLoggerMixin<RoomLoadLogCategory>
     {
+        //#TODO remove interior and exterior and use list<LODLevel> for rooms
+        //each with different load radius, condition
         private Dictionary<RoomData, RoomLoadHandle> _roomInteriorLoadHandles;
         public Dictionary<RoomData, RoomLoadHandle> RoomInteriorLoadHandles => _roomInteriorLoadHandles;
         private Dictionary<RoomData, RoomLoadHandle> _roomExteriorLoadHandles;
@@ -280,5 +284,75 @@ namespace Studio23.SS2.AddressableChunkLoaderSystem.Core
         }
 
         public ICategoryLogger<RoomLoadLogCategory> Logger => RoomManager.Instance.Logger;
+
+        public void LockRoomLoadSet(ICollection<RoomData> allowedRoomsToLoad, bool keepCurrentRoomLoaded = true)
+        {
+            //cache these as we will modify the dicts during loop
+            var loadedRoomExteriorHandles = _roomExteriorLoadHandles.ToList();
+            var loadedRoomInteriorHandles = _roomInteriorLoadHandles.ToList();
+            var currentRoom = RoomManager.Instance.CurrentEnteredRoom;
+            
+            foreach (var roomData in allowedRoomsToLoad)
+            {
+                if (roomData == currentRoom)
+                {
+                    // this is a possbility if you hit playmode in the same room as one on the list
+                    // as it's not loaded as an addressable room
+                    // it would get duplicate loaded
+                    continue;
+                }
+                if (!_roomExteriorLoadHandles.ContainsKey(roomData))
+                {
+                    Debug.Log($"LockRoomLoadSet newly load room {roomData}");
+                    AddExteriorLoadRequest(new RoomLoadRequestData()
+                    {
+                        RoomToLoad = roomData,
+                        ActivateOnLoad = true,
+                        LoadSceneMode = LoadSceneMode.Additive
+                    }, RoomFlag.None);
+                }
+                
+                if (!_roomInteriorLoadHandles.ContainsKey(roomData))
+                {
+                    Debug.Log(" LockRoomLoadSet newly load room {roomData}");
+                    AddInteriorLoadRequest(new RoomLoadRequestData()
+                    {
+                        RoomToLoad = roomData,
+                        ActivateOnLoad = true,
+                        LoadSceneMode = LoadSceneMode.Additive
+                    }, RoomFlag.None);
+                }
+            }
+            foreach ((var roomData, var roomLoadHandle) in loadedRoomExteriorHandles)
+            {
+                if (keepCurrentRoomLoaded && roomData == currentRoom)
+                {
+                    continue;
+                }
+                Debug.Log($"LockRoomLoadSet force unload check room {roomData}");
+
+                if (!allowedRoomsToLoad.Contains(roomData))
+                {
+                    Debug.Log($"LockRoomLoadSet force unload unnecessary room {roomData}");
+
+                    ForceUnloadRoomExterior(roomData).Forget();
+                }
+            }
+            
+            foreach ((var roomData, var roomLoadHandle) in loadedRoomInteriorHandles)
+            {
+                if (keepCurrentRoomLoaded && roomData == currentRoom)
+                {
+                    continue;
+                }
+                Debug.Log($"LockRoomLoadSet force unload check room {roomData}");
+
+                if (!allowedRoomsToLoad.Contains(roomData))
+                {
+                    Debug.Log($"LockRoomLoadSet force unload unnecessary room {roomData}");
+                    ForceUnloadRoomInterior(roomData).Forget();
+                }
+            }
+        }
     }
 }

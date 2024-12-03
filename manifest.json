@@ -295,6 +295,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.yml",
       "output": {
         ".html": {

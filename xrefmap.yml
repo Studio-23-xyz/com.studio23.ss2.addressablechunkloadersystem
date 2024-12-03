@@ -433,6 +433,22 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.GetInteriorLoadingPercentage
   nameWithType: RoomLoader.GetInteriorLoadingPercentage
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet(System.Collections.Generic.ICollection{Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData},System.Boolean)
+  name: LockRoomLoadSet(ICollection<RoomData>, bool)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_LockRoomLoadSet_System_Collections_Generic_ICollection_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData__System_Boolean_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet(System.Collections.Generic.ICollection{Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData},System.Boolean)
+  name.vb: LockRoomLoadSet(ICollection(Of RoomData), Boolean)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet(System.Collections.Generic.ICollection<Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData>, bool)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet(System.Collections.Generic.ICollection(Of Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData), Boolean)
+  nameWithType: RoomLoader.LockRoomLoadSet(ICollection<RoomData>, bool)
+  nameWithType.vb: RoomLoader.LockRoomLoadSet(ICollection(Of RoomData), Boolean)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet*
+  name: LockRoomLoadSet
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_LockRoomLoadSet_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.LockRoomLoadSet
+  nameWithType: RoomLoader.LockRoomLoadSet
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.Logger
   name: Logger
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomLoader_Logger
@@ -692,6 +708,22 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LoadingPercentageForRoom
   nameWithType: RoomManager.LoadingPercentageForRoom
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet(System.Collections.Generic.ICollection{Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData},System.Boolean,System.Boolean)
+  name: LockRoomLoadSet(ICollection<RoomData>, bool, bool)
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_LockRoomLoadSet_System_Collections_Generic_ICollection_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData__System_Boolean_System_Boolean_
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet(System.Collections.Generic.ICollection{Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData},System.Boolean,System.Boolean)
+  name.vb: LockRoomLoadSet(ICollection(Of RoomData), Boolean, Boolean)
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet(System.Collections.Generic.ICollection<Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData>, bool, bool)
+  fullName.vb: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet(System.Collections.Generic.ICollection(Of Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData), Boolean, Boolean)
+  nameWithType: RoomManager.LockRoomLoadSet(ICollection<RoomData>, bool, bool)
+  nameWithType.vb: RoomManager.LockRoomLoadSet(ICollection(Of RoomData), Boolean, Boolean)
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet*
+  name: LockRoomLoadSet
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_LockRoomLoadSet_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet
+  nameWithType: RoomManager.LockRoomLoadSet
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.Logger
   name: Logger
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.html#Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_Logger
@@ -2149,6 +2181,62 @@ references:
   commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.roomInstance
   fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomPlayerSpawner.roomInstance
   nameWithType: RoomPlayerSpawner.roomInstance
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader
+  name: RoomSetLoader
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html
+  commentId: T:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader
+  nameWithType: RoomSetLoader
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.LoadRoomSet
+  name: LoadRoomSet()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_LoadRoomSet
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.LoadRoomSet
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.LoadRoomSet()
+  nameWithType: RoomSetLoader.LoadRoomSet()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.LoadRoomSet*
+  name: LoadRoomSet
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_LoadRoomSet_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.LoadRoomSet
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.LoadRoomSet
+  nameWithType: RoomSetLoader.LoadRoomSet
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.RoomLoadAssetSet
+  name: RoomLoadAssetSet
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_RoomLoadAssetSet
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.RoomLoadAssetSet
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.RoomLoadAssetSet
+  nameWithType: RoomSetLoader.RoomLoadAssetSet
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.RoomLoadSet
+  name: RoomLoadSet
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_RoomLoadSet
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.RoomLoadSet
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.RoomLoadSet
+  nameWithType: RoomSetLoader.RoomLoadSet
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.UnlockRoomSet
+  name: UnlockRoomSet()
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_UnlockRoomSet
+  commentId: M:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.UnlockRoomSet
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.UnlockRoomSet()
+  nameWithType: RoomSetLoader.UnlockRoomSet()
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.UnlockRoomSet*
+  name: UnlockRoomSet
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_UnlockRoomSet_
+  commentId: Overload:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.UnlockRoomSet
+  isSpec: "True"
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.UnlockRoomSet
+  nameWithType: RoomSetLoader.UnlockRoomSet
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.keepCurRoomLoaded
+  name: keepCurRoomLoaded
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_keepCurRoomLoaded
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.keepCurRoomLoaded
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.keepCurRoomLoaded
+  nameWithType: RoomSetLoader.keepCurRoomLoaded
+- uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.shouldLockProxmityLoading
+  name: shouldLockProxmityLoading
+  href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.html#Studio23_SS2_AddressableChunkLoaderSystem_Sample1_RoomSetLoader_shouldLockProxmityLoading
+  commentId: F:Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.shouldLockProxmityLoading
+  fullName: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.RoomSetLoader.shouldLockProxmityLoading
+  nameWithType: RoomSetLoader.shouldLockProxmityLoading
 - uid: Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar
   name: SampleLoadingBar
   href: api/Studio23.SS2.AddressableChunkLoaderSystem.Sample1.SampleLoadingBar.html

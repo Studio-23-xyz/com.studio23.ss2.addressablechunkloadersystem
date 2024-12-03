@@ -543,7 +543,7 @@ Class RoomManager  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_IsRoomExteriorLoaded_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomExteriorLoaded(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
   IsRoomExteriorLoaded(RoomData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L462"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L459"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns if the exterior for the room is loaded
@@ -581,7 +581,7 @@ NOTE: For rooms with invalid exterior scene asset ref, this returns false</p>
 
   <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_IsRoomInteriorLoaded_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.IsRoomInteriorLoaded(Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData)">
   IsRoomInteriorLoaded(RoomData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L480"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L477"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns if the exterior for the room is loaded
@@ -644,6 +644,44 @@ NOTE: For rooms with invalid exterior scene asset ref, this returns false</p>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_LockRoomLoadSet_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet*"></a>
+
+  <h3 id="Studio23_SS2_AddressableChunkLoaderSystem_Core_RoomManager_LockRoomLoadSet_System_Collections_Generic_ICollection_Studio23_SS2_AddressableChunkLoaderSystem_Data_RoomData__System_Boolean_System_Boolean_" data-uid="Studio23.SS2.AddressableChunkLoaderSystem.Core.RoomManager.LockRoomLoadSet(System.Collections.Generic.ICollection{Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData},System.Boolean,System.Boolean)">
+  LockRoomLoadSet(ICollection&lt;RoomData&gt;, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.addressablechunkloadersystem/blob/main/Assets/Packages/com.studio23.ss2.addressablechunkloadersystem/Runtime/Core/RoomManager.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads rooms in passed list, unloads rest
+lockproximity load should be set to true to disable loading nearby room loading
+Otherwise rooms outside of list will get loaded back through it</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LockRoomLoadSet(ICollection&lt;RoomData&gt; allowedRoomsToLoad, bool keepCurRoomLoaded, bool disableProximityLoading)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allowedRoomsToLoad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="Studio23.SS2.AddressableChunkLoaderSystem.Data.RoomData.html">RoomData</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>keepCurRoomLoaded</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>disableProximityLoading</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
